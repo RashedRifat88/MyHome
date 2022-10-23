@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="com_google_android_gms_fonts_certs">dfdfd</string-array>
+
+
+    <string-array name="home_module_name_eng_list">
+        <item>Doctor</item>
+        <item>Home Pathology</item>
+        <item>Hospital and Clinic</item>
+        <item>Medical Accessories</item>
+        <item>Medicine</item>
+        <item>Nursing</item>
+        <item>Ambulance</item>
+        <item>Tution</item>
+        <item>Buy and Sell</item>
+        <item>Blood</item>
+        <item>House Rent</item>
+        <item>Results</item>
+        <item>Jobs</item>
+        <item>Quiz</item>
+        <item>Mymensingh Division</item>
+        <item>Admission and Application</item>
+    </string-array>
+
+
+<!--    <string-array name="home_module_name_ban_list">-->
+<!--        <item>ডাক্তার</item>-->
+<!--        <item>হোম প্যাথলজি</item>-->
+<!--        <item>হাসপাতাল এবং ক্লিনিক</item>-->
+<!--        <item>সরকারী প্রতিষ্ঠান</item>-->
+<!--        <item>শিক্ষা প্রতিষ্ঠান</item>-->
+<!--        <item>সামাজিক প্রতিষ্ঠান</item>-->
+<!--        <item>রক্তদাতা প্রতিষ্ঠান</item>-->
+<!--        <item>লাইব্রেরি</item>-->
+<!--        <item>টিউশন</item>-->
+<!--        <item>হোটেল ও রেস্তোরাঁ</item>-->
+<!--        <item>বাস ও ট্রেন</item>-->
+<!--        <item>ময়মনসিংহ বিভাগ</item>-->
+<!--        <item>আইটি প্রতিষ্ঠান</item>-->
+<!--        <item>শোরুম</item>-->
+<!--        <item>বাসা ভাড়া</item>-->
+<!--        <item>বেচা-কেনা</item>-->
+<!--        <item>দর্শনীয় স্থান</item>-->
+<!--        <item>কুইজ</item>-->
+<!--        <item>ভর্তি ও চাকরী</item>-->
+<!--        <item>আবেদন</item>-->
+<!--        <item>ফলাফল</item>-->
+<!--    </string-array>-->
+
+    <string-array name="home_module_image_list">
+        <item>file:///android_asset/home_modules/doctor1.png</item>
+        <item>file:///android_asset/home_modules/patholopgy.png</item>
+        <item>file:///android_asset/home_modules/hospital.png</item>
+        <item>file:///android_asset/home_modules/medical_accessories.png</item>
+        <item>file:///android_asset/home_modules/medicine.png</item>
+        <item>file:///android_asset/home_modules/nursing.png</item>
+        <item>file:///android_asset/home_modules/ambulance.png</item>
+        <item>file:///android_asset/home_modules/classroom.png</item>
+        <item>file:///android_asset/home_modules/cash_on_delivery.png</item>
+        <item>file:///android_asset/home_modules/blood.png</item>
+        <item>file:///android_asset/home_modules/door_key.png</item>
+        <item>file:///android_asset/home_modules/result.png</item>
+        <item>file:///android_asset/home_modules/job.png</item>
+        <item>file:///android_asset/home_modules/brain.png</item>
+        <item>file:///android_asset/home_modules/mymensingh_map.png</item>
+        <item>file:///android_asset/home_modules/application.png</item>
+    </string-array>
+
+    <string-array name="mymensingh_div_service_name_list">
+        <item>Government Institution</item>
+        <item>Educational Institution</item>
+        <item>Social Institution</item>
+        <item>Hotel and Restaurent</item>
+        <item>Bus and Train</item>
+        <item>IT Institute</item>
+        <item>Show Rooms</item>
+        <item>Places of Interest</item>
+        <!--        <item>Library</item>-->
+    </string-array>
+
+    <string-array name="mymensingh_div_service_image_list">
+        <item>file:///android_asset/home_modules/government_institution.png</item>
+        <item>file:///android_asset/home_modules/school.png</item>
+        <item>file:///android_asset/home_modules/social.png</item>
+<!--        <item>file:///android_asset/home_modules/library.png</item>-->
+        <item>file:///android_asset/home_modules/restaurant.png</item>
+        <item>file:///android_asset/home_modules/bus.png</item>
+        <item>file:///android_asset/home_modules/technical_support.png</item>
+        <item>file:///android_asset/home_modules/shop.png</item>
+        <item>file:///android_asset/home_modules/location.png</item>
+    </string-array>
+
+
+
+
+    <string-array name="division_wise_doctor_title_code_array">
+        <item>GP</item>
+        <item>MEDICINE</item>
+        <item>BONE</item>
+        <item>PMEDICINE</item>
+        <item>SEX</item>
+        <item>CHILD</item>
+        <item>GYNE</item>
+        <item>DENTAL</item>
+        <item>ENT</item>
+        <item>EYE</item>
+        <item>GYSTERIC</item>
+        <item>PSYCHI</item>
+        <item>DIABETES</item>
+        <item>BRAIN</item>
+        <item>KIDNEY</item>
+        <item>HEART</item>
+        <item>LUNGS</item>
+        <item>CANCER</item>
+        <item>GSURGERY</item>
+        <item>VSURGERY</item>
+        <item>COUNSELING</item>
+        <item>LIFESTYLE</item>
+    </string-array>
+
+
+    <string-array name="division_wise_doctor_image_array">
+        <item>file:///android_asset/png/036-stethoscope.png</item>
+        <item>file:///android_asset/png/healthcare-and-medical.png</item>
+        <item>file:///android_asset/png/human.png</item>
+        <item>file:///android_asset/png/004-massage.png</item>
+        <item>file:///android_asset/png/010-female.png</item>
+        <item>file:///android_asset/png/020-baby.png</item>
+        <item>file:///android_asset/png/023-gyni-o-strirog.png</item>
+        <item>file:///android_asset/png/009-toothache.png</item>
+        <item>file:///android_asset/png/nak_kan_gola.png</item>
+        <item>file:///android_asset/png/011-eye.png</item>
+        <item>file:///android_asset/png/stomach.png</item>
+        <item>file:///android_asset/png/012-medical.png</item>
+        <item>file:///android_asset/png/014-glucosemeter.png</item>
+        <item>file:///android_asset/png/008-brain.png</item>
+        <item>file:///android_asset/png/015-urology.png</item>
+        <item>file:///android_asset/png/heart1.png</item>
+        <item>file:///android_asset/png/005-air.png</item>
+        <item>file:///android_asset/png/024-ribbon.png</item>
+        <item>file:///android_asset/png/016-doctor.png</item>
+        <item>file:///android_asset/png/016-doctor.png</item>
+        <item>file:///android_asset/png/counciling.png</item>
+        <item>file:///android_asset/png/food.png</item>
+    </string-array>
+
+
+
+
+
+    <string-array name="on_this_day_title_array">
+        <item>World Leprosy Day</item>
+        <item>World Cancer Day</item>
+        <item>National Wear Red Day</item>
+        <item>Toothache Day</item>
+        <item>Rare Disease Day</item>
+        <item>Multiple Personality Day</item>
+        <item>World Kidney Day</item>
+        <item>World Down Syndrome Day</item>
+        <item>World Tuberculosis Day</item>
+        <item>World Autism Awareness Day</item>
+        <item>World Health Day</item>
+        <item>World Hemophilia Day</item>
+        <item>DNA Day</item>
+        <item>World Malaria Day</item>
+        <item>World Day for Safety and Health at Work</item>
+        <item>World Asthma Day</item>
+        <item>World Hand Hygiene Day</item>
+        <item>International No Diet Day</item>
+        <item>World Red Cross and Red Crescent Day</item>
+        <item>Chronic Fatigue Syndrome Day</item>
+        <item>International Nurses Day</item>
+        <item>World AIDS Vaccine Day</item>
+        <item>World No Tobacco Day</item>
+        <item>National Cancer Survivors Day</item>
+        <item>World Brain Tumor Day</item>
+        <item>World Blood Donor Day</item>
+        <item>Autistic Pride Day</item>
+        <item>World Vitiligo Day</item>
+        <item>International Day against drug abuse and illicit trafficking</item>
+        <item>World Hepatitis Day</item>
+        <item>World Suicide Prevention Day</item>
+        <item>World Rabies Day</item>
+        <item>Virus Appreciation Day</item>
+        <item>Child Health Day</item>
+        <item>World Mental Health Day</item>
+        <item>Global Handwashing Day</item>
+        <item>World Food Day</item>
+        <item>World Osteoporosis Day</item>
+        <item>International Stuttering Awareness Day</item>
+        <item>World Pneumonia Day</item>
+        <item>World Diabetes Day</item>
+        <item>World Prematurity Day</item>
+        <item>World AIDS Day</item>
+        <item>International Day of People with Disability</item>
+    </string-array>
+
+
+    <string-array name="article_image_array">
+        <item>file:///android_asset/jpg/article/3.jpg</item>
+        <item>file:///android_asset/jpg/article/3.jpg</item>
+        <item>file:///android_asset/jpg/article/3.jpg</item>
+        <item>file:///android_asset/jpg/article/3.jpg</item>
+        <item>file:///android_asset/jpg/article/3.jpg</item>
+        <item>file:///android_asset/jpg/article/3.jpg</item>
+    </string-array>
+
+
+</resources>

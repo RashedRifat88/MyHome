@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient3"
+    android:orientation="vertical"
+    tools:context=".SplashActivity">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/iv_map"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:layout_marginStart="120dp"
+            android:layout_marginTop="140dp"
+            android:layout_marginEnd="120dp"
+            android:layout_marginBottom="0dp"
+            android:padding="1dp"
+            android:src="@drawable/ic_home2" />
+
+
+        <!--        <com.airbnb.lottie.LottieAnimationView-->
+        <!--            android:id="@+id/animationView"-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="200dp"-->
+        <!--            android:layout_marginTop="50dp"-->
+        <!--            app:lottie_rawRes="@raw/loading_dots"-->
+        <!--            app:lottie_autoPlay="true"-->
+        <!--            app:lottie_loop="true"-->
+        <!--            app:lottie_speed="2"-->
+        <!--            tools:ignore="MissingConstraints" />-->
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/iv_map"
+            android:layout_marginBottom="80dp"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:visibility="gone"
+            tools:ignore="NotSibling,UnknownId">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/solaiman_lipi"
+                android:text="ময়মনসিংহ হেল্পলাইন"
+                android:textColor="@color/yellow_500"
+                android:textSize="35sp"
+                android:textStyle="normal" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto_regular"
+                android:text="আপনাদের সেবায় সর্বক্ষণ"
+                android:textColor="@color/yellow_100"
+                android:textSize="20sp"
+                android:textStyle="normal" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="80dp"
+        >
+
+        <TextView
+            android:id="@+id/tv1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/nunito_bold"
+            android:text="@string/app_name"
+            android:textColor="@color/colorPrimary"
+            android:textSize="35sp"
+            android:textStyle="normal" />
+
+        <TextView
+            android:id="@+id/tv2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/solaiman_lipi"
+            android:text="@string/app_slogan"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="normal" />
+
+    </LinearLayout>
+
+
+</RelativeLayout>

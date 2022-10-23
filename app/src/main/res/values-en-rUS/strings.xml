@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <string name="app_name">My Home</string>
+    <string name="title_home">Home</string>
+    <string name="title_emergency_service_call">Call</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="home_top_text">My Home Management</string>
+    <string name="loan">Loan</string>
+    <string name="daily_expense">Daily Expense</string>
+    <string name="house_rent">House Rent</string>
+    <string name="app_slogan">Your Everyday Assistant</string>
+    <string name="change_language">Bangla</string>
+    <string name="login" >Log In</string>
+    <string name="meters">All Meter</string>
+    <string name="shopping_list" >Shopping List</string>
+    <string name="monthly_budget">Monthly Budget</string>
+    <string name="tenant_info">Tenant Info</string>
+    <string name="maintenance">Maintenance</string>
+    <string name="construction">Construction</string>
+</resources>

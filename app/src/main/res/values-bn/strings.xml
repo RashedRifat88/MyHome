@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <string name="app_name">মাই হোম</string>
+    <string name="title_home">হোম</string>
+    <string name="title_emergency_service_call">জরুরী সেবা কল</string>
+    <string name="title_notifications">নোটিফিকেশন</string>
+    <string name="home_top_text">My Home Management</string>
+    <string name="loan">ঋণ-দেনার হিসাব</string>
+    <string name="daily_expense">দৈনিক খরচ হিসাব</string>
+    <string name="house_rent">বাড়ি ভাড়া হিসাব</string>
+    <string name="app_slogan">আপনার প্রতিদিনের সহায়ক</string>
+    <string name="change_language" >English</string>
+    <string name="your_mobile_number" >আপনার মোবাইল নাম্বার দিন</string>
+    <string name="login">লগইন</string>
+    <string name="meters">মিটার সমূহের হিসাব</string>
+    <string name="shopping_list">বাজারের তালিকা তৈরি</string>
+    <string name="monthly_budget">মাসিক বাজেট</string>
+    <string name="tenant_info">ভাড়াটিয়ার তথ্য</string>
+    <string name="maintenance">রক্ষণাবেক্ষণ হিসাব</string>
+    <string name="construction">নির্মাণের হিসাব</string>
+</resources>
