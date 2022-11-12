@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <resources>
-    <color name="colorPrimary">#00BCD4</color>
-    <color name="colorPrimary2">#248B98</color>
+<!--    <color name="colorPrimary">#00BCD4</color>-->
+    <color name="colorPrimary">#1A0094</color>
+    <color name="colorPrimary2">#13016C</color>
     <color name="colorPrimary2_light">#89EFFC</color>
     <color name="colorPrimary3">#0251DA</color>
     <color name="colorPrimaryNear">#50A8FF</color>

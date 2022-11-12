@@ -12,10 +12,74 @@
         android:layout_height="match_parent"
         android:background="@drawable/ic_wave_bg3">
 
+        <!--Top Bar-->
+        <RelativeLayout
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            android:visibility="visible"
+            tools:ignore="MissingConstraints">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="16dp"
+                android:visibility="visible"
+                tools:ignore="MissingConstraints">
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_alignParentLeft="true"
+                    android:clickable="true"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    android:padding="4dp"
+                    android:src="@drawable/ic_arrow_back" />
+
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/roboto_bold"
+                        android:text="@string/house_rent"
+                        android:textColor="@color/white"
+                        android:textSize="22sp" />
+
+                    <!--                <TextView-->
+                    <!--                    android:layout_width="wrap_content"-->
+                    <!--                    android:layout_height="wrap_content"-->
+                    <!--                    android:layout_marginTop="@dimen/xsmall"-->
+                    <!--                    android:text="eGSystemBd "-->
+                    <!--                    android:textSize="17sp" />-->
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_alignParentRight="true"
+                    android:background="@drawable/grey_circular_border"
+                    android:clickable="true"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    android:padding="@dimen/small"
+                    android:src="@drawable/heart"
+                    android:visibility="gone" />
+
+
+            </RelativeLayout>
+        </RelativeLayout>
+
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="200dp"
+            android:layout_marginTop="180dp"
             >
 
             <LinearLayout
@@ -43,6 +107,7 @@
                     <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
+                        android:background="@color/question_bg"
                         android:paddingLeft="8dp"
                         android:paddingRight="8dp">
 
@@ -56,8 +121,9 @@
                             android:layout_marginBottom="5dp"
                             android:gravity="center"
                             android:text="@string/house_rent"
+                            android:textColor="@color/white"
                             android:textSize="17sp"
-                            app:fontFamily="@font/solaiman_lipi" />
+                            app:fontFamily="@font/roboto_regular" />
 
                         <ImageView
                             android:id="@+id/iv_house_rent"
@@ -84,6 +150,7 @@
                     <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
+                        android:background="@color/question_bg"
                         android:paddingLeft="8dp"
                         android:paddingRight="8dp">
 
@@ -97,8 +164,9 @@
                             android:layout_marginBottom="5dp"
                             android:gravity="center"
                             android:text="@string/daily_expense"
+                            android:textColor="@color/white"
                             android:textSize="17sp"
-                            app:fontFamily="@font/solaiman_lipi" />
+                            app:fontFamily="@font/roboto_regular" />
 
                         <ImageView
                             android:id="@+id/iv_daily_expense"
@@ -152,9 +220,9 @@
                             android:layout_marginBottom="5dp"
                             android:gravity="center"
                             android:text="@string/meters"
-                            android:textSize="17sp"
                             android:textColor="@color/white"
-                            app:fontFamily="@font/solaiman_lipi" />
+                            android:textSize="17sp"
+                            app:fontFamily="@font/roboto_regular" />
 
                         <ImageView
                             android:id="@+id/iv_meters"
@@ -197,7 +265,7 @@
                             android:text="@string/shopping_list"
                             android:textSize="17sp"
                             android:textColor="@color/white"
-                            app:fontFamily="@font/solaiman_lipi" />
+                            app:fontFamily="@font/roboto_regular" />
 
                         <ImageView
                             android:id="@+id/iv_shopping_list"
