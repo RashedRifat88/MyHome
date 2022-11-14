@@ -50,6 +50,7 @@
                     tools:ignore="MissingConstraints">
 
                     <ImageView
+                        android:id="@+id/iv_menu1"
                         android:layout_width="40dp"
                         android:layout_height="40dp"
                         android:layout_alignParentLeft="true"
@@ -109,7 +110,7 @@
                 android:textColor="@color/black"
                 android:textSize="25sp"
                 android:visibility="gone"
-                app:fontFamily="@font/solaiman_lipi"
+                app:fontFamily="@font/roboto_regular"
                 app:layout_constraintEnd_toStartOf="@+id/animationView"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/toolbar" />
@@ -206,7 +207,7 @@
                                     android:gravity="center"
                                     android:text="@string/house_rent"
                                     android:textSize="17sp"
-                                    app:fontFamily="@font/solaiman_lipi" />
+                                    app:fontFamily="@font/roboto_regular" />
 
                                 <ImageView
                                     android:id="@+id/iv_house_rent"
@@ -248,7 +249,7 @@
                                     android:gravity="center"
                                     android:text="@string/daily_expense"
                                     android:textSize="17sp"
-                                    app:fontFamily="@font/solaiman_lipi" />
+                                    app:fontFamily="@font/roboto_regular" />
 
                                 <ImageView
                                     android:id="@+id/iv_daily_expense"
@@ -287,7 +288,7 @@
                         <!--                                    android:gravity="center"-->
                         <!--                                    android:text="@string/loan"-->
                         <!--                                    android:textSize="17sp"-->
-                        <!--                                    app:fontFamily="@font/solaiman_lipi" />-->
+                        <!--                                    app:fontFamily="@font/roboto_regular" />-->
 
                         <!--                                <ImageView-->
                         <!--                                    android:id="@+id/iv_loan"-->
@@ -338,7 +339,7 @@
                                     android:gravity="center"
                                     android:text="@string/loan"
                                     android:textSize="17sp"
-                                    app:fontFamily="@font/solaiman_lipi" />
+                                    app:fontFamily="@font/roboto_regular" />
 
                                 <ImageView
                                     android:id="@+id/iv_loan"
@@ -379,7 +380,7 @@
                                     android:gravity="center"
                                     android:text="@string/meters"
                                     android:textSize="17sp"
-                                    app:fontFamily="@font/solaiman_lipi" />
+                                    app:fontFamily="@font/roboto_regular" />
 
                                 <ImageView
                                     android:id="@+id/iv_meters"
@@ -431,7 +432,7 @@
                                     android:gravity="center"
                                     android:text="@string/shopping_list"
                                     android:textSize="17sp"
-                                    app:fontFamily="@font/solaiman_lipi" />
+                                    app:fontFamily="@font/roboto_regular" />
 
                                 <ImageView
                                     android:id="@+id/iv_shopping_list"
@@ -473,7 +474,7 @@
                                     android:gravity="center"
                                     android:text="@string/monthly_budget"
                                     android:textSize="17sp"
-                                    app:fontFamily="@font/solaiman_lipi" />
+                                    app:fontFamily="@font/roboto_regular" />
 
                                 <ImageView
                                     android:id="@+id/iv_monthly_budget"
@@ -529,7 +530,7 @@
                                     android:gravity="center"
                                     android:text="@string/tenant_info"
                                     android:textSize="17sp"
-                                    app:fontFamily="@font/solaiman_lipi" />
+                                    app:fontFamily="@font/roboto_regular" />
 
                                 <ImageView
                                     android:id="@+id/iv_tenant_info"
@@ -571,7 +572,7 @@
                                     android:gravity="center"
                                     android:text="@string/maintenance"
                                     android:textSize="17sp"
-                                    app:fontFamily="@font/solaiman_lipi" />
+                                    app:fontFamily="@font/roboto_regular" />
 
                                 <ImageView
                                     android:id="@+id/iv_maintenance"
@@ -624,7 +625,7 @@
                                     android:gravity="center"
                                     android:text="@string/construction"
                                     android:textSize="17sp"
-                                    app:fontFamily="@font/solaiman_lipi" />
+                                    app:fontFamily="@font/roboto_regular" />
 
                                 <ImageView
                                     android:id="@+id/iv_construction"
@@ -666,7 +667,7 @@
                             <!--                                    android:gravity="center"-->
                             <!--                                    android:text="@string/construction"-->
                             <!--                                    android:textSize="17sp"-->
-                            <!--                                    app:fontFamily="@font/solaiman_lipi" />-->
+                            <!--                                    app:fontFamily="@font/roboto_regular" />-->
 
                             <!--                                <ImageView-->
                             <!--                                    android:id="@+id/iv_construction"-->

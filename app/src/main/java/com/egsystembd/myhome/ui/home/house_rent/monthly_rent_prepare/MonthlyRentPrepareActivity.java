@@ -1,4 +1,4 @@
-package com.egsystembd.myhome.ui.home.house_rent;
+package com.egsystembd.myhome.ui.home.house_rent.monthly_rent_prepare;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -8,19 +8,17 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.egsystembd.myhome.R;
-import com.egsystembd.myhome.databinding.ActivityHouseRentBinding;
-import com.egsystembd.myhome.databinding.ActivityMainBinding;
-import com.egsystembd.myhome.ui.home.house_rent.monthly_rent_prepare.MonthlyRentPrepareActivity;
+import com.egsystembd.myhome.databinding.ActivityMonthlyRentPrepareBinding;
+import com.egsystembd.myhome.ui.home.house_rent.HouseRentActivity;
 
-public class HouseRentActivity extends AppCompatActivity {
+public class MonthlyRentPrepareActivity extends AppCompatActivity {
 
-    private ActivityHouseRentBinding binding;
-
+    private ActivityMonthlyRentPrepareBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding = ActivityHouseRentBinding.inflate(getLayoutInflater());
+        binding = ActivityMonthlyRentPrepareBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
         initStatusBar();
@@ -48,8 +46,8 @@ public class HouseRentActivity extends AppCompatActivity {
             finish();
         });
 
-        binding.cardHouseRent.setOnClickListener(v -> {
-            Intent intent = new Intent(HouseRentActivity.this, MonthlyRentPrepareActivity.class);
+        binding.linearAddTenant.setOnClickListener(v -> {
+            Intent intent = new Intent(MonthlyRentPrepareActivity.this, AddTenantActivity.class);
             startActivity(intent);
         });
 

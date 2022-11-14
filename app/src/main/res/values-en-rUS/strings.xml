@@ -18,4 +18,37 @@
     <string name="tenant_info">Tenant Info</string>
     <string name="maintenance">Maintenance</string>
     <string name="construction">Construction</string>
+
+    <string name="menu_menu2">Invite Others</string>
+    <string name="menu_menu3">Ratings</string>
+    <string name="menu_logout" >Log out</string>
+
+    <string name="monthly_rent_prepare">Monthly Rent Prepare</string>
+    <string name="rent_receive_provide">Rent Receive Provide</string>
+    <string name="total_rent_receive">Total Rent Receive</string>
+    <string name="advance_account">Advance Account</string>
+
+    <string name="add_tenant">Add Tenant</string>
+    <string name="tenant_name">Tenant Name</string>
+
+    <string name="flat_no">Flat No</string>
+    <string name="monthly_rent">Monthly Rent</string>
+    <string name="total_advance">Total Advance</string>
+    <string name="service_charge">Service Charge</string>
+    <string name="monthly_advance_deduction">Monthly Advance Deduction</string>
+    <string name="tenant">Tenant</string>
+    <string name="name">Name</string>
+    <string name="mobile">Mobile</string>
+    <string name="nid">NID</string>
+    <string name="district">District</string>
+    <string name="thana">Thana</string>
+    <string name="post_office">Post Office</string>
+    <string name="village">Village</string>
+    <string name="add">Add</string>
+    <string name="save">Save</string>
+
+    <string name="menu_menu1">Settings</string>
+    <string name="language_change">Change language</string>
+    <string name="settings">Settings</string>
+
 </resources>

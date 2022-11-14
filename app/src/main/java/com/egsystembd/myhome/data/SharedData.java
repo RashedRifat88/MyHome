@@ -8,6 +8,7 @@ public class SharedData {
 
     public static final String DEVICE_ID = "device_id";
     public static final String MORAL_REPORT_ENABLED = "night_node_enabled";
+    public static final String LANGUAGE = "language";
 
     public static void saveDEVICE_ID(Context context, String value) {
         SharedPreferences.Editor editor = PreferenceManager.getDefaultSharedPreferences(context).edit();
@@ -18,6 +19,17 @@ public class SharedData {
     public static String getDEVICE_ID(Context context) {
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
         return sharedPreferences.getString(DEVICE_ID, null);
+    }
+
+    public static void saveLANGUAGE(Context context, String value) {
+        SharedPreferences.Editor editor = PreferenceManager.getDefaultSharedPreferences(context).edit();
+        editor.putString(LANGUAGE, value);
+        editor.commit();
+    }
+
+    public static String getLANGUAGE(Context context) {
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
+        return sharedPreferences.getString(LANGUAGE, null);
     }
 
 

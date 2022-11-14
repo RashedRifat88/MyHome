@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/menu_settings"
+            android:icon="@drawable/ic_settings"
+            android:title="@string/menu_menu1" />
+
+        <item
+            android:id="@+id/menu_invite_others"
+            android:icon="@drawable/ic_invite_others"
+            android:title="@string/menu_menu2" />
+
+        <item
+            android:id="@+id/menu_rating"
+            android:icon="@drawable/ic_rating"
+            android:title="@string/menu_menu3" />
+
+<!--        <item-->
+<!--            android:id="@+id/menuWallet"-->
+<!--            android:icon="@drawable/ic_wallet"-->
+<!--            android:title="@string/menu_wallet" />-->
+
+<!--        <item-->
+<!--            android:id="@+id/menuAmbulance"-->
+<!--            android:icon="@drawable/ic_ambulance2"-->
+<!--            android:title="@string/menu_ambulance" />-->
+
+
+        <!--        <item-->
+        <!--            android:id="@+id/menu4"-->
+        <!--            android:icon="@drawable/ic_icon7"-->
+        <!--            android:title="@string/menu_menu4" />-->
+
+        <!--        <item-->
+        <!--            android:id="@+id/menu5"-->
+        <!--            android:icon="@drawable/ic_doctor"-->
+        <!--            android:title="@string/menu_menu5" />-->
+        <!--        <item-->
+        <!--            android:id="@+id/menu6"-->
+        <!--            android:icon="@drawable/ic_icon10"-->
+        <!--            android:title="@string/menu_menu6" />-->
+
+        <!--        <item-->
+        <!--            android:id="@+id/menu7"-->
+        <!--            android:icon="@drawable/ic_icon8"-->
+        <!--            android:title="@string/menu_menu7" />-->
+
+
+        <!--        <item-->
+        <!--            android:visible="false"-->
+        <!--            android:id="@+id/menu8"-->
+        <!--            android:icon="@drawable/ic_icon11"-->
+        <!--            android:title="@string/menu_menu8" />-->
+
+
+        <!--        <item-->
+        <!--            android:visible="false"-->
+        <!--            android:id="@+id/menu9"-->
+        <!--            android:icon="@drawable/ic_icon9"-->
+        <!--            android:title="@string/menu_menu9" />-->
+
+        <!--        <item-->
+        <!--            android:id="@+id/menu10"-->
+        <!--            android:icon="@drawable/ic_shield"-->
+        <!--            android:title="@string/menu_menu10" />-->
+
+    </group>
+
+    <item android:title="">
+        <menu>
+
+            <item
+                android:id="@+id/nav_logout"
+                android:icon="@drawable/ic_logout"
+                android:title="@string/menu_logout" />
+
+            <!--            <item-->
+            <!--                android:id="@+id/nav_share"-->
+            <!--                android:icon="@drawable/ic_menu_share"-->
+            <!--                android:title="@string/menu_share" />-->
+            <!--            <item-->
+            <!--                android:id="@+id/nav_send"-->
+            <!--                android:icon="@drawable/ic_menu_send"-->
+            <!--                android:title="@string/menu_send" />-->
+
+            <!--            <item-->
+            <!--                android:id="@+id/nav_about"-->
+            <!--                android:icon="@drawable/ic_info1"-->
+            <!--                android:title="@string/menu_about" />-->
+
+        </menu>
+
+    </item>
+
+</menu>

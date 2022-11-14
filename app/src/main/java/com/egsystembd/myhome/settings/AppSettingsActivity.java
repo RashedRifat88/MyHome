@@ -1,4 +1,4 @@
-package com.egsystembd.myhome.credential;
+package com.egsystembd.myhome.settings;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -11,11 +11,14 @@ import android.widget.TextView;
 
 import com.egsystembd.myhome.MainActivity;
 import com.egsystembd.myhome.R;
+import com.egsystembd.myhome.credential.LoginActivity;
 import com.egsystembd.myhome.data.SharedData;
+import com.egsystembd.myhome.databinding.ActivitySettingsBinding;
 import com.egsystembd.myhome.utils.LanguageManager;
 
-public class LoginActivity extends AppCompatActivity {
+public class AppSettingsActivity extends AppCompatActivity {
 
+    private ActivitySettingsBinding binding;
     LanguageManager languageManager;
 
     LinearLayout linear_change_language;
@@ -24,13 +27,16 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+//        setContentView(R.layout.activity_settings);
+        binding = ActivitySettingsBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
 
         initStatusBar();
         initComponemts();
         initMethods();
 
     }
+
 
     private void initMethods() {
 //        languageManager = new LanguageManager(this);
@@ -46,19 +52,20 @@ public class LoginActivity extends AppCompatActivity {
             }
         }
 
+
     }
 
     private void initStatusBar() {
         View decor = getWindow().getDecorView();
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            getWindow().setStatusBarColor(getResources().getColor(R.color.yellow_700, this.getTheme()));
-//            decor.setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
-            decor.setSystemUiVisibility(decor.getSystemUiVisibility() & ~View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR); //set status text  light
+            getWindow().setStatusBarColor(getResources().getColor(R.color.colorPrimary2, this.getTheme()));
+            decor.setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
+//            decor.setSystemUiVisibility(decor.getSystemUiVisibility() & ~View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR); //set status text  light
 
         } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            getWindow().setStatusBarColor(getResources().getColor(R.color.yellow_700));
-//            decor.setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
-            decor.setSystemUiVisibility(decor.getSystemUiVisibility() & ~View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR); //set status text  light
+            getWindow().setStatusBarColor(getResources().getColor(R.color.colorPrimary2));
+            decor.setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
+//            decor.setSystemUiVisibility(decor.getSystemUiVisibility() & ~View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR); //set status text  light
         }
     }
 
@@ -66,7 +73,6 @@ public class LoginActivity extends AppCompatActivity {
 
         linear_change_language = findViewById(R.id.linear_change_language);
         tv_language = findViewById(R.id.tv_language);
-        tv_log_in = findViewById(R.id.tv_log_in);
 
         linear_change_language.setOnClickListener(v -> {
 
@@ -83,10 +89,7 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-        tv_log_in.setOnClickListener(v -> {
-            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-            startActivity(intent);
-        });
+
     }
 
     private void saveLanguage(String language) {
@@ -97,4 +100,6 @@ public class LoginActivity extends AppCompatActivity {
         finish();
         startActivity(getIntent());
     }
+
+
 }

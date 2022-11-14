@@ -19,4 +19,37 @@
     <string name="tenant_info">ভাড়াটিয়ার তথ্য</string>
     <string name="maintenance">রক্ষণাবেক্ষণ হিসাব</string>
     <string name="construction">নির্মাণের হিসাব</string>
+
+    <string name="menu_menu2" >অন্যকে পাঠান</string>
+    <string name="menu_menu3" >রেটিং</string>
+    <string name="menu_logout" >লগ আউট</string>
+
+    <string name="monthly_rent_prepare">মাসিক ভাড়া তৈরি</string>
+    <string name="rent_receive_provide">ভাড়া আদায় জমা</string>
+    <string name="total_rent_receive">মোট ভাড়া আদায়/বাকী </string>
+    <string name="advance_account">এডভান্সের হিসাব</string>
+
+    <string name="add_tenant">ভাড়াটিয়া যোগ করুন</string>
+    <string name="tenant_name">ভাড়াটিয়ার নাম</string>
+
+    <string name="flat_no">ফ্ল্যাট নং</string>
+    <string name="monthly_rent">মাসিক ভাড়া</string>
+    <string name="total_advance">মোট এডভান্স</string>
+    <string name="service_charge">সার্ভিস চার্জ</string>
+    <string name="monthly_advance_deduction">মাসিক এডভান্স কর্তন</string>
+    <string name="tenant">ভাড়াটিয়া</string>
+    <string name="name">নাম</string>
+    <string name="mobile">মোবাইল</string>
+    <string name="nid">জাতীয় পরিচয়পত্র নং</string>
+    <string name="district">জেলা</string>
+    <string name="thana">থানা</string>
+    <string name="post_office">পোস্টঅফিস</string>
+    <string name="village">গ্রাম</string>
+    <string name="add">সংযুক্ত করুন</string>
+    <string name="save">সেভ করুন</string>
+
+    <string name="menu_menu1">সেটিংস্‌</string>
+    <string name="language_change">ভাষা পরিবর্তন</string>
+    <string name="settings">সেটিংস</string>
+
 </resources>
