@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import com.egsystembd.myhome.data.SharedData;
 import com.egsystembd.myhome.settings.AppSettingsActivity;
+import com.egsystembd.myhome.ui.home.house_rent.monthly_rent_prepare.AddTenantActivity;
 import com.egsystembd.myhome.utils.LanguageManager;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -32,7 +33,7 @@ import com.google.android.material.navigation.NavigationView;
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     private ActivityMainBinding binding;
-    LanguageManager languageManager;
+//    LanguageManager languageManager;
 
     static TextView tv_user_name, tv_user_profile_completion_status;
     View headerView;
@@ -175,6 +176,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         drawerLayout.closeDrawer(GravityCompat.START);
 
+        if (item.getItemId() == R.id.menu_add_tenant) {
+            Intent intent = new Intent(MainActivity.this, AddTenantActivity.class);
+            intent.putExtra("from_where", "main_drawer");
+            startActivity(intent);
+        }
+
         if (item.getItemId() == R.id.menu_settings) {
 
             Intent intent = new Intent(MainActivity.this, AppSettingsActivity.class);
@@ -222,17 +229,19 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         Log.d("tagklkl", "OnResume called");
 
-        if (SharedData.getLANGUAGE(this) != null) {
-            if (SharedData.getLANGUAGE(this).equalsIgnoreCase("bangla")) {
-                languageManager = new LanguageManager(this);
-                languageManager.updateLocale("bn");
-//                recreateActivity();
-            } else {
-                languageManager = new LanguageManager(this);
-                languageManager.updateLocale("en-rUS");
-//                recreateActivity();
-            }
-        }
+//        if (SharedData.getLANGUAGE(this) != null) {
+//            if (SharedData.getLANGUAGE(this).equalsIgnoreCase("bangla")) {
+//                languageManager = new LanguageManager(this);
+//                languageManager.updateLocale("bn");
+////                recreateActivity();
+//            } else {
+//                languageManager = new LanguageManager(this);
+//                languageManager.updateLocale("en-rUS");
+////                recreateActivity();
+//            }
+//        }
+
+
     }
 
     private void recreateActivity() {

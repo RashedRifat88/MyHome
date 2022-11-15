@@ -33,7 +33,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void initMethods() {
-//        languageManager = new LanguageManager(this);
+        languageManager = new LanguageManager(this);
         if (SharedData.getLANGUAGE(this) != null) {
             if (SharedData.getLANGUAGE(this).equalsIgnoreCase("bangla")) {
                 languageManager = new LanguageManager(this);
@@ -73,12 +73,12 @@ public class LoginActivity extends AppCompatActivity {
             if (tv_language.getText().toString().equalsIgnoreCase("Bangla")) {
                 languageManager = new LanguageManager(this);
                 languageManager.updateLocale("bn");
-                saveLanguage("english");
+                saveLanguage("bangla");
                 recreateActivity();
             } else {
                 languageManager = new LanguageManager(this);
                 languageManager.updateLocale("en-rUS");
-                saveLanguage("bangla");
+                saveLanguage("english");
                 recreateActivity();
             }
         });

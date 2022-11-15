@@ -24,9 +24,9 @@
     <string name="menu_logout" >Log out</string>
 
     <string name="monthly_rent_prepare">Monthly Rent Prepare</string>
-    <string name="rent_receive_provide">Rent Receive Provide</string>
+    <string name="rent_receive_provide">Rent Receive</string>
     <string name="total_rent_receive">Total Rent Receive</string>
-    <string name="advance_account">Advance Account</string>
+    <string name="advance_account">Advance</string>
 
     <string name="add_tenant">Add Tenant</string>
     <string name="tenant_name">Tenant Name</string>
@@ -50,5 +50,7 @@
     <string name="menu_menu1">Settings</string>
     <string name="language_change">Change language</string>
     <string name="settings">Settings</string>
+
+    <string name="rent_prepare">Rent Prepare</string>
 
 </resources>

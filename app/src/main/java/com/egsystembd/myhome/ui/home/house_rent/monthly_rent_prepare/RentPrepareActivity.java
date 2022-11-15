@@ -2,25 +2,27 @@ package com.egsystembd.myhome.ui.home.house_rent.monthly_rent_prepare;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 
-import com.egsystembd.myhome.R;
-import com.egsystembd.myhome.databinding.ActivityAddTenantBinding;
+import com.egsystembd.myhome.databinding.ActivityRentPrepareBinding;
 
-public class AddTenantActivity extends AppCompatActivity {
+public class RentPrepareActivity extends AppCompatActivity {
 
-    private ActivityAddTenantBinding binding;
+    private ActivityRentPrepareBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //        setContentView(R.layout.activity_add_tenant);
-        binding = ActivityAddTenantBinding.inflate(getLayoutInflater());
+//        setContentView(R.layout.activity_fare_prepare);
+
+        binding = ActivityRentPrepareBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
         initComponents();
 
     }
+
 
     private void initComponents() {
         binding.ivBack.setOnClickListener(v -> {
@@ -34,6 +36,5 @@ public class AddTenantActivity extends AppCompatActivity {
 
 
     }
-
 
 }

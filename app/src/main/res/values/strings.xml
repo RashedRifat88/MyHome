@@ -28,9 +28,9 @@
     <string name="menu_logout" tools:ignore="MissingTranslation">Log out</string>
 
     <string name="monthly_rent_prepare" tools:ignore="MissingTranslation">Monthly Rent Prepare</string>
-    <string name="rent_receive_provide" tools:ignore="MissingTranslation">Rent Receive Provide</string>
+    <string name="rent_receive_provide" tools:ignore="MissingTranslation">Rent Receive</string>
     <string name="total_rent_receive" tools:ignore="MissingTranslation">Total Rent Receive</string>
-    <string name="advance_account" tools:ignore="MissingTranslation">Advance Account</string>
+    <string name="advance_account" tools:ignore="MissingTranslation">Advance</string>
 
     <string name="add_tenant" tools:ignore="MissingTranslation">Add Tenant</string>
     <string name="tenant_name" tools:ignore="MissingTranslation">Tenant Name</string>
@@ -54,5 +54,7 @@
     <string name="menu_menu1" tools:ignore="MissingTranslation">Settings</string>
     <string name="language_change" tools:ignore="MissingTranslation">Change language</string>
     <string name="settings" tools:ignore="MissingTranslation">Settings</string>
+
+    <string name="rent_prepare" tools:ignore="MissingTranslation">Rent Prepare</string>
 
 </resources>
