@@ -10,8 +10,8 @@ public class Profile {
     @PrimaryKey(autoGenerate = true)
     public int id;
 
-//    @ColumnInfo(name = "name")
-//    public String name;
+    @ColumnInfo(name = "name")
+    public String name;
 //
 //    @ColumnInfo(name = "designation")
 //    public String designation;
@@ -33,4 +33,6 @@ public class Profile {
     public void setProfile_image_byte(byte[] profile_image_byte) {
         this.profile_image_byte = profile_image_byte;
     }
+
+
 }
