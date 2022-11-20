@@ -1,5 +1,6 @@
 package com.egsystembd.myhome;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
@@ -9,11 +10,14 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.egsystembd.myhome.data.SharedData;
+import com.egsystembd.myhome.model.house_rent.DivisionDistrictThana;
 import com.egsystembd.myhome.settings.AppSettingsActivity;
 import com.egsystembd.myhome.ui.home.house_rent.monthly_rent_prepare.AddTenantActivity;
 import com.egsystembd.myhome.utils.LanguageManager;
+import com.egsystembd.myhome.view_model.DivisionDistrictThanaViewModel;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import androidx.annotation.NonNull;
@@ -22,6 +26,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -29,6 +34,15 @@ import androidx.navigation.ui.NavigationUI;
 
 import com.egsystembd.myhome.databinding.ActivityMainBinding;
 import com.google.android.material.navigation.NavigationView;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -46,6 +60,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     NavigationView navigationViewDrawer;
     Toolbar toolbar;
 
+    DivisionDistrictThanaViewModel divisionDistrictThanaViewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,6 +81,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         initStatusBar();
         initNavigationMenu();
+
+        divisionDistrictThanaViewModel = new ViewModelProvider(this).get(DivisionDistrictThanaViewModel.class);
+
+        loadDivisionData();
 
     }
 
@@ -248,6 +267,89 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         finish();
         startActivity(getIntent());
     }
+
+
+
+    private void loadDivisionData() {
+
+        JSONArray divisions = loadJSONArray_division(this);
+
+        try {
+            for (int i = 0; i < divisions.length(); i++) {
+                JSONObject division = divisions.getJSONObject(i);
+
+                String division_name = division.getString("name");
+                String division_name_bn = division.getString("bn_name");
+
+                JSONArray districtArray = division.getJSONArray("districts");
+
+                Log.d("tagTTT", "division_name: " +division_name);
+
+                for (int j = 0; j < districtArray.length(); j++) {
+
+                    JSONObject district = districtArray.getJSONObject(j);
+
+                    String district_name = district.getString("name");
+                    String district_name_bn = district.getString("bn_name");
+                    Log.d("tagTTT", "district_name: " +district_name);
+
+
+                    JSONArray thanaArray = division.getJSONArray("upazilas");
+
+
+                    for (int k = 0; k < thanaArray.length(); k++) {
+
+                        JSONObject thana = thanaArray.getJSONObject(j);
+
+                        String thana_name = thana.getString("name");
+                        String thana_name_bn = thana.getString("bn_name");
+                        Log.d("tagTTT", "thana_name: " +thana_name);
+
+                        DivisionDistrictThana obj1 = new DivisionDistrictThana();
+                        obj1.division = division_name;
+                        obj1.division_bn = division_name_bn;
+                        obj1.district = district_name;
+                        obj1.district_bn = district_name_bn;
+                        obj1.thana = thana_name;
+                        obj1.thana_bn = thana_name_bn;
+
+                        divisionDistrictThanaViewModel.insertDivisionDistrictThana(obj1);
+                    }
+
+                }
+
+
+//                Toast.makeText(this, "DivisionDistrictThana created successfully", Toast.LENGTH_SHORT).show();
+
+
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+
+    public static JSONArray loadJSONArray_division(Context context) {
+        StringBuilder stringBuilder = new StringBuilder();
+        InputStream inputStream = context.getResources().openRawResource(R.raw.division_district_thana);
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
+
+        String line;
+        try {
+            while ((line = bufferedReader.readLine()) != null) {
+                stringBuilder.append(line);
+            }
+            JSONObject jsonObject = new JSONObject(stringBuilder.toString());
+            return jsonObject.getJSONArray("division_list");
+
+        } catch (IOException | JSONException e) {
+            e.printStackTrace();
+        }
+
+        return null;
+    }
+
 
 
 

@@ -5,7 +5,6 @@ import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
 @Entity(tableName = "table_rent_collection")
-
 public class RentCollection {
 
     @PrimaryKey(autoGenerate = true)

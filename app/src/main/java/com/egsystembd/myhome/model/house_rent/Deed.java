@@ -7,7 +7,6 @@ import androidx.room.PrimaryKey;
 import java.util.Date;
 
 @Entity(tableName = "table_deed")
-
 public class Deed {
 
     @PrimaryKey(autoGenerate = true)

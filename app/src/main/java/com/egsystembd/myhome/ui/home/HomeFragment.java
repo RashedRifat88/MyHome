@@ -15,7 +15,6 @@ import com.denzcoskun.imageslider.constants.ScaleTypes;
 import com.denzcoskun.imageslider.models.SlideModel;
 import com.egsystembd.myhome.R;
 import com.egsystembd.myhome.databinding.FragmentHomeBinding;
-import com.egsystembd.myhome.model.HouseRent;
 import com.egsystembd.myhome.ui.home.house_rent.HouseRentActivity;
 
 import java.util.ArrayList;
