@@ -812,6 +812,89 @@
                                 android:gravity="center"
                                 android:paddingTop="3dp"
                                 android:paddingBottom="3dp"
+                                android:text="@string/division"
+                                android:textColor="#6E7FAA"
+                                android:textSize="15sp" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_weight="3.5"
+                            android:orientation="horizontal"
+                            android:visibility="visible">
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="0dp"
+                                android:background="@drawable/edit_text_bg_1"
+                                android:orientation="horizontal">
+
+                                <Spinner
+                                    android:id="@+id/spinner_division"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerVertical="true"
+                                    android:layout_gravity="left"
+                                    android:layout_marginLeft="0dp"
+                                    android:layout_marginTop="0dp"
+                                    android:background="@android:color/transparent"
+                                    android:ems="10"
+                                    android:gravity="left"
+                                    android:spinnerMode="dropdown" />
+
+                                <ImageView
+                                    android:layout_width="25dp"
+                                    android:layout_height="20dp"
+                                    android:layout_alignParentRight="true"
+                                    android:layout_centerVertical="true"
+                                    android:layout_gravity="right"
+                                    android:src="@drawable/drop2"
+                                    app:tint="@color/colorHint2" />
+
+                            </RelativeLayout>
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+                    ///   <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="5dp"
+                        android:layout_marginLeft="0dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginRight="0dp"
+                        android:layout_marginBottom="3dp"
+                        android:layerType="software"
+                        android:src="@drawable/dotted" />
+
+                    ///
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_weight="2.5"
+                            android:gravity="left"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="right"
+                                android:layout_marginRight="4dp"
+                                android:fontFamily="@font/roboto_regular"
+                                android:gravity="center"
+                                android:paddingTop="3dp"
+                                android:paddingBottom="3dp"
                                 android:text="@string/district"
                                 android:textColor="#6E7FAA"
                                 android:textSize="15sp" />

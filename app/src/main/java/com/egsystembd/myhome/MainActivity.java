@@ -83,8 +83,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         initNavigationMenu();
 
         divisionDistrictThanaViewModel = new ViewModelProvider(this).get(DivisionDistrictThanaViewModel.class);
-
-        loadDivisionData();
+//        loadDivisionData();
 
     }
 
@@ -294,12 +293,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     Log.d("tagTTT", "district_name: " +district_name);
 
 
-                    JSONArray thanaArray = division.getJSONArray("upazilas");
+                    JSONArray thanaArray = district.getJSONArray("upazilas");
 
 
                     for (int k = 0; k < thanaArray.length(); k++) {
 
-                        JSONObject thana = thanaArray.getJSONObject(j);
+                        JSONObject thana = thanaArray.getJSONObject(k);
 
                         String thana_name = thana.getString("name");
                         String thana_name_bn = thana.getString("bn_name");
@@ -314,6 +313,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                         obj1.thana_bn = thana_name_bn;
 
                         divisionDistrictThanaViewModel.insertDivisionDistrictThana(obj1);
+
                     }
 
                 }

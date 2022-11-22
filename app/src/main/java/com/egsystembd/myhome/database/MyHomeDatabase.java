@@ -1,7 +1,8 @@
 package com.egsystembd.myhome.database;
 
 import android.content.Context;
-import android.os.Build;
+import android.util.Log;
+import android.widget.Toast;
 
 import androidx.room.Database;
 import androidx.room.Room;
@@ -23,10 +24,10 @@ import com.egsystembd.myhome.model.house_rent.RentCollection;
 import com.egsystembd.myhome.model.house_rent.Tenant;
 
 
-@Database(entities = {DivisionDistrictThana.class, Building.class, Deed.class, Flat.class, Rent.class, RentCollection.class, Tenant.class}, version = 1)
+@Database(entities = {DivisionDistrictThana.class, Building.class, Deed.class, Flat.class, Rent.class, RentCollection.class, Tenant.class}, version = 1, exportSchema = false)
 public abstract class MyHomeDatabase extends RoomDatabase {
 
-    public abstract DivisionDistrictThanaDao DivisionDistrictThanaDao();
+    public abstract DivisionDistrictThanaDao divisionDistrictThanaDao();
     public abstract BuildingDao BuildingDao();
     public abstract DeedDao DeedDao();
     public abstract FlatDao FlatDao();
@@ -39,8 +40,11 @@ public abstract class MyHomeDatabase extends RoomDatabase {
 
     public static MyHomeDatabase getDatabaseInstance(Context context){
 
+        Log.d("tag4567", "getDatabaseInstance accessed");
+
         if(INSTANCE == null){
             INSTANCE = Room.databaseBuilder(context.getApplicationContext(), MyHomeDatabase.class, "my_home_database").allowMainThreadQueries().build();
+            Log.d("tag4567", "database created");
         }
 
         return INSTANCE;

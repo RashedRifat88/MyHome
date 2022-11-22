@@ -28,10 +28,24 @@ public interface DivisionDistrictThanaDao {
     @Query("delete from table_division_district_thana where id = :id")
     void deleteDivisionDistrictThana(int id);
 
+    @Query("delete from table_division_district_thana")
+    void deleteAllDivisionDistrictThana();
+
     @Update
     void updateDivisionDistrictThana(DivisionDistrictThana DivisionDistrictThana);
 
 //    @Query("SELECT DISTINCT * FROM table_division_district_thana WHERE task_type = :type")
 //    LiveData<List<DivisionDistrictThana>> getTypeWiseTaskList(String type);
+
+    @Query("SELECT * FROM table_division_district_thana group by division")
+    LiveData<List<DivisionDistrictThana>> getDivisionList();
+
+    @Query("SELECT * FROM table_division_district_thana WHERE division_bn = :division group by district")
+    List<DivisionDistrictThana> getDistrictList(String division);
+
+
+    @Query("SELECT * FROM table_division_district_thana WHERE district_bn = :district group by thana")
+    List<DivisionDistrictThana> getThanaList(String district);
+
 
 }

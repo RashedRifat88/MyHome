@@ -1,6 +1,7 @@
 package com.egsystembd.myhome.ui.home.house_rent.monthly_rent_prepare;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProvider;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -18,6 +19,8 @@ import android.widget.TextView;
 import com.airbnb.lottie.LottieAnimationView;
 import com.egsystembd.myhome.R;
 import com.egsystembd.myhome.databinding.ActivityAddTenantBinding;
+import com.egsystembd.myhome.model.house_rent.DivisionDistrictThana;
+import com.egsystembd.myhome.view_model.DivisionDistrictThanaViewModel;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 
@@ -73,6 +76,9 @@ public class AddTenantActivity extends AppCompatActivity {
     HashMap<String, String> districtIdMap;
     HashMap<String, String> upazilaIdMap;
 
+    DivisionDistrictThanaViewModel divisionDistrictThanaViewModel;
+    List<DivisionDistrictThana> div_list;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -80,15 +86,21 @@ public class AddTenantActivity extends AppCompatActivity {
         //        setContentView(R.layout.activity_add_tenant);
         binding = ActivityAddTenantBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+        divisionDistrictThanaViewModel = new ViewModelProvider(this).get(DivisionDistrictThanaViewModel.class);
 
         initComponents();
 
-//        loadDivisionData();
         spinner_division();
+
 
     }
 
     private void initComponents() {
+
+        spinner_division = findViewById(R.id.spinner_division);
+        spinner_district = findViewById(R.id.spinner_district);
+        spinner_upazila = findViewById(R.id.spinner_upazila);
+
         binding.ivBack.setOnClickListener(v -> {
             finish();
         });
@@ -104,7 +116,7 @@ public class AddTenantActivity extends AppCompatActivity {
 
     private void spinner_division() {
 
-        getDivisionApiCall();
+        getDivisionData();
 
         spinner_division.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -138,7 +150,8 @@ public class AddTenantActivity extends AppCompatActivity {
 
     private void spinner_district() {
 
-        getDistrictApiCall(present_division_id);
+//        getDistrictData(present_division_id);
+        getDistrictData(division);
 
         spinner_district.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -172,7 +185,7 @@ public class AddTenantActivity extends AppCompatActivity {
 
     private void spinner_upazila() {
 
-        getUpozillaApiCall(present_district_id);
+        getUpozillaData(district);
 
         spinner_upazila.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -201,86 +214,87 @@ public class AddTenantActivity extends AppCompatActivity {
     }
 
 
-
-
     @SuppressLint("CheckResult")
-    public void getDivisionApiCall() {
+    public void getDivisionData() {
 
         division_list = new ArrayList<String>();
         divisionIdMap = new HashMap<String, String>();
 
-//        DivisionModel model = response.body();
-//
-//        response.body();
-//        Log.d("tag11111", " response.body(): " + response.body());
-//
-//        List<DivisionModel.Data> div_list = model.getData();
-//
-//        division_list.add("Select Division");
-//
-//        for (DivisionModel.Data division : div_list) {
-//            division_list.add(division.getName());
-//            divisionIdMap.put(division.getName(), division.getId().toString());
-//            Log.d("tag4", "division.getId(): " + division.getId());
-//        }
-//
-//
-//        dataAdapter = new ArrayAdapter<String>(context, R.layout.simple_spinner_item, division_list);
-//        dataAdapter.setDropDownViewResource(R.layout.spinner_dropdown_item);
-//        spinner_division.setAdapter(dataAdapter);
+
+//        List<DivisionDistrictThana> div_list = divisionDistrictThanaViewModel.getDivisionList();
+
+        //        division_list.add("Select Division");
+        division_list.add("বিভাগ সিলেক্ট");
+
+        Log.d("tag4", "division_list: " + division_list);
+        Log.d("tag4", "div_list: " + div_list);
+
+
+        divisionDistrictThanaViewModel.getDivisionList().observe(this, dataList -> {
+            Log.d("tag4", "dataList: " + dataList);
+            div_list = dataList;
+
+            for (DivisionDistrictThana division : div_list) {
+                division_list.add(division.division_bn);
+                divisionIdMap.put(division.division_bn, division.division);
+            }
+
+
+        });
+
+
+
+        dataAdapter = new ArrayAdapter<String>(this, R.layout.simple_spinner_item, division_list);
+        dataAdapter.setDropDownViewResource(R.layout.spinner_dropdown_item);
+        spinner_division.setAdapter(dataAdapter);
 
     }
 
 
     @SuppressLint("CheckResult")
-    public void getDistrictApiCall(String division_id) {
+    public void getDistrictData(String division) {
 
         district_list = new ArrayList<String>();
         districtIdMap = new HashMap<String, String>();
 
+        List<DivisionDistrictThana> dist_list = divisionDistrictThanaViewModel.getDistrictList(division);
 
-//        DistrictModel model = response.body();
-//
-//        List<DistrictModel.Data> dist_list = model.getData();
-//
 //        district_list.add("Select District");
-//
-//        for (DistrictModel.Data district : dist_list) {
-//            district_list.add(district.getName());
-//            districtIdMap.put(district.getName(), district.getId().toString());
-//            Log.d("tag4", "district.getId(): " + district.getId());
-//        }
-//
-//
-//        dataAdapter = new ArrayAdapter<String>(context, R.layout.simple_spinner_item, district_list);
-//        dataAdapter.setDropDownViewResource(R.layout.spinner_dropdown_item);
-//        spinner_district.setAdapter(dataAdapter);
+        district_list.add("জেলা সিলেক্ট");
+
+        for (DivisionDistrictThana district : dist_list) {
+            district_list.add(district.district_bn);
+            districtIdMap.put(district.district_bn, district.district);
+        }
+
+
+        dataAdapter = new ArrayAdapter<String>(this, R.layout.simple_spinner_item, district_list);
+        dataAdapter.setDropDownViewResource(R.layout.spinner_dropdown_item);
+        spinner_district.setAdapter(dataAdapter);
 
     }
 
 
     @SuppressLint("CheckResult")
-    public void getUpozillaApiCall(String dist_id) {
+    public void getUpozillaData(String district) {
 
         upazila_list = new ArrayList<String>();
         upazilaIdMap = new HashMap<String, String>();
 
 
-//        UpazilaModel model = response.body();
-//
-//        List<UpazilaModel.Data> upazilas = model.getData();
-//
+        List<DivisionDistrictThana> upazilas = divisionDistrictThanaViewModel.getThanaList(district);;
+
 //        upazila_list.add("Select Upazilla");
-//
-//        for (UpazilaModel.Data upazila1 : upazilas) {
-//            upazila_list.add(upazila1.getName());
-//            upazilaIdMap.put(upazila1.getName(), upazila1.getId().toString());
-//            Log.d("tag4", "upazila1.getId(): " + upazila1.getId());
-//        }
-//
-//        dataAdapter = new ArrayAdapter<String>(context, R.layout.simple_spinner_item, upazila_list);
-//        dataAdapter.setDropDownViewResource(R.layout.spinner_dropdown_item);
-//        spinner_upazila.setAdapter(dataAdapter);
+        upazila_list.add("থানা সিলেক্ট");
+
+        for (DivisionDistrictThana upazila1 : upazilas) {
+            upazila_list.add(upazila1.thana_bn);
+            upazilaIdMap.put(upazila1.thana_bn, upazila1.thana);
+        }
+
+        dataAdapter = new ArrayAdapter<String>(this, R.layout.simple_spinner_item, upazila_list);
+        dataAdapter.setDropDownViewResource(R.layout.spinner_dropdown_item);
+        spinner_upazila.setAdapter(dataAdapter);
 
     }
 

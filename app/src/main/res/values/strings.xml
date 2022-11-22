@@ -56,5 +56,6 @@
     <string name="settings" tools:ignore="MissingTranslation">Settings</string>
 
     <string name="rent_prepare" tools:ignore="MissingTranslation">Rent Prepare</string>
+    <string name="division">বিভাগ</string>
 
 </resources>

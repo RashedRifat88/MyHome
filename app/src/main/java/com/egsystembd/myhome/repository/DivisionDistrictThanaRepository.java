@@ -23,7 +23,7 @@ public class DivisionDistrictThanaRepository {
 
     public DivisionDistrictThanaRepository(Application application) {
         MyHomeDatabase database = MyHomeDatabase.getDatabaseInstance(application);
-        DivisionDistrictThanaDao = database.DivisionDistrictThanaDao();
+        DivisionDistrictThanaDao = database.divisionDistrictThanaDao();
         getAllDivisionDistrictThana = DivisionDistrictThanaDao.getAllDivisionDistrictThana();
 
         getHighToLowDivisionDistrictThana = DivisionDistrictThanaDao.getDivisionDistrictThanaHighToLow();
@@ -38,8 +38,26 @@ public class DivisionDistrictThanaRepository {
         DivisionDistrictThanaDao.deleteDivisionDistrictThana(id);
     }
 
+    public void deleteAllDivisionDistrictThana() {
+        DivisionDistrictThanaDao.deleteAllDivisionDistrictThana();
+    }
+
     public void updateDivisionDistrictThana(DivisionDistrictThana DivisionDistrictThanas) {
         DivisionDistrictThanaDao.updateDivisionDistrictThana(DivisionDistrictThanas);
+    }
+
+    public LiveData<List<DivisionDistrictThana>> getDivisionList() {
+        return DivisionDistrictThanaDao.getDivisionList();
+    }
+
+
+    public List<DivisionDistrictThana> getDistrictList(String division) {
+        return DivisionDistrictThanaDao.getDistrictList(division);
+    }
+
+
+    public List<DivisionDistrictThana> getThanaList(String district) {
+        return DivisionDistrictThanaDao.getThanaList(district);
     }
 
 

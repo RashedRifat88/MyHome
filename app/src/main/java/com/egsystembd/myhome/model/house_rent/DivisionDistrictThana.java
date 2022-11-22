@@ -31,5 +31,4 @@ public class DivisionDistrictThana {
     public String thana_bn;
 
 
-
 }

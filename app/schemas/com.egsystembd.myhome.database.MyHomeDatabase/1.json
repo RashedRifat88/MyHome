@@ -1,0 +1,484 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 1,
+    "identityHash": "5801421b73a3bb1a1c8b67963da47394",
+    "entities": [
+      {
+        "tableName": "table_division_district_thana",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `division` TEXT, `division_bn` TEXT, `district` TEXT, `district_bn` TEXT, `thana` TEXT, `thana_bn` TEXT)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "division",
+            "columnName": "division",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "division_bn",
+            "columnName": "division_bn",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "district",
+            "columnName": "district",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "district_bn",
+            "columnName": "district_bn",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "thana",
+            "columnName": "thana",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "thana_bn",
+            "columnName": "thana_bn",
+            "affinity": "TEXT",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "table_building",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `user_id` INTEGER NOT NULL, `building_name` TEXT, `tin` TEXT, `address` TEXT, `lat` REAL NOT NULL, `lon` REAL NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "user_id",
+            "columnName": "user_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "building_name",
+            "columnName": "building_name",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "tin",
+            "columnName": "tin",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "address",
+            "columnName": "address",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "lat",
+            "columnName": "lat",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "lon",
+            "columnName": "lon",
+            "affinity": "REAL",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "table_deed",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `tenant_id` INTEGER NOT NULL, `flat_id` INTEGER NOT NULL, `contract_start` TEXT, `monthly_rent` REAL NOT NULL, `service_charge` REAL NOT NULL, `total_advance` REAL NOT NULL, `advance_adjustment` REAL NOT NULL, `duration` REAL NOT NULL, `note` TEXT, `validity` INTEGER NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "tenant_id",
+            "columnName": "tenant_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "flat_id",
+            "columnName": "flat_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "contract_start",
+            "columnName": "contract_start",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "monthly_rent",
+            "columnName": "monthly_rent",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "service_charge",
+            "columnName": "service_charge",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "total_advance",
+            "columnName": "total_advance",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "advance_adjustment",
+            "columnName": "advance_adjustment",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "duration",
+            "columnName": "duration",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "note",
+            "columnName": "note",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "validity",
+            "columnName": "validity",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "table_flat",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `building_id` INTEGER NOT NULL, `name` TEXT, `details` TEXT, `monthly_rent` REAL NOT NULL, `service_charge` REAL NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "building_id",
+            "columnName": "building_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "name",
+            "columnName": "name",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "details",
+            "columnName": "details",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "monthly_rent",
+            "columnName": "monthly_rent",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "service_charge",
+            "columnName": "service_charge",
+            "affinity": "REAL",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "table_rent",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `deed_id` INTEGER NOT NULL, `year` INTEGER NOT NULL, `month_id` INTEGER NOT NULL, `rent_amount` INTEGER NOT NULL, `service_charge` REAL NOT NULL, `electricity` REAL NOT NULL, `gas` REAL NOT NULL, `water` REAL NOT NULL, `security` REAL NOT NULL, `cleaning` REAL NOT NULL, `garage` REAL NOT NULL, `common` REAL NOT NULL, `others` REAL NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "deed_id",
+            "columnName": "deed_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "year",
+            "columnName": "year",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "month_id",
+            "columnName": "month_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "rent_amount",
+            "columnName": "rent_amount",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "service_charge",
+            "columnName": "service_charge",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "electricity",
+            "columnName": "electricity",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "gas",
+            "columnName": "gas",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "water",
+            "columnName": "water",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "security",
+            "columnName": "security",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "cleaning",
+            "columnName": "cleaning",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "garage",
+            "columnName": "garage",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "common",
+            "columnName": "common",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "others",
+            "columnName": "others",
+            "affinity": "REAL",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "table_rent_collection",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `rent_id` INTEGER NOT NULL, `paid_amount` INTEGER NOT NULL, `nid` TEXT, `created_at` TEXT, `updated_at` TEXT)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "rent_id",
+            "columnName": "rent_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "paid_amount",
+            "columnName": "paid_amount",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "nid",
+            "columnName": "nid",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "created_at",
+            "columnName": "created_at",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "updated_at",
+            "columnName": "updated_at",
+            "affinity": "TEXT",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "table_tenant",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `name` TEXT, `phone` TEXT, `nid` TEXT, `devision` TEXT, `district_id` INTEGER NOT NULL, `thana_id` INTEGER NOT NULL, `post_office` TEXT, `area` TEXT, `update_date` TEXT, `profile_image_byte` BLOB)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "name",
+            "columnName": "name",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "phone",
+            "columnName": "phone",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "nid",
+            "columnName": "nid",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "devision",
+            "columnName": "devision",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "district_id",
+            "columnName": "district_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "thana_id",
+            "columnName": "thana_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "post_office",
+            "columnName": "post_office",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "area",
+            "columnName": "area",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "update_date",
+            "columnName": "update_date",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "profile_image_byte",
+            "columnName": "profile_image_byte",
+            "affinity": "BLOB",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [],
+        "foreignKeys": []
+      }
+    ],
+    "views": [],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '5801421b73a3bb1a1c8b67963da47394')"
+    ]
+  }
+}

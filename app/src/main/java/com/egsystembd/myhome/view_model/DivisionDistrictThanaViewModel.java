@@ -37,8 +37,24 @@ public class DivisionDistrictThanaViewModel extends AndroidViewModel {
         repository.deleteDivisionDistrictThana(id);
     }
 
+    public void deleteAllDivisionDistrictThana() {
+        repository.deleteAllDivisionDistrictThana();
+    }
+
     public void updateDivisionDistrictThana(DivisionDistrictThana notes) {
         repository.updateDivisionDistrictThana(notes);
+    }
+
+    public LiveData<List<DivisionDistrictThana>> getDivisionList() {
+        return repository.getDivisionList();
+    }
+
+    public List<DivisionDistrictThana> getDistrictList(String division) {
+        return repository.getDistrictList(division);
+    }
+
+    public List<DivisionDistrictThana> getThanaList(String district) {
+        return repository.getThanaList(district);
     }
 
 //    public LiveData<List<DivisionDistrictThana>> getTypeWiseTaskList(String type) {
