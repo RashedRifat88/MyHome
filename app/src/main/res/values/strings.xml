@@ -57,8 +57,21 @@
 
     <string name="rent_prepare" tools:ignore="MissingTranslation">Rent Prepare</string>
     <string name="division" tools:ignore="MissingTranslation">বিভাগ</string>
-    <string name="contract_validity">কন্ট্রাক্টের মেয়াদ</string>
-    <string name="contract_duration">কন্ট্রাক্টের স্থায়িত্ব</string>
-    <string name="contract_start_date">কন্ট্রাক্ট কার্যকর যেদিন থেকে</string>
+    <string name="contract_validity" tools:ignore="MissingTranslation">কন্ট্রাক্টের মেয়াদ</string>
+    <string name="contract_duration" tools:ignore="MissingTranslation">কন্ট্রাক্টের স্থায়িত্ব</string>
+    <string name="contract_start_date" tools:ignore="MissingTranslation">কন্ট্রাক্ট কার্যকর যেদিন থেকে</string>
+    <string name="send_message" tools:ignore="MissingTranslation">মেসেজ দিন</string>
+    <string name="total_rent" tools:ignore="MissingTranslation">মোট ভাড়া</string>
+    <string name="advance_deduction" tools:ignore="MissingTranslation">এডভান্স কর্তন</string>
+    <string name="net_rent" tools:ignore="MissingTranslation">নেট ভাড়া</string>
+    <string name="electricity_bill" tools:ignore="MissingTranslation">বিদ্যুৎ বিল</string>
+    <string name="gas_bill" tools:ignore="MissingTranslation">গ্যাস বিল</string>
+    <string name="water_bill" tools:ignore="MissingTranslation">পানি বিল</string>
+    <string name="security_bill" tools:ignore="MissingTranslation">সিকিউরিটি বিল</string>
+    <string name="cleaning_bill" tools:ignore="MissingTranslation">ক্লিনিং বিল</string>
+    <string name="garage_bill" tools:ignore="MissingTranslation">গ্যারেজ বিল</string>
+    <string name="common_bill" tools:ignore="MissingTranslation">কমন বিল</string>
+    <string name="others" tools:ignore="MissingTranslation">অন্যান্য</string>
+    <string name="rent_prepare_edit" tools:ignore="MissingTranslation">ভাড়া তৈরি এডিট</string>
 
 </resources>

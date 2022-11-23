@@ -23,6 +23,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.egsystembd.myhome.R;
 import com.egsystembd.myhome.model.house_rent.Deed;
 import com.egsystembd.myhome.model.house_rent.Tenant;
+import com.egsystembd.myhome.ui.home.house_rent.monthly_rent_prepare.RentEditActivity;
+import com.egsystembd.myhome.ui.home.house_rent.monthly_rent_prepare.RentPrepareActivity;
 import com.egsystembd.myhome.view_model.DeedViewModel;
 import com.egsystembd.myhome.view_model.TenantViewModel;
 
@@ -88,17 +90,27 @@ public class MonthlyRentPrepareAdapter extends RecyclerView.Adapter<MonthlyRentP
 
 
         holder.tv_name.setText(tenant.name);
-        holder.tv_flat_no.setText("ফ্ল্যাট নংঃ " + deed.flat_id);
-        holder.tv_total_rent.setText("মোট ভারাঃ " + deed.monthly_rent);
-        holder.tv_total_payable_rent.setText("মোট প্রদেয় ভারাঃ " + "---");
+        holder.tv_flat_no.setText("ফ্ল্যাট নংঃ   " + deed.flat_id);
+        holder.tv_total_rent.setText("মোট ভারাঃ   " + deed.monthly_rent);
+        holder.tv_total_payable_rent.setText("মোট প্রদেয় ভারাঃ   " + "---");
 
-        if (holder.tv_total_payable_rent.getText().toString().equalsIgnoreCase("মোট প্রদেয় ভারাঃ " + "---")){
+        if (holder.tv_total_payable_rent.getText().toString().equalsIgnoreCase("মোট প্রদেয় ভারাঃ   " + "---")){
             holder.tv_create_rent.setVisibility(View.VISIBLE);
             holder.tv_correction.setVisibility(View.GONE);
         }else {
             holder.tv_correction.setVisibility(View.VISIBLE);
             holder.tv_create_rent.setVisibility(View.GONE);
         }
+
+        holder.tv_create_rent.setOnClickListener(v -> {
+           Intent intent = new Intent(context, RentPrepareActivity.class);
+           context.startActivity(intent);
+        });
+
+        holder.tv_correction.setOnClickListener(v -> {
+            Intent intent2 = new Intent(context, RentEditActivity.class);
+            context.startActivity(intent2);
+        });
 
 
 
