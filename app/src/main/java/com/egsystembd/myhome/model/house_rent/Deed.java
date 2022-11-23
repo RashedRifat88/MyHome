@@ -33,11 +33,17 @@ public class Deed {
     @ColumnInfo(name = "advance_adjustment")
     public float advance_adjustment;
 
-    @ColumnInfo(name = "duration")
-    public float duration;
+    @ColumnInfo(name = "monthly_advance_deduction")
+    public float monthly_advance_deduction;
+
+    @ColumnInfo(name = "contract_duration")
+    public String contract_duration;
 
     @ColumnInfo(name = "note")
     public String note;
+
+    @ColumnInfo(name = "contract_start_date")
+    public String contract_start_date;
 
     @ColumnInfo(name = "validity")
     public boolean validity;

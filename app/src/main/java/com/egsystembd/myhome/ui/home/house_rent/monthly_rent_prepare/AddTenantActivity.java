@@ -1,26 +1,39 @@
 package com.egsystembd.myhome.ui.home.house_rent.monthly_rent_prepare;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 import android.annotation.SuppressLint;
+import android.app.DatePickerDialog;
 import android.content.Context;
+import android.graphics.Color;
+import android.graphics.PorterDuff;
+import android.graphics.drawable.ColorDrawable;
+import android.icu.util.Calendar;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.airbnb.lottie.LottieAnimationView;
 import com.egsystembd.myhome.R;
 import com.egsystembd.myhome.databinding.ActivityAddTenantBinding;
+import com.egsystembd.myhome.model.house_rent.Deed;
 import com.egsystembd.myhome.model.house_rent.DivisionDistrictThana;
+import com.egsystembd.myhome.model.house_rent.Tenant;
+import com.egsystembd.myhome.view_model.DeedViewModel;
 import com.egsystembd.myhome.view_model.DivisionDistrictThanaViewModel;
+import com.egsystembd.myhome.view_model.TenantViewModel;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 
@@ -44,17 +57,29 @@ public class AddTenantActivity extends AppCompatActivity {
     private ActivityAddTenantBinding binding;
 
     String name = "";
+    String mobile_number = "";
+    String nid = "";
+    String division = "";
+    String district = "";
+    String upazila = "";
+    String post_office = "";
+    String village = "";
+
+    String flat_no = "";
+    String monthly_rent = "";
+    String service_charge = "";
+    String total_advance = "";
+    String monthly_advance_deduction = "";
+    String contract_start_date = "";
+    String contract_duration = "";
+    String contract_validity = "";
+
+
     String date_of_birth = "";
     String bmdc_no = "";
-    String mobile_number = "";
     String email = "";
     String facebook_id = "";
-    String father_name = "";
-    String mother_name = "";
     String job_description = "";
-    String nid = "";
-    String password = "";
-    String password_confirmation = "";
     String passport = "";
     String present_division_id = "";
     String present_district_id = "";
@@ -63,9 +88,6 @@ public class AddTenantActivity extends AppCompatActivity {
     String medical_college = "";
     String gender = "";
     String blood_group = "";
-    String division = "";
-    String district = "";
-    String upazila = "";
 
     ArrayAdapter<String> dataAdapter;
     Spinner spinner_medical_college, spinner_gender, spinner_blood_group, spinner_division, spinner_district, spinner_upazila;
@@ -77,7 +99,11 @@ public class AddTenantActivity extends AppCompatActivity {
     HashMap<String, String> upazilaIdMap;
 
     DivisionDistrictThanaViewModel divisionDistrictThanaViewModel;
+    TenantViewModel tenantViewModel;
+    DeedViewModel deedViewModel;
     List<DivisionDistrictThana> div_list;
+
+    private DatePickerDialog.OnDateSetListener mDateSetListener;
 
 
     @Override
@@ -86,11 +112,15 @@ public class AddTenantActivity extends AppCompatActivity {
         //        setContentView(R.layout.activity_add_tenant);
         binding = ActivityAddTenantBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
         divisionDistrictThanaViewModel = new ViewModelProvider(this).get(DivisionDistrictThanaViewModel.class);
+        tenantViewModel = new ViewModelProvider(this).get(TenantViewModel.class);
+        deedViewModel = new ViewModelProvider(this).get(DeedViewModel.class);
 
         initComponents();
 
         spinner_division();
+        loadCalender_contract_start_date();
 
 
     }
@@ -105,11 +135,242 @@ public class AddTenantActivity extends AppCompatActivity {
             finish();
         });
 
-//        binding.linearAddTenant.setOnClickListener(v -> {
-//            Intent intent = new Intent(MonthlyRentPrepareActivity.this, AddTenantActivity.class);
+        binding.linearSave.setOnClickListener(v -> {
+//            Intent intent = new Intent(AddTenantActivity.this, AddTenantActivity.class);
 //            startActivity(intent);
-//        });
+            addNewTenant();
+        });
 
+
+    }
+
+
+    private void addNewTenant() {
+        checkValues();
+    }
+
+    private void checkValues() {
+        String name = "";
+        String mobile_number = "";
+        String nid = "";
+        String division = "";
+        String district = "";
+        String upazila = "";
+        String post_office = "";
+        String village = "";
+
+        String flat_no = "";
+        String monthly_rent = "";
+        String service_charge = "";
+        String total_advance = "";
+        String monthly_advance_deduction = "";
+        String contract_start_date = "";
+        String contract_duration = "";
+        String contract_validity = "";
+
+        if (binding.etTenantName.getText().toString().isEmpty()) {
+            binding.etTenantName.setError("দয়া করে ঘরটি পূরণ করুন");
+        } else {
+            name = binding.etTenantName.getText().toString();
+        }
+
+
+        if (binding.etTenantMobile.getText().toString().isEmpty()) {
+            binding.etTenantMobile.setError("দয়া করে ঘরটি পূরণ করুন");
+        } else {
+            mobile_number = binding.etTenantMobile.getText().toString();
+        }
+
+
+        if (binding.etTenantNid.getText().toString().isEmpty()) {
+            binding.etTenantNid.setError("দয়া করে ঘরটি পূরণ করুন");
+        } else {
+            nid = binding.etTenantNid.getText().toString();
+        }
+
+
+        if (this.division.equalsIgnoreCase("বিভাগ সিলেক্ট")) {
+            binding.relativeDivision.setBackgroundColor(ContextCompat.getColor(this, R.color.red_500));
+        } else {
+            division = this.division;
+        }
+
+        Log.d("this.division", "this.division: " + this.division);
+
+
+        if (this.district.equalsIgnoreCase("জেলা সিলেক্ট")) {
+            binding.relativeDistrict.setBackgroundColor(ContextCompat.getColor(this, R.color.red_500));
+        } else {
+            district = this.district;
+        }
+
+        Log.d("this.division", "this.district: " + this.district);
+
+
+        if (this.upazila.equalsIgnoreCase("থানা সিলেক্ট")) {
+            binding.relativeUpazila.setBackgroundColor(ContextCompat.getColor(this, R.color.red_500));
+        } else {
+            upazila = this.upazila;
+        }
+
+
+        if (binding.etPostOffice.getText().toString().isEmpty()) {
+            binding.etPostOffice.setError("দয়া করে ঘরটি পূরণ করুন");
+        } else {
+            post_office = binding.etPostOffice.getText().toString();
+        }
+
+
+        if (binding.etVillage.getText().toString().isEmpty()) {
+            binding.etVillage.setError("দয়া করে ঘরটি পূরণ করুন");
+        } else {
+            village = binding.etVillage.getText().toString();
+        }
+
+
+        if (binding.etFlatNo.getText().toString().isEmpty()) {
+            binding.etFlatNo.setError("দয়া করে ঘরটি পূরণ করুন");
+        } else {
+            flat_no = binding.etFlatNo.getText().toString();
+        }
+
+
+        if (binding.etMonthlyRent.getText().toString().isEmpty()) {
+            binding.etMonthlyRent.setError("দয়া করে ঘরটি পূরণ করুন");
+        } else {
+            monthly_rent = binding.etMonthlyRent.getText().toString();
+        }
+
+
+        if (binding.etServiceCharge.getText().toString().isEmpty()) {
+            binding.etServiceCharge.setError("দয়া করে ঘরটি পূরণ করুন");
+        } else {
+            service_charge = binding.etServiceCharge.getText().toString();
+        }
+
+
+        if (binding.etTotalAdvance.getText().toString().isEmpty()) {
+            binding.etTotalAdvance.setError("দয়া করে ঘরটি পূরণ করুন");
+        } else {
+            total_advance = binding.etTotalAdvance.getText().toString();
+        }
+
+
+        if (binding.etMonthlyAdvanceDeduction.getText().toString().isEmpty()) {
+            binding.etMonthlyAdvanceDeduction.setError("দয়া করে ঘরটি পূরণ করুন");
+        } else {
+            monthly_advance_deduction = binding.etMonthlyAdvanceDeduction.getText().toString();
+        }
+
+
+        if (this.contract_start_date == null || this.contract_start_date.isEmpty()) {
+            binding.linearContractStartDate.setBackgroundColor(ContextCompat.getColor(this, R.color.red_500));
+        } else {
+            contract_start_date = this.contract_start_date;
+        }
+
+
+        if (binding.etContractDuration.getText().toString().isEmpty()) {
+            binding.etContractDuration.setError("দয়া করে ঘরটি পূরণ করুন");
+        } else {
+            contract_duration = binding.etContractDuration.getText().toString();
+        }
+
+
+
+
+        if (name.isEmpty() || mobile_number.isEmpty() || nid.isEmpty() || this.division.equalsIgnoreCase("বিভাগ সিলেক্ট") ||
+                this.district.equalsIgnoreCase("জেলা সিলেক্ট") || this.upazila.equalsIgnoreCase("থানা সিলেক্ট") ||
+                post_office.isEmpty() || village.isEmpty() || flat_no.isEmpty() || monthly_rent.isEmpty() || service_charge.isEmpty() || total_advance.isEmpty() ||
+                monthly_advance_deduction.isEmpty() || contract_start_date.isEmpty() || contract_duration.isEmpty()) {
+
+            Toast.makeText(this, "দয়া করে সবগুলো ঘর পূরণ করুন", Toast.LENGTH_SHORT).show();
+
+        } else {
+
+            Tenant obj1 = new Tenant();
+            obj1.name = name;
+            obj1.phone = mobile_number;
+            obj1.nid = nid;
+            obj1.devision = division;
+            obj1.district = district;
+            obj1.thana = upazila;
+            obj1.post_office = post_office;
+            obj1.area = village;
+
+            Long id = tenantViewModel.insertTenant1(obj1);
+
+
+            Deed obj2 = new Deed();
+            obj2.tenant_id = Integer.parseInt(String.valueOf(id));
+            obj2.flat_id = Integer.parseInt(flat_no);
+            obj2.monthly_rent = Float.parseFloat(monthly_rent);
+            obj2.service_charge = Float.parseFloat(service_charge);
+            obj2.total_advance = Float.parseFloat(total_advance);
+            obj2.monthly_advance_deduction = Float.parseFloat(monthly_advance_deduction);
+            obj2.contract_start_date = contract_start_date;
+            obj2.contract_duration = contract_duration;
+
+            deedViewModel.insertDeed(obj2);
+
+
+
+            Toast.makeText(this, "ভাড়াটিয়া সফলভাবে তৈরি হয়েছে", Toast.LENGTH_SHORT).show();
+            finish();
+
+
+        }
+
+
+
+    }
+
+    private void loadCalender_contract_start_date() {
+
+        binding.tvSelectContractStartDate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Calendar cal = null;
+                if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
+                    cal = Calendar.getInstance();
+                }
+                int year = 0;
+                if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
+                    year = cal.get(Calendar.YEAR);
+                }
+                int month = 0;
+                if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
+                    month = cal.get(Calendar.MONTH);
+                }
+                int day = 0;
+                if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
+                    day = cal.get(Calendar.DAY_OF_MONTH);
+                }
+
+                DatePickerDialog dialog = new DatePickerDialog(
+                        AddTenantActivity.this,
+                        android.R.style.Theme_Holo_Light_Dialog_MinWidth,
+                        mDateSetListener,
+                        year, month, day);
+                dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                dialog.show();
+            }
+        });
+
+
+        mDateSetListener = new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker datePicker, int year, int month, int day) {
+                month = month + 1;
+                Log.d("tag4", "onDateSet: mm/dd/yyy: " + month + "/" + day + "/" + year);
+
+                String date = month + "/" + day + "/" + year;
+                binding.tvContractStartDate.setText(date);
+                contract_start_date = date;
+
+                binding.linearContractStartDate.setBackgroundColor(ContextCompat.getColor(AddTenantActivity.this, R.color.transparent));
+            }
+        };
 
     }
 
@@ -126,6 +387,7 @@ public class AddTenantActivity extends AppCompatActivity {
                     present_division_id = divisionIdMap.get(item);
                     division = item;
 
+                    binding.relativeDivision.setBackground(ContextCompat.getDrawable(AddTenantActivity.this, R.drawable.edit_text_bg_1));
                     spinner_district();
 
                 } else {
@@ -161,6 +423,7 @@ public class AddTenantActivity extends AppCompatActivity {
                     present_district_id = districtIdMap.get(item);
                     district = item;
 
+                    binding.relativeDistrict.setBackground(ContextCompat.getDrawable(AddTenantActivity.this, R.drawable.edit_text_bg_1));
                     spinner_upazila();
 
                 } else {
@@ -194,6 +457,9 @@ public class AddTenantActivity extends AppCompatActivity {
                 if (!item.isEmpty() && item != null) {
                     present_upazila_id = upazilaIdMap.get(item);
                     upazila = item;
+
+                    binding.relativeUpazila.setBackground(ContextCompat.getDrawable(AddTenantActivity.this, R.drawable.edit_text_bg_1));
+
                 } else {
                 }
                 Log.d("tag4", "upazila_id : " + present_upazila_id);
@@ -220,7 +486,6 @@ public class AddTenantActivity extends AppCompatActivity {
         division_list = new ArrayList<String>();
         divisionIdMap = new HashMap<String, String>();
 
-
 //        List<DivisionDistrictThana> div_list = divisionDistrictThanaViewModel.getDivisionList();
 
         //        division_list.add("Select Division");
@@ -241,7 +506,6 @@ public class AddTenantActivity extends AppCompatActivity {
 
 
         });
-
 
 
         dataAdapter = new ArrayAdapter<String>(this, R.layout.simple_spinner_item, division_list);
@@ -282,7 +546,8 @@ public class AddTenantActivity extends AppCompatActivity {
         upazilaIdMap = new HashMap<String, String>();
 
 
-        List<DivisionDistrictThana> upazilas = divisionDistrictThanaViewModel.getThanaList(district);;
+        List<DivisionDistrictThana> upazilas = divisionDistrictThanaViewModel.getThanaList(district);
+        ;
 
 //        upazila_list.add("Select Upazilla");
         upazila_list.add("থানা সিলেক্ট");

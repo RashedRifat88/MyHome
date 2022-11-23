@@ -1,19 +1,31 @@
 package com.egsystembd.myhome.ui.home.house_rent.monthly_rent_prepare;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.lifecycle.ViewModelProviders;
+import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 
 import com.egsystembd.myhome.R;
 import com.egsystembd.myhome.databinding.ActivityMonthlyRentPrepareBinding;
+import com.egsystembd.myhome.model.house_rent.Tenant;
 import com.egsystembd.myhome.ui.home.house_rent.HouseRentActivity;
+import com.egsystembd.myhome.ui.home.house_rent.monthly_rent_prepare.adapter.MonthlyRentPrepareAdapter;
+import com.egsystembd.myhome.view_model.TenantViewModel;
+
+import java.util.List;
 
 public class MonthlyRentPrepareActivity extends AppCompatActivity {
 
     private ActivityMonthlyRentPrepareBinding binding;
+
+    TenantViewModel tenantViewModel;
+    MonthlyRentPrepareAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +35,12 @@ public class MonthlyRentPrepareActivity extends AppCompatActivity {
 
         initStatusBar();
         initComponents();
+
+        tenantViewModel = new ViewModelProvider(this).get(TenantViewModel.class);
+        tenantViewModel.getAllTenant.observe(this, tenantList -> {
+            setAdapter(tenantList);
+//            filteredNoteList = notes;
+        });
     }
 
 
@@ -42,6 +60,7 @@ public class MonthlyRentPrepareActivity extends AppCompatActivity {
 
 
     private void initComponents() {
+
         binding.ivBack.setOnClickListener(v -> {
             finish();
         });
@@ -52,6 +71,14 @@ public class MonthlyRentPrepareActivity extends AppCompatActivity {
         });
 
 
+    }
+
+    private void setAdapter(List<Tenant> tenantList) {
+
+        Log.d("tag666", "note number: " + tenantList.size());
+        binding.recyclerView.setLayoutManager(new StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.VERTICAL));
+        adapter = new MonthlyRentPrepareAdapter(this, tenantList);
+        binding.recyclerView.setAdapter(adapter);
     }
 
 

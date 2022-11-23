@@ -47,7 +47,7 @@
     <string name="district" tools:ignore="MissingTranslation">District</string>
     <string name="thana" tools:ignore="MissingTranslation">Thana</string>
     <string name="post_office" tools:ignore="MissingTranslation">Post Office</string>
-    <string name="village" tools:ignore="MissingTranslation">Village</string>
+    <string name="village" tools:ignore="MissingTranslation">Village/Area</string>
     <string name="add" tools:ignore="MissingTranslation">Add</string>
     <string name="save">Save</string>
 
@@ -56,6 +56,9 @@
     <string name="settings" tools:ignore="MissingTranslation">Settings</string>
 
     <string name="rent_prepare" tools:ignore="MissingTranslation">Rent Prepare</string>
-    <string name="division">বিভাগ</string>
+    <string name="division" tools:ignore="MissingTranslation">বিভাগ</string>
+    <string name="contract_validity">কন্ট্রাক্টের মেয়াদ</string>
+    <string name="contract_duration">কন্ট্রাক্টের স্থায়িত্ব</string>
+    <string name="contract_start_date">কন্ট্রাক্ট কার্যকর যেদিন থেকে</string>
 
 </resources>

@@ -3,6 +3,7 @@ package com.egsystembd.myhome.dao;
 import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Insert;
+import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
 import androidx.room.Update;
 
@@ -22,7 +23,7 @@ public interface RentCollectionDao {
     @Query("select * from table_rent_collection order by id asc")
     LiveData<List<RentCollection>> getRentCollectionLowToHigh();
 
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     void insertRentCollection(RentCollection... RentCollections);
 
     @Query("delete from table_rent_collection where id = :id")

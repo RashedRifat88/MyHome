@@ -3,6 +3,7 @@ package com.egsystembd.myhome.dao;
 import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Insert;
+import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
 import androidx.room.Update;
 
@@ -22,7 +23,7 @@ public interface FlatDao {
     @Query("select * from table_flat order by id asc")
     LiveData<List<Flat>> getFlatLowToHigh();
 
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     void insertFlat(Flat... Flats);
 
     @Query("delete from table_flat where id = :id")

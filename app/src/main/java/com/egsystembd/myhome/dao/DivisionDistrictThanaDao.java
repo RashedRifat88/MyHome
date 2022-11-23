@@ -3,6 +3,7 @@ package com.egsystembd.myhome.dao;
 import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Insert;
+import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
 import androidx.room.Update;
 
@@ -22,7 +23,7 @@ public interface DivisionDistrictThanaDao {
     @Query("select * from table_division_district_thana order by id asc")
     LiveData<List<DivisionDistrictThana>> getDivisionDistrictThanaLowToHigh();
 
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     void insertDivisionDistrictThana(DivisionDistrictThana... DivisionDistrictThanas);
 
     @Query("delete from table_division_district_thana where id = :id")

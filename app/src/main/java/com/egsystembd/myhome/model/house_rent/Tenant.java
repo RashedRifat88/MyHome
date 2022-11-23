@@ -22,11 +22,11 @@ public class Tenant {
     @ColumnInfo(name = "devision")
     public String devision;
 
-    @ColumnInfo(name = "district_id")
-    public int district_id;
+    @ColumnInfo(name = "district")
+    public String district;
 
-    @ColumnInfo(name = "thana_id")
-    public int thana_id;
+    @ColumnInfo(name = "thana")
+    public String thana;
 
     @ColumnInfo(name = "post_office")
     public String post_office;
