@@ -30,6 +30,11 @@ public class LoginActivity extends AppCompatActivity {
         initComponemts();
         initMethods();
 
+        languageManager = new LanguageManager(this);
+        languageManager.updateLocale("bn");
+        saveLanguage("bangla");
+
+
     }
 
     private void initMethods() {

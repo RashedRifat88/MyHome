@@ -27,9 +27,10 @@
     <string name="navigation_drawer_close" tools:ignore="MissingTranslation">Close navigation drawer</string>
     <string name="menu_logout" tools:ignore="MissingTranslation">Log out</string>
 
+
     <string name="monthly_rent_prepare" tools:ignore="MissingTranslation">Monthly Rent Prepare</string>
-    <string name="rent_receive_provide" tools:ignore="MissingTranslation">Rent Receive</string>
-    <string name="total_rent_receive" tools:ignore="MissingTranslation">Total Rent Receive</string>
+    <string name="rent_collect_provide" tools:ignore="MissingTranslation">Rent Collect</string>
+    <string name="total_rent_collect" tools:ignore="MissingTranslation">Total Rent Collect</string>
     <string name="advance_account" tools:ignore="MissingTranslation">Advance</string>
 
     <string name="add_tenant" tools:ignore="MissingTranslation">Add Tenant</string>
@@ -73,5 +74,7 @@
     <string name="common_bill" tools:ignore="MissingTranslation">কমন বিল</string>
     <string name="others" tools:ignore="MissingTranslation">অন্যান্য</string>
     <string name="rent_prepare_edit" tools:ignore="MissingTranslation">ভাড়া তৈরি এডিট</string>
+    <string name="month">মাস</string>
+    <string name="month_select">মাস সিলেক্ট</string>
 
 </resources>

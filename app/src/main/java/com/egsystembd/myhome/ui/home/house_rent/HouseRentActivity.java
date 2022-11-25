@@ -13,6 +13,7 @@ import com.egsystembd.myhome.databinding.ActivityMainBinding;
 import com.egsystembd.myhome.ui.home.house_rent.advance_rent.AdvanceRentActivity;
 import com.egsystembd.myhome.ui.home.house_rent.monthly_rent_prepare.MonthlyRentPrepareActivity;
 import com.egsystembd.myhome.ui.home.house_rent.rent_collection.RentCollectionActivity;
+import com.egsystembd.myhome.ui.home.house_rent.tenant.TenantActivity;
 import com.egsystembd.myhome.ui.home.house_rent.total_rent_collection.TotalRentCollectionActivity;
 
 public class HouseRentActivity extends AppCompatActivity {
@@ -50,6 +51,12 @@ public class HouseRentActivity extends AppCompatActivity {
         binding.ivBack.setOnClickListener(v -> {
             finish();
         });
+
+        binding.cardTenant.setOnClickListener(v -> {
+            Intent intent = new Intent(HouseRentActivity.this, TenantActivity.class);
+            startActivity(intent);
+        });
+
 
         binding.cardHouseRent.setOnClickListener(v -> {
             Intent intent = new Intent(HouseRentActivity.this, MonthlyRentPrepareActivity.class);

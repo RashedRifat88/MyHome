@@ -10,13 +10,11 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.egsystembd.myhome.data.SharedData;
+import com.egsystembd.myhome.databinding.ActivityMainBinding;
 import com.egsystembd.myhome.model.house_rent.DivisionDistrictThana;
 import com.egsystembd.myhome.settings.AppSettingsActivity;
-import com.egsystembd.myhome.ui.home.house_rent.monthly_rent_prepare.AddTenantActivity;
-import com.egsystembd.myhome.utils.LanguageManager;
+import com.egsystembd.myhome.ui.home.house_rent.tenant.AddTenantActivity;
 import com.egsystembd.myhome.view_model.DivisionDistrictThanaViewModel;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -32,7 +30,6 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
-import com.egsystembd.myhome.databinding.ActivityMainBinding;
 import com.google.android.material.navigation.NavigationView;
 
 import org.json.JSONArray;

@@ -8,6 +8,7 @@ import androidx.room.Query;
 import androidx.room.Update;
 
 import com.egsystembd.myhome.model.house_rent.RentCollection;
+import com.egsystembd.myhome.model.house_rent.RentCollection;
 
 import java.util.List;
 
@@ -34,5 +35,8 @@ public interface RentCollectionDao {
 
 //    @Query("SELECT DISTINCT * FROM table_rent_collection WHERE task_type = :type")
 //    LiveData<List<RentCollection>> getTypeWiseTaskList(String type);
+
+    @Query("SELECT * FROM table_rent_collection WHERE deed_id = :id")
+    RentCollection getSpecificRentCollection(int id);
 
 }

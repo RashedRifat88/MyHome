@@ -18,8 +18,11 @@ public class Deed {
     @ColumnInfo(name = "flat_id")
     public int flat_id;
 
-    @ColumnInfo(name = "contract_start")
-    public String contract_start;
+    @ColumnInfo(name = "flat_no")
+    public String flat_no;
+
+//    @ColumnInfo(name = "contract_start")
+//    public String contract_start;
 
     @ColumnInfo(name = "monthly_rent")
     public float monthly_rent;

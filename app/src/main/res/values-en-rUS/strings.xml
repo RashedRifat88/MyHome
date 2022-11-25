@@ -24,8 +24,8 @@
     <string name="menu_logout" >Log out</string>
 
     <string name="monthly_rent_prepare">Monthly Rent Prepare</string>
-    <string name="rent_receive_provide">Rent Receive</string>
-    <string name="total_rent_receive">Total Rent Receive</string>
+    <string name="rent_collect_provide">Rent Collect</string>
+    <string name="total_rent_collect">Total Rent Collect</string>
     <string name="advance_account">Advance</string>
 
     <string name="add_tenant">Add Tenant</string>

@@ -1,4 +1,4 @@
-package com.egsystembd.myhome.ui.home.house_rent.monthly_rent_prepare;
+package com.egsystembd.myhome.ui.home.house_rent.tenant;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
@@ -11,25 +11,27 @@ import android.util.Log;
 import android.view.View;
 
 import com.egsystembd.myhome.R;
-import com.egsystembd.myhome.databinding.ActivityMonthlyRentPrepareBinding;
+import com.egsystembd.myhome.databinding.ActivityTenantBinding;
 import com.egsystembd.myhome.model.house_rent.Tenant;
-import com.egsystembd.myhome.ui.home.house_rent.monthly_rent_prepare.adapter.MonthlyRentPrepareAdapter;
-import com.egsystembd.myhome.ui.home.house_rent.tenant.AddTenantActivity;
+import com.egsystembd.myhome.ui.home.house_rent.monthly_rent_prepare.MonthlyRentPrepareActivity;
+import com.egsystembd.myhome.ui.home.house_rent.tenant.adapter.TenantAdapter;
 import com.egsystembd.myhome.view_model.TenantViewModel;
 
 import java.util.List;
 
-public class MonthlyRentPrepareActivity extends AppCompatActivity {
+public class TenantActivity extends AppCompatActivity {
 
-    private ActivityMonthlyRentPrepareBinding binding;
+
+    private ActivityTenantBinding binding;
 
     TenantViewModel tenantViewModel;
-    MonthlyRentPrepareAdapter adapter;
+    TenantAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding = ActivityMonthlyRentPrepareBinding.inflate(getLayoutInflater());
+//        setContentView(R.layout.activity_tenant);
+        binding = ActivityTenantBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
         initStatusBar();
@@ -65,7 +67,7 @@ public class MonthlyRentPrepareActivity extends AppCompatActivity {
         });
 
         binding.linearAddTenant.setOnClickListener(v -> {
-            Intent intent = new Intent(MonthlyRentPrepareActivity.this, AddTenantActivity.class);
+            Intent intent = new Intent(TenantActivity.this, AddTenantActivity.class);
             startActivity(intent);
         });
 
@@ -76,9 +78,10 @@ public class MonthlyRentPrepareActivity extends AppCompatActivity {
 
         Log.d("tag666", "note number: " + tenantList.size());
         binding.recyclerView.setLayoutManager(new StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.VERTICAL));
-        adapter = new MonthlyRentPrepareAdapter(this, tenantList);
+        adapter = new TenantAdapter(this, tenantList);
         binding.recyclerView.setAdapter(adapter);
     }
+
 
 
 }

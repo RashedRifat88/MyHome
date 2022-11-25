@@ -7,11 +7,9 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.LiveData;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.denzcoskun.imageslider.constants.ScaleTypes;
@@ -19,8 +17,10 @@ import com.denzcoskun.imageslider.models.SlideModel;
 import com.egsystembd.myhome.R;
 import com.egsystembd.myhome.databinding.FragmentHomeBinding;
 import com.egsystembd.myhome.model.house_rent.DivisionDistrictThana;
+import com.egsystembd.myhome.model.house_rent.Months;
 import com.egsystembd.myhome.ui.home.house_rent.HouseRentActivity;
 import com.egsystembd.myhome.view_model.DivisionDistrictThanaViewModel;
+import com.egsystembd.myhome.view_model.MonthsViewModel;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -31,13 +31,13 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
-import java.util.List;
 
 public class HomeFragment extends Fragment {
 
     private FragmentHomeBinding binding;
 
     DivisionDistrictThanaViewModel divisionDistrictThanaViewModel;
+    MonthsViewModel monthsViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -54,6 +54,16 @@ public class HomeFragment extends Fragment {
         divisionDistrictThanaViewModel.getAllDivisionDistrictThana.observe(getActivity(), dataList -> {
             if (dataList.isEmpty()) {
                 loadDivisionData();
+            }
+        });
+
+
+        monthsViewModel = new ViewModelProvider(this).get(MonthsViewModel.class);
+//        monthViewModel.deleteAllMonth();
+
+        monthsViewModel.getAllMonth.observe(getActivity(), dataList -> {
+            if (dataList.isEmpty()) {
+                loadMonthData();
             }
         });
 
@@ -161,6 +171,54 @@ public class HomeFragment extends Fragment {
             }
             JSONObject jsonObject = new JSONObject(stringBuilder.toString());
             return jsonObject.getJSONArray("division_list");
+
+        } catch (IOException | JSONException e) {
+            e.printStackTrace();
+        }
+
+        return null;
+    }
+
+
+
+    private void loadMonthData() {
+
+        JSONArray months = loadJSONArray_month(getActivity());
+
+        try {
+            for (int i = 0; i < months.length(); i++) {
+                JSONObject month = months.getJSONObject(i);
+
+                String month_id = month.getString("id");
+                String month_name = month.getString("name");
+                String month_name_bn = month.getString("bn_name");
+
+                Months obj1 = new Months();
+                obj1.month_id = Integer.parseInt(month_id);
+                obj1.month_name = month_name;
+                obj1.month_name_bn = month_name_bn;
+
+                monthsViewModel.insertMonth(obj1);
+
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    public static JSONArray loadJSONArray_month(Context context) {
+        StringBuilder stringBuilder = new StringBuilder();
+        InputStream inputStream = context.getResources().openRawResource(R.raw.month);
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
+
+        String line;
+        try {
+            while ((line = bufferedReader.readLine()) != null) {
+                stringBuilder.append(line);
+            }
+            JSONObject jsonObject = new JSONObject(stringBuilder.toString());
+            return jsonObject.getJSONArray("month_list");
 
         } catch (IOException | JSONException e) {
             e.printStackTrace();

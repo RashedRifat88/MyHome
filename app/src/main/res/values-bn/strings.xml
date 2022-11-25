@@ -25,8 +25,8 @@
     <string name="menu_logout" >লগ আউট</string>
 
     <string name="monthly_rent_prepare">মাসিক ভাড়া তৈরি</string>
-    <string name="rent_receive_provide">ভাড়া আদায় জমা</string>
-    <string name="total_rent_receive">মোট ভাড়া আদায়/বাকী </string>
+    <string name="rent_collect_provide">ভাড়া আদায় জমা</string>
+    <string name="total_rent_collect">মোট ভাড়া আদায়/বাকী </string>
     <string name="advance_account">এডভান্সের হিসাব</string>
 
     <string name="add_tenant">ভাড়াটিয়া যোগ করুন</string>

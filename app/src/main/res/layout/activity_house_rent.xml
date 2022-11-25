@@ -83,11 +83,11 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="180dp"
+            android:layout_marginTop="80dp"
             >
 
             <LinearLayout
-                android:id="@+id/linearLayout"
+                android:id="@+id/linearLayout1"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
@@ -95,6 +95,65 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
+                tools:ignore="MissingConstraints">
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/card_tenant"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    android:minHeight="130dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginBottom="2dp"
+                    android:layout_weight="1"
+                    app:cardCornerRadius="20dp">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/pink_500"
+                        android:paddingLeft="8dp"
+                        android:paddingRight="8dp">
+
+                        <TextView
+                            android:id="@+id/tv_tenant"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/iv_tenant"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="15dp"
+                            android:layout_marginBottom="5dp"
+                            android:gravity="center"
+                            android:text="@string/tenant"
+                            android:textColor="@color/white"
+                            android:textSize="17sp"
+                            app:fontFamily="@font/roboto_regular" />
+
+                        <ImageView
+                            android:id="@+id/iv_tenant"
+                            android:layout_width="60dp"
+                            android:layout_height="45dp"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="15dp"
+                            app:srcCompat="@drawable/ic_family"
+                            app:tint="@color/white" />
+
+                    </RelativeLayout>
+                </androidx.cardview.widget.CardView>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linearLayout2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout1"
                 tools:ignore="MissingConstraints">
 
                 <androidx.cardview.widget.CardView
@@ -133,7 +192,7 @@
                         <ImageView
                             android:id="@+id/iv_house_rent"
                             android:layout_width="40dp"
-                            android:layout_height="40dp"
+                            android:layout_height="45dp"
                             android:layout_centerHorizontal="true"
                             android:layout_marginTop="15dp"
                             app:srcCompat="@drawable/ic_contract"
@@ -170,15 +229,15 @@
                             android:layout_marginTop="15dp"
                             android:layout_marginBottom="5dp"
                             android:gravity="center"
-                            android:text="@string/rent_receive_provide"
+                            android:text="@string/rent_collect_provide"
                             android:textColor="@color/white"
                             android:textSize="17sp"
                             app:fontFamily="@font/roboto_regular" />
 
                         <ImageView
                             android:id="@+id/iv_daily_expense"
-                            android:layout_width="40dp"
-                            android:layout_height="40dp"
+                            android:layout_width="50dp"
+                            android:layout_height="45dp"
                             android:layout_centerHorizontal="true"
                             android:layout_marginTop="15dp"
                             app:srcCompat="@drawable/ic_bangladesh_cash"
@@ -190,7 +249,7 @@
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/linearLayout2"
+                android:id="@+id/linearLayout3"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
@@ -198,7 +257,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/card_total_rent_collection"
@@ -228,15 +287,15 @@
                             android:layout_marginTop="15dp"
                             android:layout_marginBottom="5dp"
                             android:gravity="center"
-                            android:text="@string/total_rent_receive"
+                            android:text="@string/total_rent_collect"
                             android:textColor="@color/white"
                             android:textSize="17sp"
                             app:fontFamily="@font/roboto_regular" />
 
                         <ImageView
                             android:id="@+id/iv_meters"
-                            android:layout_width="40dp"
-                            android:layout_height="40dp"
+                            android:layout_width="50dp"
+                            android:layout_height="45dp"
                             android:layout_centerHorizontal="true"
                             android:layout_marginTop="15dp"
                             app:srcCompat="@drawable/ic_bangladesh_cash"
@@ -281,7 +340,7 @@
                         <ImageView
                             android:id="@+id/iv_shopping_list"
                             android:layout_width="40dp"
-                            android:layout_height="40dp"
+                            android:layout_height="45dp"
                             android:layout_centerHorizontal="true"
                             android:layout_marginTop="15dp"
                             app:srcCompat="@drawable/ic_money_bag1"

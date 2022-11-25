@@ -8,6 +8,7 @@ import androidx.room.Query;
 import androidx.room.Update;
 
 import com.egsystembd.myhome.model.house_rent.Rent;
+import com.egsystembd.myhome.model.house_rent.Rent;
 
 import java.util.List;
 
@@ -23,8 +24,11 @@ public interface RentDao {
     @Query("select * from table_rent order by id asc")
     LiveData<List<Rent>> getRentLowToHigh();
 
+//    @Insert(onConflict = OnConflictStrategy.REPLACE)
+//    void insertRent(Rent... Rents);
+
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    void insertRent(Rent... Rents);
+    long insertRent1(Rent Rents);
 
     @Query("delete from table_rent where id = :id")
     void deleteRent(int id);
@@ -34,5 +38,8 @@ public interface RentDao {
 
 //    @Query("SELECT DISTINCT * FROM table_rent WHERE task_type = :type")
 //    LiveData<List<Rent>> getTypeWiseTaskList(String type);
+
+//    @Query("SELECT * FROM table_deed WHERE tenant_id = :id")
+//    Rent getSpecificRent(int id);
 
 }

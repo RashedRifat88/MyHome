@@ -1,15 +1,12 @@
-package com.egsystembd.myhome.ui.home.house_rent.monthly_rent_prepare;
+package com.egsystembd.myhome.ui.home.house_rent.tenant;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 import androidx.lifecycle.ViewModelProvider;
-import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
-import android.content.Context;
 import android.graphics.Color;
-import android.graphics.PorterDuff;
 import android.graphics.drawable.ColorDrawable;
 import android.icu.util.Calendar;
 import android.os.Bundle;
@@ -18,14 +15,9 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.DatePicker;
-import android.widget.EditText;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.Spinner;
-import android.widget.TextView;
 import android.widget.Toast;
 
-import com.airbnb.lottie.LottieAnimationView;
 import com.egsystembd.myhome.R;
 import com.egsystembd.myhome.databinding.ActivityAddTenantBinding;
 import com.egsystembd.myhome.model.house_rent.Deed;
@@ -33,24 +25,12 @@ import com.egsystembd.myhome.model.house_rent.DivisionDistrictThana;
 import com.egsystembd.myhome.model.house_rent.Tenant;
 import com.egsystembd.myhome.view_model.DeedViewModel;
 import com.egsystembd.myhome.view_model.DivisionDistrictThanaViewModel;
+import com.egsystembd.myhome.view_model.RentCollectionViewModel;
 import com.egsystembd.myhome.view_model.TenantViewModel;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-
-import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.schedulers.Schedulers;
 
 public class AddTenantActivity extends AppCompatActivity {
 
@@ -101,6 +81,7 @@ public class AddTenantActivity extends AppCompatActivity {
     DivisionDistrictThanaViewModel divisionDistrictThanaViewModel;
     TenantViewModel tenantViewModel;
     DeedViewModel deedViewModel;
+    RentCollectionViewModel rentCollectionViewModel;
     List<DivisionDistrictThana> div_list;
 
     private DatePickerDialog.OnDateSetListener mDateSetListener;
@@ -116,6 +97,7 @@ public class AddTenantActivity extends AppCompatActivity {
         divisionDistrictThanaViewModel = new ViewModelProvider(this).get(DivisionDistrictThanaViewModel.class);
         tenantViewModel = new ViewModelProvider(this).get(TenantViewModel.class);
         deedViewModel = new ViewModelProvider(this).get(DeedViewModel.class);
+        rentCollectionViewModel = new ViewModelProvider(this).get(RentCollectionViewModel.class);
 
         initComponents();
 
@@ -303,16 +285,25 @@ public class AddTenantActivity extends AppCompatActivity {
 
             Deed obj2 = new Deed();
             obj2.tenant_id = Integer.parseInt(String.valueOf(id));
-            obj2.flat_id = Integer.parseInt(flat_no);
+            obj2.flat_no = flat_no;
             obj2.monthly_rent = Float.parseFloat(monthly_rent);
             obj2.service_charge = Float.parseFloat(service_charge);
             obj2.total_advance = Float.parseFloat(total_advance);
-            obj2.monthly_advance_deduction = Float.parseFloat(monthly_advance_deduction);
-            obj2.contract_start_date = contract_start_date;
+            obj2.monthly_advance_deduction = Float.parseFloat(monthly_advance_deduction.toString());
+            obj2.contract_start_date = contract_start_date.toString();
             obj2.contract_duration = contract_duration;
 
             deedViewModel.insertDeed(obj2);
 
+
+//            RentCollection obj3 = new RentCollection();
+//            obj3.tenant_id = Integer.parseInt(String.valueOf(id));
+//            obj3.total_payable_rent = 0;
+//            rentCollectionViewModel.insertRentCollection(obj3);
+
+
+            Log.d("tag4", "monthly_advance_deduction: " + monthly_advance_deduction.toString());
+            Log.d("tag4", "contract_start_date: " + contract_start_date.toString());
 
 
             Toast.makeText(this, "ভাড়াটিয়া সফলভাবে তৈরি হয়েছে", Toast.LENGTH_SHORT).show();
@@ -367,6 +358,7 @@ public class AddTenantActivity extends AppCompatActivity {
                 String date = month + "/" + day + "/" + year;
                 binding.tvContractStartDate.setText(date);
                 contract_start_date = date;
+//                Toast.makeText(AddTenantActivity.this, "contract_start_date:" + contract_start_date, Toast.LENGTH_SHORT).show();
 
                 binding.linearContractStartDate.setBackgroundColor(ContextCompat.getColor(AddTenantActivity.this, R.color.transparent));
             }

@@ -1,7 +1,6 @@
-package com.egsystembd.myhome.ui.home.house_rent.monthly_rent_prepare.adapter;
+package com.egsystembd.myhome.ui.home.house_rent.tenant.adapter;
 
 import android.annotation.SuppressLint;
-import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
@@ -12,59 +11,54 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.PopupMenu;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.lifecycle.ViewModelStoreOwner;
 import androidx.recyclerview.widget.RecyclerView;
 
-
 import com.egsystembd.myhome.R;
 import com.egsystembd.myhome.model.house_rent.Deed;
-import com.egsystembd.myhome.model.house_rent.RentCollection;
 import com.egsystembd.myhome.model.house_rent.Tenant;
 import com.egsystembd.myhome.ui.home.house_rent.monthly_rent_prepare.RentEditActivity;
 import com.egsystembd.myhome.ui.home.house_rent.monthly_rent_prepare.RentPrepareActivity;
 import com.egsystembd.myhome.view_model.DeedViewModel;
 import com.egsystembd.myhome.view_model.RentCollectionViewModel;
-import com.egsystembd.myhome.view_model.TenantViewModel;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class MonthlyRentPrepareAdapter extends RecyclerView.Adapter<MonthlyRentPrepareAdapter.MonthlyRentPrepareViewHolder> {
+public class TenantAdapter extends RecyclerView.Adapter<TenantAdapter.TenantViewHolder> {
 
     List<Tenant> tenants;
-    List<Tenant> matchedMonthlyRentPrepares;
+    List<Tenant> matchedTenants;
     Context context;
     DeedViewModel deedViewModel;
     RentCollectionViewModel rentCollectionViewModel;
 
-    public MonthlyRentPrepareAdapter(Context context, List<Tenant> tenants) {
+    public TenantAdapter(Context context, List<Tenant> tenants) {
         this.context = context;
         this.tenants = tenants;
-        matchedMonthlyRentPrepares = new ArrayList<>(tenants);
+        matchedTenants = new ArrayList<>(tenants);
 
         deedViewModel = new ViewModelProvider((ViewModelStoreOwner) context).get(DeedViewModel.class);
 
     }
 
-    public void searchMonthlyRentPrepare(List<Tenant> filteredMonthlyRentPrepares) {
-        this.tenants = filteredMonthlyRentPrepares;
+    public void searchTenant(List<Tenant> filteredTenants) {
+        this.tenants = filteredTenants;
         notifyDataSetChanged();
     }
 
     @Override
-    public MonthlyRentPrepareViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        return new MonthlyRentPrepareViewHolder(LayoutInflater.from(context).inflate(R.layout.single_item_tenant, parent, false));
+    public TenantViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        return new TenantViewHolder(LayoutInflater.from(context).inflate(R.layout.single_item_tenant, parent, false));
     }
 
     @SuppressLint("SetTextI18n")
     @Override
-    public void onBindViewHolder(MonthlyRentPrepareViewHolder holder, int position) {
+    public void onBindViewHolder(TenantViewHolder holder, int position) {
 
         Tenant tenant = tenants.get(position);
 
@@ -141,7 +135,7 @@ public class MonthlyRentPrepareAdapter extends RecyclerView.Adapter<MonthlyRentP
 //        }
 
 //        holder.itemView.setOnClickListener(v -> {
-//            Intent intent = new Intent(context, UpdateMonthlyRentPrepareActivity.class);
+//            Intent intent = new Intent(context, UpdateTenantActivity.class);
 //            intent.putExtra("note_id", note.id);
 //            intent.putExtra("note_title", note.noteTitle);
 //            intent.putExtra("note_sub_title", note.noteSubTitle);
@@ -165,7 +159,7 @@ public class MonthlyRentPrepareAdapter extends RecyclerView.Adapter<MonthlyRentP
 
 
 //    public void showPopUpMenu(View view, int position) {
-//        final MonthlyRentPrepare note = tenants.get(position);
+//        final Tenant note = tenants.get(position);
 //        PopupMenu popupMenu = new PopupMenu(context, view);
 //
 //        if (note.taskCompletionStatus != null) {
@@ -185,13 +179,13 @@ public class MonthlyRentPrepareAdapter extends RecyclerView.Adapter<MonthlyRentP
 //                    alertDialogBuilder.setTitle(R.string.delete_confirmation).setMessage(R.string.sureToDelete).
 //                            setPositiveButton(R.string.yes, (dialog, which) -> {
 ////                                deleteTaskFromId(note.getTaskId(), position);
-//                                noteViewModel.deleteMonthlyRentPrepare(note.id);
+//                                noteViewModel.deleteTenant(note.id);
 //                            })
 //                            .setNegativeButton(R.string.no, (dialog, which) -> dialog.cancel()).show();
 //                    break;
 //                case R.id.menuUpdate:
 //
-//                    Intent intent = new Intent(context, UpdateMonthlyRentPrepareActivity.class);
+//                    Intent intent = new Intent(context, UpdateTenantActivity.class);
 //                    intent.putExtra("note_id", note.id);
 //                    intent.putExtra("note_title", note.noteTitle);
 //                    intent.putExtra("note_sub_title", note.noteSubTitle);
@@ -231,7 +225,7 @@ public class MonthlyRentPrepareAdapter extends RecyclerView.Adapter<MonthlyRentP
 //
 //            noteViewModel.updateTenant(note1);
 
-            Toast.makeText(context, "MonthlyRentPrepare updated successfully", Toast.LENGTH_SHORT).show();
+            Toast.makeText(context, "Tenant updated successfully", Toast.LENGTH_SHORT).show();
 
             dialog.dismiss();
         });
@@ -240,13 +234,13 @@ public class MonthlyRentPrepareAdapter extends RecyclerView.Adapter<MonthlyRentP
     }
 
 
-    class MonthlyRentPrepareViewHolder extends RecyclerView.ViewHolder {
+    class TenantViewHolder extends RecyclerView.ViewHolder {
 
         TextView tv_name, tv_flat_no, tv_total_rent, tv_total_payable_rent, tv_correction, tv_create_rent;
         View view_note_priority;
         ImageView iv_more, iv_tick;
 
-        public MonthlyRentPrepareViewHolder(View itemView) {
+        public TenantViewHolder(View itemView) {
             super(itemView);
 
             tv_name = itemView.findViewById(R.id.tv_name);

@@ -49,5 +49,7 @@ public class Rent {
     @ColumnInfo(name = "others")
     public float others;
 
+    @ColumnInfo(name = "total_payable_rent")
+    public float total_payable_rent;
 
 }

@@ -1,0 +1,65 @@
+{
+  "month_list": [
+    {
+      "id": 1,
+      "name": "January",
+      "bn_name": "জানুয়ারী"
+    },
+    {
+      "id": 2,
+      "name": "February",
+      "bn_name": "ফেব্রুয়ারী"
+    },
+    {
+      "id": 3,
+      "name": "March",
+      "bn_name": "মার্চ"
+    },
+    {
+      "id": 4,
+      "name": "April",
+      "bn_name": "এপ্রিল"
+    },
+    {
+      "id": 5,
+      "name": "May",
+      "bn_name": "মে"
+    },
+    {
+      "id": 6,
+      "name": "June",
+      "bn_name": "জুন"
+    },
+    {
+      "id": 7,
+      "name": "July",
+      "bn_name": "জুলাই"
+    },
+    {
+      "id": 8,
+      "name": "August",
+      "bn_name": "অগাস্ট"
+    },
+    {
+      "id": 9,
+      "name": "September",
+      "bn_name": "সেপ্টেম্বর"
+    },
+    {
+      "id": 10,
+      "name": "October",
+      "bn_name": "অক্টোবর"
+    },
+    {
+      "id": 11,
+      "name": "November",
+      "bn_name": "নভেম্বর"
+    },
+    {
+      "id": 12,
+      "name": "December",
+      "bn_name": "ডিসেম্বর"
+    }
+  ]
+}
+

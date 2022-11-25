@@ -4,17 +4,11 @@ import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
-@Entity(tableName = "table_rent_collection")
-public class RentCollection {
+@Entity(tableName = "table_rent_history")
+public class RentHistory {
 
     @PrimaryKey(autoGenerate = true)
     public int id;
-
-    @ColumnInfo(name = "rent_id")
-    public int rent_id;
-
-//    @ColumnInfo(name = "paid_amount")
-//    public int paid_amount;
 
     @ColumnInfo(name = "tenant_id")
     public int tenant_id;
@@ -25,8 +19,8 @@ public class RentCollection {
     @ColumnInfo(name = "year")
     public int year;
 
-    @ColumnInfo(name = "month_id")
-    public int month_id;
+    @ColumnInfo(name = "month")
+    public String month;
 
     @ColumnInfo(name = "total_payable_rent")
     public float total_payable_rent;
@@ -36,12 +30,5 @@ public class RentCollection {
 
     @ColumnInfo(name = "remaining_amount")
     public float remaining_amount;
-
-    @ColumnInfo(name = "created_at")
-    public String created_at;
-
-    @ColumnInfo(name = "updated_at")
-    public String updated_at;
-
 
 }

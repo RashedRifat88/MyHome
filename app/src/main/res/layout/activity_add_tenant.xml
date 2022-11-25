@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.home.house_rent.monthly_rent_prepare.AddTenantActivity">
+    tools:context=".ui.home.house_rent.tenant.AddTenantActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -658,6 +658,20 @@
                                 android:paddingBottom="3dp"
                                 android:lines="1"
                                 android:text="@string/contract_duration"
+                                android:textColor="#6E7FAA"
+                                android:textSize="15sp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="right"
+                                android:layout_marginRight="4dp"
+                                android:fontFamily="@font/roboto_regular"
+                                android:gravity="left"
+                                android:paddingTop="3dp"
+                                android:paddingBottom="3dp"
+                                android:lines="1"
+                                android:text="(মাস)"
                                 android:textColor="#6E7FAA"
                                 android:textSize="15sp" />
 
