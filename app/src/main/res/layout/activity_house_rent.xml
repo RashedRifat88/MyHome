@@ -112,7 +112,7 @@
                     <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="@color/pink_500"
+                        android:background="@color/deep_orange_A700"
                         android:paddingLeft="8dp"
                         android:paddingRight="8dp">
 
@@ -135,7 +135,7 @@
                             android:layout_width="60dp"
                             android:layout_height="45dp"
                             android:layout_centerHorizontal="true"
-                            android:layout_marginTop="15dp"
+                            android:layout_marginTop="20dp"
                             app:srcCompat="@drawable/ic_family"
                             app:tint="@color/white" />
 
@@ -194,7 +194,7 @@
                             android:layout_width="40dp"
                             android:layout_height="45dp"
                             android:layout_centerHorizontal="true"
-                            android:layout_marginTop="15dp"
+                            android:layout_marginTop="20dp"
                             app:srcCompat="@drawable/ic_contract"
                             app:tint="@color/white" />
 
@@ -239,7 +239,7 @@
                             android:layout_width="50dp"
                             android:layout_height="45dp"
                             android:layout_centerHorizontal="true"
-                            android:layout_marginTop="15dp"
+                            android:layout_marginTop="17dp"
                             app:srcCompat="@drawable/ic_bangladesh_cash"
                             app:tint="@color/white" />
 
@@ -274,7 +274,7 @@
                     <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="@color/lime_A700"
+                        android:background="@color/indigo_700"
                         android:paddingLeft="8dp"
                         android:paddingRight="8dp">
 
@@ -297,7 +297,7 @@
                             android:layout_width="50dp"
                             android:layout_height="45dp"
                             android:layout_centerHorizontal="true"
-                            android:layout_marginTop="15dp"
+                            android:layout_marginTop="17dp"
                             app:srcCompat="@drawable/ic_bangladesh_cash"
                             app:tint="@color/white" />
 
@@ -342,7 +342,7 @@
                             android:layout_width="40dp"
                             android:layout_height="45dp"
                             android:layout_centerHorizontal="true"
-                            android:layout_marginTop="15dp"
+                            android:layout_marginTop="20dp"
                             app:srcCompat="@drawable/ic_money_bag1"
                             app:tint="@color/white" />
 

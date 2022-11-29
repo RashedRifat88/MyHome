@@ -23,6 +23,8 @@ import com.egsystembd.myhome.model.house_rent.Deed;
 import com.egsystembd.myhome.model.house_rent.Tenant;
 import com.egsystembd.myhome.ui.home.house_rent.monthly_rent_prepare.RentEditActivity;
 import com.egsystembd.myhome.ui.home.house_rent.monthly_rent_prepare.RentPrepareActivity;
+import com.egsystembd.myhome.ui.home.house_rent.tenant.TenantDetailsActivity;
+import com.egsystembd.myhome.ui.home.house_rent.tenant.TenantEditActivity;
 import com.egsystembd.myhome.view_model.DeedViewModel;
 import com.egsystembd.myhome.view_model.RentCollectionViewModel;
 
@@ -53,7 +55,7 @@ public class TenantAdapter extends RecyclerView.Adapter<TenantAdapter.TenantView
 
     @Override
     public TenantViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        return new TenantViewHolder(LayoutInflater.from(context).inflate(R.layout.single_item_tenant, parent, false));
+        return new TenantViewHolder(LayoutInflater.from(context).inflate(R.layout.single_item_tenant2, parent, false));
     }
 
     @SuppressLint("SetTextI18n")
@@ -101,27 +103,32 @@ public class TenantAdapter extends RecyclerView.Adapter<TenantAdapter.TenantView
 //        Log.d("tag666", "rentCollection: " + rentCollection.total_payable_rent);
 
         holder.tv_name.setText(tenant.name);
-        holder.tv_flat_no.setText("ফ্ল্যাট নংঃ   " + deed.flat_no);
-        holder.tv_total_rent.setText("মোট ভারাঃ   " + deed.monthly_rent);
-        holder.tv_total_payable_rent.setText("মোট প্রদেয় ভারাঃ   " + "তৈরি করা হয়নি");
+//        holder.tv_flat_no.setText("ফ্ল্যাট নংঃ   " + deed.flat_no);
+//        holder.tv_total_rent.setText("মোট ভারাঃ   " + deed.monthly_rent);
 
-        if (holder.tv_total_payable_rent.getText().toString().equalsIgnoreCase("মোট প্রদেয় ভারাঃ   " + "তৈরি করা হয়নি")){
-            holder.tv_create_rent.setVisibility(View.VISIBLE);
-            holder.tv_correction.setVisibility(View.GONE);
-        }else {
-            holder.tv_correction.setVisibility(View.VISIBLE);
-            holder.tv_create_rent.setVisibility(View.GONE);
 
-        }
+//        holder.tv_total_payable_rent.setText("মোট প্রদেয় ভারাঃ   " + "তৈরি করা হয়নি");
 
-        holder.tv_create_rent.setOnClickListener(v -> {
-           Intent intent = new Intent(context, RentPrepareActivity.class);
+//        if (holder.tv_total_payable_rent.getText().toString().equalsIgnoreCase("মোট প্রদেয় ভারাঃ   " + "তৈরি করা হয়নি")){
+//            holder.tv_details.setVisibility(View.VISIBLE);
+//            holder.tv_edit.setVisibility(View.GONE);
+//        }else {
+//            holder.tv_edit.setVisibility(View.VISIBLE);
+//            holder.tv_details.setVisibility(View.GONE);
+//
+//        }
+
+//        holder.tv_details.setVisibility(View.VISIBLE);
+//        holder.tv_edit.setVisibility(View.VISIBLE);
+
+        holder.tv_details.setOnClickListener(v -> {
+           Intent intent = new Intent(context, TenantDetailsActivity.class);
            intent.putExtra("tenant_id", id1);
            context.startActivity(intent);
         });
 
-        holder.tv_correction.setOnClickListener(v -> {
-            Intent intent2 = new Intent(context, RentEditActivity.class);
+        holder.tv_edit.setOnClickListener(v -> {
+            Intent intent2 = new Intent(context, TenantEditActivity.class);
             intent2.putExtra("tenant_id", id1);
             context.startActivity(intent2);
         });
@@ -236,7 +243,7 @@ public class TenantAdapter extends RecyclerView.Adapter<TenantAdapter.TenantView
 
     class TenantViewHolder extends RecyclerView.ViewHolder {
 
-        TextView tv_name, tv_flat_no, tv_total_rent, tv_total_payable_rent, tv_correction, tv_create_rent;
+        TextView tv_name, tv_flat_no, tv_total_rent, tv_total_payable_rent, tv_edit, tv_details;
         View view_note_priority;
         ImageView iv_more, iv_tick;
 
@@ -247,9 +254,9 @@ public class TenantAdapter extends RecyclerView.Adapter<TenantAdapter.TenantView
             tv_flat_no = itemView.findViewById(R.id.tv_flat_no);
             tv_total_rent = itemView.findViewById(R.id.tv_total_rent);
             tv_total_payable_rent = itemView.findViewById(R.id.tv_total_payable_rent);
-            tv_correction = itemView.findViewById(R.id.tv_correction);
-            tv_create_rent = itemView.findViewById(R.id.tv_create_rent);
-            tv_create_rent = itemView.findViewById(R.id.tv_create_rent);
+            tv_edit = itemView.findViewById(R.id.tv_edit);
+            tv_details = itemView.findViewById(R.id.tv_details);
+//            tv_details = itemView.findViewById(R.id.tv_details);
 
 
             iv_more = itemView.findViewById(R.id.iv_more);

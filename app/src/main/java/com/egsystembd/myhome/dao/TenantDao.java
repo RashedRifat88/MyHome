@@ -55,5 +55,8 @@ public interface TenantDao {
 //    @Query("SELECT id FROM table_tenant WHERE Tenant = :tenant")
 //    int getTenantId(Tenant tenant);
 
+    @Query("SELECT * FROM table_tenant WHERE id = :id")
+    Tenant getTenantById(int id);
+
 
 }

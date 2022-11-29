@@ -70,5 +70,10 @@ public class TenantRepository {
 //        return TenantDao.getTenantId(tenant);
 //    }
 
+    public Tenant getTenantById(int id) {
+        return TenantDao.getTenantById(id);
+    }
+
+
 
 }

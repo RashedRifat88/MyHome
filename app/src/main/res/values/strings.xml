@@ -74,7 +74,12 @@
     <string name="common_bill" tools:ignore="MissingTranslation">কমন বিল</string>
     <string name="others" tools:ignore="MissingTranslation">অন্যান্য</string>
     <string name="rent_prepare_edit" tools:ignore="MissingTranslation">ভাড়া তৈরি এডিট</string>
-    <string name="month">মাস</string>
-    <string name="month_select">মাস সিলেক্ট</string>
+    <string name="month" tools:ignore="MissingTranslation">মাস</string>
+    <string name="month_select" tools:ignore="MissingTranslation">মাস সিলেক্ট</string>
+    <string name="tenant_all" tools:ignore="MissingTranslation">সকল ভাড়াটিয়া</string>
+    <string name="details" tools:ignore="MissingTranslation">বিস্তারিত</string>
+    <string name="edit" tools:ignore="MissingTranslation">সংশোধন</string>
+    <string name="edit_tenant" tools:ignore="MissingTranslation">ভাড়াটিয়া তথ্য সংশোধন</string>
+    <string name="tenant_details">ভাড়াটিয়ার বিস্তারিত তথ্য</string>
 
 </resources>

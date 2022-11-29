@@ -41,4 +41,8 @@ public interface DeedDao {
     @Query("SELECT * FROM table_deed WHERE tenant_id = :id")
     Deed getSpecificDeed(int id);
 
+    @Query("SELECT * FROM table_deed WHERE tenant_id = :id")
+    Deed getDeedByTenantId(int id);
+
+
 }

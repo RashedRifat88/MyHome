@@ -6,6 +6,7 @@ import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 
 import com.egsystembd.myhome.model.house_rent.Deed;
+import com.egsystembd.myhome.model.house_rent.Tenant;
 import com.egsystembd.myhome.repository.DeedRepository;
 
 import java.util.List;
@@ -63,6 +64,11 @@ public class DeedViewModel extends AndroidViewModel {
     public Deed getSpecificDeed(int id) {
         return repository.getSpecificDeed(id);
     }
+
+    public Deed getDeedByTenantId(int id) {
+        return repository.getDeedByTenantId(id);
+    }
+
 
 
 

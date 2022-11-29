@@ -65,6 +65,10 @@ public class TenantViewModel extends AndroidViewModel {
 //        return repository.getTenantId(tenant);
 //    }
 
+    public Tenant getTenantById(int id) {
+        return repository.getTenantById(id);
+    }
+
 
 
 }

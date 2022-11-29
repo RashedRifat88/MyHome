@@ -70,5 +70,10 @@ public class DeedRepository {
         return DeedDao.getSpecificDeed(id);
     }
 
+    public Deed getDeedByTenantId(int id) {
+        return DeedDao.getDeedByTenantId(id);
+    }
+
+
 
 }
