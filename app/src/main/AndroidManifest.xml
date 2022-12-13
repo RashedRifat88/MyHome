@@ -22,9 +22,37 @@
         android:theme="@style/Theme.MyHome"
         tools:targetApi="31">
         <activity
-            android:name=".ui.home.house_rent.tenant.TenantEditActivity"
-            android:windowSoftInputMode="adjustResize"
+            android:name=".ui.home.daily_expense.DailyExpenseDetailsActivity"
             android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".ui.home.daily_expense.AddDailyExpenseActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".ui.home.daily_expense.EditDailyExpenseActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".ui.home.daily_expense.DailyExpenseActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".ui.home.house_rent.tenant.TenantEditActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
@@ -45,8 +73,8 @@
         </activity>
         <activity
             android:name=".ui.home.house_rent.monthly_rent_prepare.RentEditActivity"
-            android:windowSoftInputMode="adjustResize"
-            android:exported="false">
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
@@ -77,12 +105,12 @@
             android:exported="false" />
         <activity
             android:name=".ui.home.house_rent.monthly_rent_prepare.RentPrepareActivity"
-            android:windowSoftInputMode="adjustResize"
-            android:exported="false" />
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".ui.home.house_rent.tenant.AddTenantActivity"
-            android:windowSoftInputMode="adjustResize"
-            android:exported="false" />
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".ui.home.house_rent.monthly_rent_prepare.MonthlyRentPrepareActivity"
             android:exported="false" />
@@ -91,15 +119,15 @@
             android:exported="false" />
         <activity
             android:name=".credential.RegistrationActivity"
-            android:windowSoftInputMode="adjustResize"
-            android:exported="false" />
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".SplashActivity"
             android:exported="true" />
         <activity
             android:name=".credential.LoginActivity"
-            android:windowSoftInputMode="adjustResize"
-            android:exported="true" />
+            android:exported="true"
+            android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".MainActivity"
             android:exported="true"

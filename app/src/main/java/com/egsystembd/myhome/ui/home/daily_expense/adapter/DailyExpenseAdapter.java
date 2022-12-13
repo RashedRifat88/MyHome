@@ -1,7 +1,6 @@
-package com.egsystembd.myhome.ui.home.house_rent.monthly_rent_prepare.adapter;
+package com.egsystembd.myhome.ui.home.daily_expense.adapter;
 
 import android.annotation.SuppressLint;
-import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
@@ -12,61 +11,55 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.PopupMenu;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.lifecycle.ViewModelStoreOwner;
 import androidx.recyclerview.widget.RecyclerView;
 
-
 import com.egsystembd.myhome.R;
+import com.egsystembd.myhome.model.daily_expense.Expense;
 import com.egsystembd.myhome.model.house_rent.Deed;
-import com.egsystembd.myhome.model.house_rent.RentCollection;
-import com.egsystembd.myhome.model.house_rent.Tenant;
-import com.egsystembd.myhome.ui.home.house_rent.monthly_rent_prepare.RentEditActivity;
-import com.egsystembd.myhome.ui.home.house_rent.monthly_rent_prepare.RentPrepareActivity;
+
 import com.egsystembd.myhome.view_model.DeedViewModel;
 import com.egsystembd.myhome.view_model.RentCollectionViewModel;
-import com.egsystembd.myhome.view_model.TenantViewModel;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class MonthlyRentPrepareAdapter extends RecyclerView.Adapter<MonthlyRentPrepareAdapter.MonthlyRentPrepareViewHolder> {
+public class DailyExpenseAdapter extends RecyclerView.Adapter<DailyExpenseAdapter.DailyExpenseViewHolder> {
 
-    List<Tenant> tenants;
-    List<Tenant> matchedMonthlyRentPrepares;
+    List<Expense> expenses;
+    List<Expense> matchedExpenses;
     Context context;
     DeedViewModel deedViewModel;
     RentCollectionViewModel rentCollectionViewModel;
 
-    public MonthlyRentPrepareAdapter(Context context, List<Tenant> tenants) {
+    public DailyExpenseAdapter(Context context, List<Expense> expenses) {
         this.context = context;
-        this.tenants = tenants;
-        matchedMonthlyRentPrepares = new ArrayList<>(tenants);
+        this.expenses = expenses;
+        matchedExpenses = new ArrayList<>(expenses);
 
         deedViewModel = new ViewModelProvider((ViewModelStoreOwner) context).get(DeedViewModel.class);
 
     }
 
-    public void searchMonthlyRentPrepare(List<Tenant> filteredMonthlyRentPrepares) {
-        this.tenants = filteredMonthlyRentPrepares;
+    public void searchExpense(List<Expense> filteredExpenses) {
+        this.expenses = filteredExpenses;
         notifyDataSetChanged();
     }
 
     @Override
-    public MonthlyRentPrepareViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        return new MonthlyRentPrepareViewHolder(LayoutInflater.from(context).inflate(R.layout.single_item_tenant, parent, false));
+    public DailyExpenseViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        return new DailyExpenseViewHolder(LayoutInflater.from(context).inflate(R.layout.single_item_expense, parent, false));
     }
 
     @SuppressLint("SetTextI18n")
     @Override
-    public void onBindViewHolder(MonthlyRentPrepareViewHolder holder, int position) {
+    public void onBindViewHolder(DailyExpenseViewHolder holder, int position) {
 
-        Tenant tenant = tenants.get(position);
+        Expense expense = expenses.get(position);
 
 //        switch (note.notePriority) {
 //            case "1":
@@ -91,7 +84,7 @@ public class MonthlyRentPrepareAdapter extends RecyclerView.Adapter<MonthlyRentP
 //
 //        }
 
-        int id = tenant.id;
+        int id = expense.id;
         String id1 = String.valueOf(id);
         Deed deed = deedViewModel.getSpecificDeed(id);
 
@@ -103,35 +96,22 @@ public class MonthlyRentPrepareAdapter extends RecyclerView.Adapter<MonthlyRentP
 //        });
 
 
-
 //        Log.d("tag666", "rentCollection: " + rentCollection.total_payable_rent);
 
-        holder.tv_name.setText(tenant.name);
-        holder.tv_flat_no.setText("ফ্ল্যাট নংঃ   " + deed.flat_no);
-        holder.tv_total_rent.setText("মোট ভাড়া ঃ   " + deed.monthly_rent);
-        holder.tv_total_payable_rent.setText("মোট প্রদেয় ভাড়া ঃ   " + "তৈরি করা হয়নি");
+        holder.tv_name.setText(expense.expense_name);
 
-        if (holder.tv_total_payable_rent.getText().toString().equalsIgnoreCase("মোট প্রদেয় ভাড়া ঃ   " + "তৈরি করা হয়নি")){
-            holder.tv_create_rent.setVisibility(View.VISIBLE);
-            holder.tv_correction.setVisibility(View.GONE);
-        }else {
-            holder.tv_correction.setVisibility(View.VISIBLE);
-            holder.tv_create_rent.setVisibility(View.GONE);
 
-        }
-
-        holder.tv_create_rent.setOnClickListener(v -> {
-           Intent intent = new Intent(context, RentPrepareActivity.class);
-           intent.putExtra("tenant_id", id1);
-           context.startActivity(intent);
-        });
-
-        holder.tv_correction.setOnClickListener(v -> {
-            Intent intent2 = new Intent(context, RentEditActivity.class);
-            intent2.putExtra("tenant_id", id1);
-            context.startActivity(intent2);
-        });
-
+//        holder.tv_details.setOnClickListener(v -> {
+//            Intent intent = new Intent(context, ExpenseDetailsActivity.class);
+//            intent.putExtra("expense_id", id1);
+//            context.startActivity(intent);
+//        });
+//
+//        holder.tv_edit.setOnClickListener(v -> {
+//            Intent intent2 = new Intent(context, ExpenseEditActivity.class);
+//            intent2.putExtra("expense_id", id1);
+//            context.startActivity(intent2);
+//        });
 
 
 //        if (note.taskType != null) {
@@ -141,7 +121,7 @@ public class MonthlyRentPrepareAdapter extends RecyclerView.Adapter<MonthlyRentP
 //        }
 
 //        holder.itemView.setOnClickListener(v -> {
-//            Intent intent = new Intent(context, UpdateMonthlyRentPrepareActivity.class);
+//            Intent intent = new Intent(context, UpdateExpenseActivity.class);
 //            intent.putExtra("note_id", note.id);
 //            intent.putExtra("note_title", note.noteTitle);
 //            intent.putExtra("note_sub_title", note.noteSubTitle);
@@ -159,13 +139,13 @@ public class MonthlyRentPrepareAdapter extends RecyclerView.Adapter<MonthlyRentP
 
     @Override
     public int getItemCount() {
-        Log.d("tag666", "note number in adapter: " + tenants.size());
-        return tenants.size();
+        Log.d("tag666", "note number in adapter: " + expenses.size());
+        return expenses.size();
     }
 
 
 //    public void showPopUpMenu(View view, int position) {
-//        final MonthlyRentPrepare note = tenants.get(position);
+//        final Expense note = expenses.get(position);
 //        PopupMenu popupMenu = new PopupMenu(context, view);
 //
 //        if (note.taskCompletionStatus != null) {
@@ -185,13 +165,13 @@ public class MonthlyRentPrepareAdapter extends RecyclerView.Adapter<MonthlyRentP
 //                    alertDialogBuilder.setTitle(R.string.delete_confirmation).setMessage(R.string.sureToDelete).
 //                            setPositiveButton(R.string.yes, (dialog, which) -> {
 ////                                deleteTaskFromId(note.getTaskId(), position);
-//                                noteViewModel.deleteMonthlyRentPrepare(note.id);
+//                                noteViewModel.deleteExpense(note.id);
 //                            })
 //                            .setNegativeButton(R.string.no, (dialog, which) -> dialog.cancel()).show();
 //                    break;
 //                case R.id.menuUpdate:
 //
-//                    Intent intent = new Intent(context, UpdateMonthlyRentPrepareActivity.class);
+//                    Intent intent = new Intent(context, UpdateExpenseActivity.class);
 //                    intent.putExtra("note_id", note.id);
 //                    intent.putExtra("note_title", note.noteTitle);
 //                    intent.putExtra("note_sub_title", note.noteSubTitle);
@@ -220,7 +200,7 @@ public class MonthlyRentPrepareAdapter extends RecyclerView.Adapter<MonthlyRentP
         Button close = dialog.findViewById(R.id.closeButton);
         close.setOnClickListener(view -> {
 
-//            Tenant note1 = new Tenant();
+//            Expense note1 = new Expense();
 //            note1.id = id;
 //            note1.noteTitle = noteTitle;
 //            note1.noteSubTitle = noteSubTitle;
@@ -229,9 +209,9 @@ public class MonthlyRentPrepareAdapter extends RecyclerView.Adapter<MonthlyRentP
 //            note1.noteDetails = noteDetails;
 //            note1.taskCompletionStatus = "Complete";
 //
-//            noteViewModel.updateTenant(note1);
+//            noteViewModel.updateExpense(note1);
 
-            Toast.makeText(context, "MonthlyRentPrepare updated successfully", Toast.LENGTH_SHORT).show();
+            Toast.makeText(context, "Expense updated successfully", Toast.LENGTH_SHORT).show();
 
             dialog.dismiss();
         });
@@ -240,22 +220,22 @@ public class MonthlyRentPrepareAdapter extends RecyclerView.Adapter<MonthlyRentP
     }
 
 
-    class MonthlyRentPrepareViewHolder extends RecyclerView.ViewHolder {
+    class DailyExpenseViewHolder extends RecyclerView.ViewHolder {
 
-        TextView tv_name, tv_flat_no, tv_total_rent, tv_total_payable_rent, tv_correction, tv_create_rent;
+        TextView tv_name, tv_flat_no, tv_total_rent, tv_total_payable_rent, tv_edit, tv_details;
         View view_note_priority;
         ImageView iv_more, iv_tick;
 
-        public MonthlyRentPrepareViewHolder(View itemView) {
+        public DailyExpenseViewHolder(View itemView) {
             super(itemView);
 
             tv_name = itemView.findViewById(R.id.tv_name);
             tv_flat_no = itemView.findViewById(R.id.tv_flat_no);
             tv_total_rent = itemView.findViewById(R.id.tv_total_rent);
             tv_total_payable_rent = itemView.findViewById(R.id.tv_total_payable_rent);
-            tv_correction = itemView.findViewById(R.id.tv_correction);
-            tv_create_rent = itemView.findViewById(R.id.tv_create_rent);
-            tv_create_rent = itemView.findViewById(R.id.tv_create_rent);
+            tv_edit = itemView.findViewById(R.id.tv_edit);
+            tv_details = itemView.findViewById(R.id.tv_details);
+//            tv_details = itemView.findViewById(R.id.tv_details);
 
 
             iv_more = itemView.findViewById(R.id.iv_more);

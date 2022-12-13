@@ -225,6 +225,7 @@
 
 
                         <androidx.cardview.widget.CardView
+                            android:id="@+id/card_daily_expense"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:layout_marginLeft="7dp"
@@ -315,6 +316,7 @@
                         android:padding="5dp">
 
                         <androidx.cardview.widget.CardView
+                            android:id="@+id/card_loan"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:layout_marginLeft="7dp"
@@ -356,6 +358,7 @@
                         </androidx.cardview.widget.CardView>
 
                         <androidx.cardview.widget.CardView
+                            android:id="@+id/card_meter"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:layout_marginLeft="7dp"
@@ -408,6 +411,7 @@
                         android:padding="5dp">
 
                         <androidx.cardview.widget.CardView
+                            android:id="@+id/card_shopping_list"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:layout_marginLeft="10dp"
@@ -450,6 +454,7 @@
                         </androidx.cardview.widget.CardView>
 
                         <androidx.cardview.widget.CardView
+                            android:id="@+id/card_monthly_budget"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:layout_marginLeft="10dp"
@@ -549,6 +554,7 @@
                         </androidx.cardview.widget.CardView>
 
                         <androidx.cardview.widget.CardView
+                            android:id="@+id/card_maintenance"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:layout_marginLeft="7dp"
@@ -603,6 +609,7 @@
                         app:layout_constraintStart_toStartOf="parent">
 
                         <androidx.cardview.widget.CardView
+                            android:id="@+id/card_construction"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:layout_marginLeft="10dp"

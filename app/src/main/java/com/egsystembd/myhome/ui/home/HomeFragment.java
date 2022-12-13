@@ -18,6 +18,7 @@ import com.egsystembd.myhome.R;
 import com.egsystembd.myhome.databinding.FragmentHomeBinding;
 import com.egsystembd.myhome.model.house_rent.DivisionDistrictThana;
 import com.egsystembd.myhome.model.house_rent.Months;
+import com.egsystembd.myhome.ui.home.daily_expense.DailyExpenseActivity;
 import com.egsystembd.myhome.ui.home.house_rent.HouseRentActivity;
 import com.egsystembd.myhome.ui.home.house_rent.tenant.TenantActivity;
 import com.egsystembd.myhome.view_model.DivisionDistrictThanaViewModel;
@@ -80,6 +81,11 @@ public class HomeFragment extends Fragment {
 
         binding.cardTenantInfo.setOnClickListener(v -> {
             Intent intent = new Intent(getActivity(), TenantActivity.class);
+            getActivity().startActivity(intent);
+        });
+
+        binding.cardDailyExpense.setOnClickListener(v -> {
+            Intent intent = new Intent(getActivity(), DailyExpenseActivity.class);
             getActivity().startActivity(intent);
         });
 

@@ -80,6 +80,11 @@
     <string name="details" tools:ignore="MissingTranslation">বিস্তারিত</string>
     <string name="edit" tools:ignore="MissingTranslation">সংশোধন</string>
     <string name="edit_tenant" tools:ignore="MissingTranslation">ভাড়াটিয়া তথ্য সংশোধন</string>
-    <string name="tenant_details">ভাড়াটিয়ার বিস্তারিত তথ্য</string>
+    <string name="tenant_details" tools:ignore="MissingTranslation">ভাড়াটিয়ার বিস্তারিত তথ্য</string>
+    <string name="date" tools:ignore="MissingTranslation">তারিখ</string>
+    <string name="amount" tools:ignore="MissingTranslation">টাকার পরিমাণ</string>
+    <string name="expense_type" tools:ignore="MissingTranslation">ব্যয়ের খাত </string>
+    <string name="year" tools:ignore="MissingTranslation">বছর</string>
+    <string name="add_expense" tools:ignore="MissingTranslation">নতুন ব্যয় যুক্ত করুন</string>
 
 </resources>

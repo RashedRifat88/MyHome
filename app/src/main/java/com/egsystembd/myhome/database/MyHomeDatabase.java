@@ -15,6 +15,10 @@ import com.egsystembd.myhome.dao.MonthsDao;
 import com.egsystembd.myhome.dao.RentCollectionDao;
 import com.egsystembd.myhome.dao.RentDao;
 import com.egsystembd.myhome.dao.TenantDao;
+import com.egsystembd.myhome.dao.daily_expense.ExpenseDao;
+import com.egsystembd.myhome.dao.daily_expense.ExpenseTypeDao;
+import com.egsystembd.myhome.model.daily_expense.Expense;
+import com.egsystembd.myhome.model.daily_expense.ExpenseType;
 import com.egsystembd.myhome.model.house_rent.Building;
 import com.egsystembd.myhome.model.house_rent.Deed;
 import com.egsystembd.myhome.model.house_rent.DivisionDistrictThana;
@@ -25,34 +29,47 @@ import com.egsystembd.myhome.model.house_rent.RentCollection;
 import com.egsystembd.myhome.model.house_rent.Tenant;
 
 
-@Database(entities = {DivisionDistrictThana.class, Months.class, Building.class, Deed.class, Flat.class, Rent.class, RentCollection.class, Tenant.class}, version = 1, exportSchema = false)
+@Database(entities = {DivisionDistrictThana.class, Months.class, Building.class, Deed.class, Flat.class, Rent.class, RentCollection.class,
+        Tenant.class, Expense.class, ExpenseType.class}, version = 2, exportSchema = false)
 public abstract class MyHomeDatabase extends RoomDatabase {
 
     public abstract DivisionDistrictThanaDao divisionDistrictThanaDao();
+
     public abstract MonthsDao MonthsDao();
+
     public abstract BuildingDao BuildingDao();
+
     public abstract DeedDao DeedDao();
+
     public abstract FlatDao FlatDao();
+
     public abstract RentDao RentDao();
+
     public abstract RentCollectionDao RentCollectionDao();
+
     public abstract TenantDao TenantDao();
+
+    public abstract ExpenseDao ExpenseDao();
+
+    public abstract ExpenseTypeDao ExpenseTypeDao();
 
 
     public static MyHomeDatabase INSTANCE;
 
-    public static MyHomeDatabase getDatabaseInstance(Context context){
+    public static MyHomeDatabase getDatabaseInstance(Context context) {
 
         Log.d("tag4567", "getDatabaseInstance accessed");
 
-        if(INSTANCE == null){
-            INSTANCE = Room.databaseBuilder(context.getApplicationContext(), MyHomeDatabase.class, "my_home_database").allowMainThreadQueries().build();
+        if (INSTANCE == null) {
+            INSTANCE = Room.databaseBuilder(context.getApplicationContext(), MyHomeDatabase.class, "my_home_database").allowMainThreadQueries()
+                    .build();
+//            INSTANCE = Room.databaseBuilder(context.getApplicationContext(), MyHomeDatabase.class, "my_home_database").allowMainThreadQueries()
+//                    .fallbackToDestructiveMigration().build();
             Log.d("tag4567", "database created");
         }
 
         return INSTANCE;
     }
-
-
 
 
 }
