@@ -30,7 +30,7 @@ import com.egsystembd.myhome.model.house_rent.Tenant;
 
 
 @Database(entities = {DivisionDistrictThana.class, Months.class, Building.class, Deed.class, Flat.class, Rent.class, RentCollection.class,
-        Tenant.class, Expense.class, ExpenseType.class}, version = 2, exportSchema = false)
+        Tenant.class, Expense.class, ExpenseType.class}, version = 3, exportSchema = false)
 public abstract class MyHomeDatabase extends RoomDatabase {
 
     public abstract DivisionDistrictThanaDao divisionDistrictThanaDao();

@@ -41,8 +41,11 @@ public interface ExpenseDao {
 //    @Query("SELECT * FROM table_expense WHERE tenant_id = :id")
 //    Expense getSpecificExpense(int id);
 
-//    @Query("SELECT * FROM table_expense WHERE tenant_id = :id")
-//    Expense getExpenseByTenantId(int id);
+    @Query("SELECT * FROM table_expense WHERE id = :id")
+    Expense getExpenseById(int id);
+
+    @Query("SELECT * FROM table_expense WHERE month = :month AND year = :year")
+    LiveData<List<Expense>> getExpenseListByMonthAndYear(String month, String year);
 
 
 }

@@ -100,7 +100,7 @@
                 <LinearLayout
                     android:id="@+id/linear_add_expense"
                     android:layout_width="match_parent"
-                    android:layout_height="45dp"
+                    android:layout_height="40dp"
                     android:layout_gravity="center"
                     android:layout_marginLeft="50dp"
                     android:layout_marginTop="8dp"
@@ -206,31 +206,31 @@
                                 android:layout_height="wrap_content"
                                 android:orientation="horizontal">
 
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_gravity="center"
-                                    android:layout_marginLeft="4dp"
-                                    android:fontFamily="@font/roboto_medium"
-                                    android:gravity="left"
-                                    android:paddingTop="3dp"
-                                    android:paddingBottom="3dp"
-                                    android:text="@string/month"
-                                    android:textColor="#031E4C"
-                                    android:textSize="17sp" />
+<!--                                <TextView-->
+<!--                                    android:layout_width="wrap_content"-->
+<!--                                    android:layout_height="wrap_content"-->
+<!--                                    android:layout_gravity="center"-->
+<!--                                    android:layout_marginLeft="4dp"-->
+<!--                                    android:fontFamily="@font/roboto_medium"-->
+<!--                                    android:gravity="left"-->
+<!--                                    android:paddingTop="3dp"-->
+<!--                                    android:paddingBottom="3dp"-->
+<!--                                    android:text="@string/month"-->
+<!--                                    android:textColor="#031E4C"-->
+<!--                                    android:textSize="17sp" />-->
 
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_gravity="center"
-                                    android:layout_marginLeft="4dp"
-                                    android:fontFamily="@font/roboto_medium"
-                                    android:gravity="left"
-                                    android:paddingTop="3dp"
-                                    android:paddingBottom="3dp"
-                                    android:text=" : "
-                                    android:textColor="#646B77"
-                                    android:textSize="18sp" />
+<!--                                <TextView-->
+<!--                                    android:layout_width="wrap_content"-->
+<!--                                    android:layout_height="wrap_content"-->
+<!--                                    android:layout_gravity="center"-->
+<!--                                    android:layout_marginLeft="4dp"-->
+<!--                                    android:fontFamily="@font/roboto_medium"-->
+<!--                                    android:gravity="left"-->
+<!--                                    android:paddingTop="3dp"-->
+<!--                                    android:paddingBottom="3dp"-->
+<!--                                    android:text=" : "-->
+<!--                                    android:textColor="#646B77"-->
+<!--                                    android:textSize="18sp" />-->
 
                                 <TextView
                                     android:id="@+id/tv_month"
@@ -262,31 +262,31 @@
                                 android:layout_marginRight="10dp"
                                 android:orientation="horizontal">
 
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_gravity="center"
-                                    android:layout_marginLeft="0dp"
-                                    android:fontFamily="@font/roboto_medium"
-                                    android:gravity="left"
-                                    android:paddingTop="3dp"
-                                    android:paddingBottom="3dp"
-                                    android:text="@string/year"
-                                    android:textColor="#031E4C"
-                                    android:textSize="17sp" />
+<!--                                <TextView-->
+<!--                                    android:layout_width="wrap_content"-->
+<!--                                    android:layout_height="wrap_content"-->
+<!--                                    android:layout_gravity="center"-->
+<!--                                    android:layout_marginLeft="0dp"-->
+<!--                                    android:fontFamily="@font/roboto_medium"-->
+<!--                                    android:gravity="left"-->
+<!--                                    android:paddingTop="3dp"-->
+<!--                                    android:paddingBottom="3dp"-->
+<!--                                    android:text="@string/year"-->
+<!--                                    android:textColor="#031E4C"-->
+<!--                                    android:textSize="17sp" />-->
 
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_gravity="center"
-                                    android:layout_marginLeft="4dp"
-                                    android:fontFamily="@font/roboto_medium"
-                                    android:gravity="left"
-                                    android:paddingTop="3dp"
-                                    android:paddingBottom="3dp"
-                                    android:text=" : "
-                                    android:textColor="#646B77"
-                                    android:textSize="17sp" />
+<!--                                <TextView-->
+<!--                                    android:layout_width="wrap_content"-->
+<!--                                    android:layout_height="wrap_content"-->
+<!--                                    android:layout_gravity="center"-->
+<!--                                    android:layout_marginLeft="4dp"-->
+<!--                                    android:fontFamily="@font/roboto_medium"-->
+<!--                                    android:gravity="left"-->
+<!--                                    android:paddingTop="3dp"-->
+<!--                                    android:paddingBottom="3dp"-->
+<!--                                    android:text=" : "-->
+<!--                                    android:textColor="#646B77"-->
+<!--                                    android:textSize="17sp" />-->
 
                                 <TextView
                                     android:id="@+id/tv_year"

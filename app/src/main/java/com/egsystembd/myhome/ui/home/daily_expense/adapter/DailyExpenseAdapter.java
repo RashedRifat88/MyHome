@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -22,6 +23,8 @@ import com.egsystembd.myhome.R;
 import com.egsystembd.myhome.model.daily_expense.Expense;
 import com.egsystembd.myhome.model.house_rent.Deed;
 
+import com.egsystembd.myhome.ui.home.daily_expense.DailyExpenseDetailsActivity;
+import com.egsystembd.myhome.ui.home.daily_expense.EditDailyExpenseActivity;
 import com.egsystembd.myhome.view_model.DeedViewModel;
 import com.egsystembd.myhome.view_model.RentCollectionViewModel;
 
@@ -35,6 +38,8 @@ public class DailyExpenseAdapter extends RecyclerView.Adapter<DailyExpenseAdapte
     Context context;
     DeedViewModel deedViewModel;
     RentCollectionViewModel rentCollectionViewModel;
+    String date1 = "";
+    String date2 = "";
 
     public DailyExpenseAdapter(Context context, List<Expense> expenses) {
         this.context = context;
@@ -98,20 +103,50 @@ public class DailyExpenseAdapter extends RecyclerView.Adapter<DailyExpenseAdapte
 
 //        Log.d("tag666", "rentCollection: " + rentCollection.total_payable_rent);
 
-        holder.tv_name.setText(expense.expense_name);
+        int sl = position + 1;
+
+        if (sl == 1) {
+            date1 = expense.date;
+        }else {
+            date2 = expense.date;
+        }
+
+        if (sl == 1) {
+            holder.relative_date.setVisibility(View.VISIBLE);
+        } else {
+            if (date1.equalsIgnoreCase(date2)) {
+                holder.relative_date.setVisibility(View.GONE);
+            } else {
+                holder.relative_date.setVisibility(View.VISIBLE);
+                date1 = date2;
+            }
+        }
 
 
-//        holder.tv_details.setOnClickListener(v -> {
-//            Intent intent = new Intent(context, ExpenseDetailsActivity.class);
-//            intent.putExtra("expense_id", id1);
-//            context.startActivity(intent);
-//        });
-//
-//        holder.tv_edit.setOnClickListener(v -> {
-//            Intent intent2 = new Intent(context, ExpenseEditActivity.class);
-//            intent2.putExtra("expense_id", id1);
-//            context.startActivity(intent2);
-//        });
+        Log.d("tag666", "date1: " + date1);
+        Log.d("tag666", "date2: " + date2);
+
+        holder.tv_sl.setText(String.valueOf(sl));
+        holder.tv_date.setText(expense.date);
+        holder.tv_amount.setText(String.valueOf("\u09F3 " + expense.amount));
+        holder.tv_expense_type.setText(expense.expense_name);
+
+
+        holder.tv_date2.setText(expense.date);
+        holder.tv_date_total.setText(expense.expense_name);
+
+
+        holder.tv_details.setOnClickListener(v -> {
+            Intent intent = new Intent(context, DailyExpenseDetailsActivity.class);
+            intent.putExtra("expense_id", id1);
+            context.startActivity(intent);
+        });
+
+        holder.tv_edit.setOnClickListener(v -> {
+            Intent intent2 = new Intent(context, EditDailyExpenseActivity.class);
+            intent2.putExtra("expense_id", id1);
+            context.startActivity(intent2);
+        });
 
 
 //        if (note.taskType != null) {
@@ -131,9 +166,9 @@ public class DailyExpenseAdapter extends RecyclerView.Adapter<DailyExpenseAdapte
 //            context.startActivity(intent);
 //        });
 
-        holder.iv_more.setOnClickListener(v -> {
-//            showPopUpMenu(v, position);
-        });
+//        holder.iv_more.setOnClickListener(v -> {
+////            showPopUpMenu(v, position);
+//        });
 
     }
 
@@ -222,17 +257,21 @@ public class DailyExpenseAdapter extends RecyclerView.Adapter<DailyExpenseAdapte
 
     class DailyExpenseViewHolder extends RecyclerView.ViewHolder {
 
-        TextView tv_name, tv_flat_no, tv_total_rent, tv_total_payable_rent, tv_edit, tv_details;
+        TextView tv_sl, tv_date, tv_amount, tv_expense_type, tv_edit, tv_details, tv_date2, tv_date_total;
         View view_note_priority;
         ImageView iv_more, iv_tick;
+        RelativeLayout relative_date;
 
         public DailyExpenseViewHolder(View itemView) {
             super(itemView);
 
-            tv_name = itemView.findViewById(R.id.tv_name);
-            tv_flat_no = itemView.findViewById(R.id.tv_flat_no);
-            tv_total_rent = itemView.findViewById(R.id.tv_total_rent);
-            tv_total_payable_rent = itemView.findViewById(R.id.tv_total_payable_rent);
+            tv_sl = itemView.findViewById(R.id.tv_sl);
+            tv_date = itemView.findViewById(R.id.tv_date);
+            tv_amount = itemView.findViewById(R.id.tv_amount);
+            tv_expense_type = itemView.findViewById(R.id.tv_expense_type);
+            tv_date2 = itemView.findViewById(R.id.tv_date2);
+            tv_date_total = itemView.findViewById(R.id.tv_date_total);
+
             tv_edit = itemView.findViewById(R.id.tv_edit);
             tv_details = itemView.findViewById(R.id.tv_details);
 //            tv_details = itemView.findViewById(R.id.tv_details);
@@ -240,6 +279,7 @@ public class DailyExpenseAdapter extends RecyclerView.Adapter<DailyExpenseAdapte
 
             iv_more = itemView.findViewById(R.id.iv_more);
 
+            relative_date = itemView.findViewById(R.id.relative_date);
 
         }
     }

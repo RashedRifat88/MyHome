@@ -72,10 +72,14 @@ public class ExpenseRepository {
 //        return ExpenseDao.getSpecificExpense(id);
 //    }
 //
-//    public Expense getExpenseByTenantId(int id) {
-//        return ExpenseDao.getExpenseByTenantId(id);
-//    }
-//
+    public Expense getExpenseById(int id) {
+        return ExpenseDao.getExpenseById(id);
+    }
+
+    public LiveData<List<Expense>> getExpenseListByMonthAndYear(String month, String year) {
+        return ExpenseDao.getExpenseListByMonthAndYear(month, year);
+    }
+
 
 
 }

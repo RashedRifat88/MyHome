@@ -16,6 +16,12 @@ public class Expense {
     @ColumnInfo(name = "date")
     public String date;
 
+    @ColumnInfo(name = "month")
+    public String month;
+
+    @ColumnInfo(name = "year")
+    public String year;
+
     @ColumnInfo(name = "expense_name")
     public String expense_name;
 

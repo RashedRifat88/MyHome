@@ -47,6 +47,8 @@ public class AddDailyExpenseActivity extends AppCompatActivity {
     String expense_type = "";
     String present_expense_type_id = "";
     String selectedDate = "";
+    String selectedMonth = "";
+    String selectedYear = "";
 
 
     ArrayAdapter<String> dataAdapter;
@@ -109,6 +111,12 @@ public class AddDailyExpenseActivity extends AppCompatActivity {
         SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
         selectedDate = df.format(c);
 
+        SimpleDateFormat df2 = new SimpleDateFormat("MM", Locale.getDefault());
+        selectedMonth = df2.format(c);
+
+        SimpleDateFormat df3 = new SimpleDateFormat("yyyy", Locale.getDefault());
+        selectedYear = df3.format(c);
+
         binding.tvDate.setText(selectedDate);
     }
 
@@ -154,6 +162,8 @@ public class AddDailyExpenseActivity extends AppCompatActivity {
                 String date = day + "/" + month + "/" + year;
                 binding.tvDate.setText(date);
                 selectedDate = date;
+                selectedMonth = String.valueOf(month);
+                selectedYear = String.valueOf(year);
 //                Toast.makeText(AddDailyExpenseActivity.this, "contract_start_date:" + contract_start_date, Toast.LENGTH_SHORT).show();
 
                 binding.linearDate.setBackgroundColor(ContextCompat.getColor(AddDailyExpenseActivity.this, R.color.transparent));
@@ -192,6 +202,8 @@ public class AddDailyExpenseActivity extends AppCompatActivity {
 
             Expense obj1 = new Expense();
             obj1.date = selectedDate;
+            obj1.month = selectedMonth;
+            obj1.year = selectedYear;
             obj1.expense_name = expense_type;
             obj1.amount = amount;
 

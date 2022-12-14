@@ -25,14 +25,12 @@ import com.egsystembd.myhome.model.daily_expense.Expense;
 import com.egsystembd.myhome.ui.home.daily_expense.adapter.DailyExpenseAdapter;
 import com.egsystembd.myhome.view_model.daily_expense.ExpenseViewModel;
 
-
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
 public class DailyExpenseActivity extends AppCompatActivity {
-
 
     private ActivityDailyExpenseBinding binding;
     private DatePickerDialog.OnDateSetListener mDateSetListener;
@@ -54,8 +52,12 @@ public class DailyExpenseActivity extends AppCompatActivity {
         initComponents();
 
         expenseViewModel = new ViewModelProvider(this).get(ExpenseViewModel.class);
-        expenseViewModel.getAllExpense.observe(this, tenantList -> {
-            setAdapter(tenantList);
+//        expenseViewModel.getAllExpense.observe(this, expenseList -> {
+//            setAdapter(expenseList);
+////            filteredNoteList = notes;
+//        });
+        expenseViewModel.getHighToLowExpense.observe(this, expenseList -> {
+            setAdapter(expenseList);
 //            filteredNoteList = notes;
         });
 
@@ -128,8 +130,10 @@ public class DailyExpenseActivity extends AppCompatActivity {
 
                 binding.tvMonth.setText(monthName);
                 binding.tvYear.setText(String.valueOf(year));
-//                    contract_start_date = date;
 
+                expenseViewModel.getExpenseListByMonthAndYear(String.valueOf(month), String.valueOf(year)).observe(DailyExpenseActivity.this, expenseList -> {
+                    setAdapter(expenseList);
+                });
             }
         };
 
@@ -211,11 +215,11 @@ public class DailyExpenseActivity extends AppCompatActivity {
 
     }
 
-    private void setAdapter(List<Expense> tenantList) {
+    private void setAdapter(List<Expense> expenseList) {
 
-        Log.d("tag666", "note number: " + tenantList.size());
+        Log.d("tag666", "note number: " + expenseList.size());
         binding.recyclerView.setLayoutManager(new StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.VERTICAL));
-        adapter = new DailyExpenseAdapter(this, tenantList);
+        adapter = new DailyExpenseAdapter(this, expenseList);
         binding.recyclerView.setAdapter(adapter);
     }
 

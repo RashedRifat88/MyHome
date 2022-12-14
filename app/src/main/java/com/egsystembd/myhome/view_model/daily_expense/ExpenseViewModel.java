@@ -19,6 +19,7 @@ public class ExpenseViewModel extends AndroidViewModel {
     public LiveData<List<Expense>> getLowToHighExpense;
     public LiveData<List<Expense>> getHighToLowExpense;
 
+
     public ExpenseViewModel(Application application) {
         super(application);
 
@@ -27,6 +28,7 @@ public class ExpenseViewModel extends AndroidViewModel {
 
         getHighToLowExpense = repository.getHighToLowExpense;
         getLowToHighExpense = repository.getLowToHighExpense;
+
     }
 
     public void insertExpense(Expense notes) {
@@ -61,15 +63,17 @@ public class ExpenseViewModel extends AndroidViewModel {
 //        return repository.getTypeWiseTaskList(type);
 //    }
 
-//    public Expense getSpecificExpense(int id) {
+    //    public Expense getSpecificExpense(int id) {
 //        return repository.getSpecificExpense(id);
 //    }
 //
-//    public Expense getExpenseByTenantId(int id) {
-//        return repository.getExpenseByTenantId(id);
-//    }
+    public Expense getExpenseById(int id) {
+        return repository.getExpenseById(id);
+    }
 
-
+    public LiveData<List<Expense>> getExpenseListByMonthAndYear(String month, String year) {
+        return repository.getExpenseListByMonthAndYear(month, year);
+    }
 
 
 }
