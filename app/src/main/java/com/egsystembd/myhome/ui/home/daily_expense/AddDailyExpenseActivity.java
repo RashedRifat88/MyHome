@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModelProvider;
 
 import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.icu.util.Calendar;
@@ -22,6 +23,7 @@ import com.egsystembd.myhome.R;
 import com.egsystembd.myhome.databinding.ActivityAddDailyExpenseBinding;
 import com.egsystembd.myhome.databinding.ActivityAddTenantBinding;
 import com.egsystembd.myhome.model.daily_expense.Expense;
+import com.egsystembd.myhome.model.daily_expense.ExpenseType;
 import com.egsystembd.myhome.model.house_rent.Deed;
 import com.egsystembd.myhome.model.house_rent.DivisionDistrictThana;
 import com.egsystembd.myhome.model.house_rent.Tenant;
@@ -29,6 +31,7 @@ import com.egsystembd.myhome.view_model.DeedViewModel;
 import com.egsystembd.myhome.view_model.DivisionDistrictThanaViewModel;
 import com.egsystembd.myhome.view_model.RentCollectionViewModel;
 import com.egsystembd.myhome.view_model.TenantViewModel;
+import com.egsystembd.myhome.view_model.daily_expense.ExpenseTypeViewModel;
 import com.egsystembd.myhome.view_model.daily_expense.ExpenseViewModel;
 
 import java.text.SimpleDateFormat;
@@ -58,8 +61,9 @@ public class AddDailyExpenseActivity extends AppCompatActivity {
     HashMap<String, String> expense_typeIdMap;
 
 
+    ExpenseTypeViewModel expenseTypeViewModel;
     ExpenseViewModel expenseViewModel;
-    List<DivisionDistrictThana> div_list;
+    List<ExpenseType> type_list = new ArrayList<>();
 
     private DatePickerDialog.OnDateSetListener mDateSetListener;
 
@@ -72,6 +76,12 @@ public class AddDailyExpenseActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
 
         expenseViewModel = new ViewModelProvider(this).get(ExpenseViewModel.class);
+
+        expenseTypeViewModel = new ViewModelProvider(this).get(ExpenseTypeViewModel.class);
+
+//        expenseTypeViewModel.getAllExpenseType.observe(this, expenseTypes -> {
+//
+//        });
 
         initComponents();
 
@@ -99,7 +109,16 @@ public class AddDailyExpenseActivity extends AppCompatActivity {
             addNewExpense();
         });
 
+        binding.linearAddExpenseType.setOnClickListener(v -> {
+            addNewExpenseType();
+        });
 
+
+    }
+
+    private void addNewExpenseType() {
+        Intent intent = new Intent(AddDailyExpenseActivity.this, AddExpenseTypeActivity.class);
+        startActivity(intent);
     }
 
     private void defaultMonthYearSet() {
@@ -173,7 +192,6 @@ public class AddDailyExpenseActivity extends AppCompatActivity {
     }
 
 
-
     private void addNewExpense() {
         checkValues();
     }
@@ -217,7 +235,6 @@ public class AddDailyExpenseActivity extends AppCompatActivity {
         }
 
 
-
     }
 
 
@@ -255,7 +272,6 @@ public class AddDailyExpenseActivity extends AppCompatActivity {
     }
 
 
-
     @SuppressLint("CheckResult")
     public void getDivisionData() {
 
@@ -264,31 +280,33 @@ public class AddDailyExpenseActivity extends AppCompatActivity {
 
         expense_type_list.add("ব্যয়ের খাত সিলেক্ট");
 
-        expense_type_list.add("বাসা ভাড়া");
-        expense_type_list.add("বাজার");
-        expense_type_list.add("জামা কাপড়");
-        expense_type_list.add("উপহার");
-        expense_type_list.add("কাজের লোকের বেতন");
-        expense_type_list.add("ড্রাইভার বেতন");
-        expense_type_list.add("গার্ড বেতন");
-        expense_type_list.add("স্কুলের বেতন");
-        expense_type_list.add("টিউটর ফী");
-        expense_type_list.add("মেডিকেল");
-        expense_type_list.add("ঔষধ");
-        expense_type_list.add("সম্পদ");
-        expense_type_list.add("অনুদান");
+//        expense_type_list.add("বাসা ভাড়া");
+//        expense_type_list.add("বাজার");
+//        expense_type_list.add("জামা কাপড়");
+//        expense_type_list.add("উপহার");
+//        expense_type_list.add("কাজের লোকের বেতন");
+//        expense_type_list.add("ড্রাইভার বেতন");
+//        expense_type_list.add("গার্ড বেতন");
+//        expense_type_list.add("স্কুলের বেতন");
+//        expense_type_list.add("টিউটর ফী");
+//        expense_type_list.add("মেডিকেল");
+//        expense_type_list.add("ঔষধ");
+//        expense_type_list.add("সম্পদ");
+//        expense_type_list.add("অনুদান");
 
 
-//        expenseViewModel.getDivisionList().observe(this, dataList -> {
-//            Log.d("tag4", "dataList: " + dataList);
-//            div_list = dataList;
-//
-//            for (DivisionDistrictThana expense_type : div_list) {
-//                expense_type_list.add(expense_type.expense_type_bn);
-//                expense_typeIdMap.put(expense_type.expense_type_bn, expense_type.expense_type);
-//            }
-//
-//        });
+        expenseTypeViewModel.getAllExpenseType.observe(this, expenseTypes -> {
+            Log.d("tag4", "expenseTypes: " + expenseTypes);
+            expense_type_list.clear();
+
+            type_list = expenseTypes;
+
+            for (ExpenseType expense_type : type_list) {
+                expense_type_list.add(expense_type.name);
+                expense_typeIdMap.put(String.valueOf(expense_type.id), expense_type.name);
+            }
+
+        });
 
 
         dataAdapter = new ArrayAdapter<String>(this, R.layout.simple_spinner_item, expense_type_list);
@@ -296,7 +314,6 @@ public class AddDailyExpenseActivity extends AppCompatActivity {
         spinner_expense_type.setAdapter(dataAdapter);
 
     }
-
 
 
 }

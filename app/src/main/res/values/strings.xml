@@ -86,6 +86,9 @@
     <string name="expense_type" tools:ignore="MissingTranslation">ব্যয়ের খাত </string>
     <string name="year" tools:ignore="MissingTranslation">বছর</string>
     <string name="add_expense" tools:ignore="MissingTranslation">নতুন ব্যয় যুক্ত করুন</string>
-    <string name="edit_expense">এডিট করুন</string>
+    <string name="add_expense_type" tools:ignore="MissingTranslation">নতুন ব্যয়ের খাত যুক্ত করুন</string>
+    <string name="edit_expense" tools:ignore="MissingTranslation">এডিট করুন</string>
+    <string name="create_new" tools:ignore="MissingTranslation">+ নতুন একটি তৈরি করুন</string>
+    <string name="previous_types" tools:ignore="MissingTranslation">পূর্ববর্তীগুলো</string>
 
 </resources>

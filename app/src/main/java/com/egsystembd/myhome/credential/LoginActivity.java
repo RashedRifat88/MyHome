@@ -26,9 +26,13 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        languageManager = new LanguageManager(this);
+        languageManager.updateLocale("bn");
+        saveLanguage("bangla");
+
         initStatusBar();
         initComponemts();
-        initMethods();
+//        initMethods();
 
         languageManager = new LanguageManager(this);
         languageManager.updateLocale("bn");
