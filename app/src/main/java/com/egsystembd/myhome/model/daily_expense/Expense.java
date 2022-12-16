@@ -26,7 +26,7 @@ public class Expense {
     public String expense_name;
 
     @ColumnInfo(name = "amount")
-    public String amount;
+    public Double amount;
 
 
 }

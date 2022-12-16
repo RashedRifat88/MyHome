@@ -91,6 +91,7 @@ tools:context=".ui.home.daily_expense.AddDailyExpenseActivity">
             android:orientation="vertical">
 
             <LinearLayout
+                android:visibility="gone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -447,7 +448,7 @@ tools:context=".ui.home.daily_expense.AddDailyExpenseActivity">
 
                             <ImageView
                                 android:layout_width="25dp"
-                                android:layout_height="20dp"
+                                android:layout_height="25dp"
                                 android:layout_alignParentRight="true"
                                 android:layout_centerVertical="true"
                                 android:layout_gravity="right"
@@ -461,6 +462,18 @@ tools:context=".ui.home.daily_expense.AddDailyExpenseActivity">
                 </LinearLayout>
 
 
+                <TextView
+                    android:id="@+id/tv_add_expense_type"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:fontFamily="@font/roboto_medium"
+                    android:gravity="right"
+                    android:padding="6dp"
+                    android:text="@string/add_expense_type"
+                    android:textColor="@color/green_700"
+                    android:textSize="15sp"
+                    app:tint="@color/green_600" />
 
 
             </LinearLayout>

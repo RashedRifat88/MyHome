@@ -47,5 +47,8 @@ public interface ExpenseDao {
     @Query("SELECT * FROM table_expense WHERE month = :month AND year = :year")
     LiveData<List<Expense>> getExpenseListByMonthAndYear(String month, String year);
 
+    @Query("SELECT SUM(amount) FROM table_expense WHERE month = :month AND year = :year")
+    double getTotalExpenseByMonthAndYear(String month, String year);
+
 
 }

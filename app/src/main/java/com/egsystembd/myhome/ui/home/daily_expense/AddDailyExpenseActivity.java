@@ -109,7 +109,7 @@ public class AddDailyExpenseActivity extends AppCompatActivity {
             addNewExpense();
         });
 
-        binding.linearAddExpenseType.setOnClickListener(v -> {
+        binding.tvAddExpenseType.setOnClickListener(v -> {
             addNewExpenseType();
         });
 
@@ -223,7 +223,7 @@ public class AddDailyExpenseActivity extends AppCompatActivity {
             obj1.month = selectedMonth;
             obj1.year = selectedYear;
             obj1.expense_name = expense_type;
-            obj1.amount = amount;
+            obj1.amount = Double.valueOf(amount);
 
             expenseViewModel.insertExpense(obj1);
 
@@ -240,12 +240,13 @@ public class AddDailyExpenseActivity extends AppCompatActivity {
 
     private void spinner_expense_type() {
 
-        getDivisionData();
+        getTypeData();
 
         spinner_expense_type.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View arg1, int position, long arg3) {
                 String item = parent.getItemAtPosition(position).toString();
+                Log.d("tag4", "item : " + item);
                 if (!item.isEmpty() && item != null) {
                     present_expense_type_id = expense_typeIdMap.get(item);
                     expense_type = item;
@@ -253,6 +254,7 @@ public class AddDailyExpenseActivity extends AppCompatActivity {
                     binding.relativeExpenseType.setBackground(ContextCompat.getDrawable(AddDailyExpenseActivity.this, R.drawable.edit_text_bg_1));
 
                 } else {
+
                 }
                 Log.d("tag4", "expense_type_id : " + present_expense_type_id);
 
@@ -273,12 +275,12 @@ public class AddDailyExpenseActivity extends AppCompatActivity {
 
 
     @SuppressLint("CheckResult")
-    public void getDivisionData() {
+    public void getTypeData() {
 
         expense_type_list = new ArrayList<String>();
         expense_typeIdMap = new HashMap<String, String>();
 
-        expense_type_list.add("ব্যয়ের খাত সিলেক্ট");
+
 
 //        expense_type_list.add("বাসা ভাড়া");
 //        expense_type_list.add("বাজার");
@@ -298,6 +300,9 @@ public class AddDailyExpenseActivity extends AppCompatActivity {
         expenseTypeViewModel.getAllExpenseType.observe(this, expenseTypes -> {
             Log.d("tag4", "expenseTypes: " + expenseTypes);
             expense_type_list.clear();
+            expense_type_list.add("ব্যয়ের খাত সিলেক্ট");
+
+            Log.d("tag4", "expense_type_list1: " + expense_type_list);
 
             type_list = expenseTypes;
 
@@ -305,6 +310,8 @@ public class AddDailyExpenseActivity extends AppCompatActivity {
                 expense_type_list.add(expense_type.name);
                 expense_typeIdMap.put(String.valueOf(expense_type.id), expense_type.name);
             }
+
+            Log.d("tag4", "expense_type_list2: " + expense_type_list);
 
         });
 

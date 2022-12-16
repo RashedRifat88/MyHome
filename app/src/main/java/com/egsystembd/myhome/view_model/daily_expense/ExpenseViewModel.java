@@ -75,5 +75,9 @@ public class ExpenseViewModel extends AndroidViewModel {
         return repository.getExpenseListByMonthAndYear(month, year);
     }
 
+    public double getTotalExpenseByMonthAndYear(String month, String year) {
+        return repository.getTotalExpenseByMonthAndYear(month, year);
+    }
+
 
 }

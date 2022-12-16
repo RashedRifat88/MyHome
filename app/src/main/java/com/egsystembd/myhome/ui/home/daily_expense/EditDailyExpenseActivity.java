@@ -86,7 +86,7 @@ public class EditDailyExpenseActivity extends AppCompatActivity {
     }
 
     private void setPreviousData() {
-        String amount = expense.amount;
+        String amount = String.valueOf(expense.amount);
         String date = expense.date;
         String month = expense.month;
         String year = expense.year;
@@ -220,7 +220,7 @@ public class EditDailyExpenseActivity extends AppCompatActivity {
             obj1.month = selectedMonth;
             obj1.year = selectedYear;
             obj1.expense_name = expense_type;
-            obj1.amount = amount;
+            obj1.amount = Double.valueOf(amount);
 
             expenseViewModel.updateExpense(obj1);
 

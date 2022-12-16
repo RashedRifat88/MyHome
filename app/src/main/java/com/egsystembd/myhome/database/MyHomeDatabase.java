@@ -30,27 +30,19 @@ import com.egsystembd.myhome.model.house_rent.Tenant;
 
 
 @Database(entities = {DivisionDistrictThana.class, Months.class, Building.class, Deed.class, Flat.class, Rent.class, RentCollection.class,
-        Tenant.class, Expense.class, ExpenseType.class}, version = 3, exportSchema = false)
+        Tenant.class, Expense.class, ExpenseType.class}, version = 2, exportSchema = false)
 public abstract class MyHomeDatabase extends RoomDatabase {
 
     public abstract DivisionDistrictThanaDao divisionDistrictThanaDao();
 
     public abstract MonthsDao MonthsDao();
-
     public abstract BuildingDao BuildingDao();
-
     public abstract DeedDao DeedDao();
-
     public abstract FlatDao FlatDao();
-
     public abstract RentDao RentDao();
-
     public abstract RentCollectionDao RentCollectionDao();
-
     public abstract TenantDao TenantDao();
-
     public abstract ExpenseDao ExpenseDao();
-
     public abstract ExpenseTypeDao ExpenseTypeDao();
 
 
@@ -61,10 +53,10 @@ public abstract class MyHomeDatabase extends RoomDatabase {
         Log.d("tag4567", "getDatabaseInstance accessed");
 
         if (INSTANCE == null) {
-            INSTANCE = Room.databaseBuilder(context.getApplicationContext(), MyHomeDatabase.class, "my_home_database").allowMainThreadQueries()
-                    .build();
 //            INSTANCE = Room.databaseBuilder(context.getApplicationContext(), MyHomeDatabase.class, "my_home_database").allowMainThreadQueries()
-//                    .fallbackToDestructiveMigration().build();
+//                    .build();
+            INSTANCE = Room.databaseBuilder(context.getApplicationContext(), MyHomeDatabase.class, "my_home_database").allowMainThreadQueries()
+                    .fallbackToDestructiveMigration().build();
             Log.d("tag4567", "database created");
         }
 

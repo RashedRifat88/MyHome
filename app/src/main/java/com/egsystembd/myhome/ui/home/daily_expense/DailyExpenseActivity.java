@@ -38,8 +38,12 @@ public class DailyExpenseActivity extends AppCompatActivity {
     ExpenseViewModel expenseViewModel;
     DailyExpenseAdapter adapter;
 
+    int selectedMonth;
+    int selectedYear;
+
     String defaultMonth = "";
     String defaultYear = "";
+    String monthlyTotalExpense = "0";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,11 +63,26 @@ public class DailyExpenseActivity extends AppCompatActivity {
         expenseViewModel.getHighToLowExpense.observe(this, expenseList -> {
             setAdapter(expenseList);
 //            filteredNoteList = notes;
+            calculateTotalExpense(selectedMonth, selectedYear);
         });
 
 
         defaultMonthYearSet();
         datePickerCus();
+
+
+    }
+
+    private void calculateTotalExpense(int month, int year) {
+        monthlyTotalExpense = String.valueOf(expenseViewModel.getTotalExpenseByMonthAndYear(String.valueOf(month), String.valueOf(year)));
+
+        Log.d("tag_sum", "monthlyTotalExpense: " + monthlyTotalExpense + "month: " + month + "year: " + year);
+
+        if (monthlyTotalExpense.equalsIgnoreCase("null")) {
+            binding.tvMonthlyTotalExpense.setText("\u09F3 " + "0");
+        } else {
+            binding.tvMonthlyTotalExpense.setText("\u09F3 " + monthlyTotalExpense);
+        }
 
     }
 
@@ -75,11 +94,18 @@ public class DailyExpenseActivity extends AppCompatActivity {
 
         SimpleDateFormat df = new SimpleDateFormat("MMMM", Locale.getDefault());
         SimpleDateFormat df2 = new SimpleDateFormat("yyyy", Locale.getDefault());
+        SimpleDateFormat df3 = new SimpleDateFormat("M", Locale.getDefault());
         defaultMonth = df.format(c);
         defaultYear = df2.format(c);
+        int defaultMonthNumber = Integer.parseInt(df3.format(c));
+
+        selectedMonth = defaultMonthNumber;
+        selectedYear = Integer.parseInt(defaultYear);
 
         binding.tvMonth.setText(defaultMonth);
         binding.tvYear.setText(String.valueOf(defaultYear));
+
+        calculateTotalExpense(defaultMonthNumber, Integer.parseInt(defaultYear));
     }
 
     private void datePickerCus() {
@@ -130,10 +156,14 @@ public class DailyExpenseActivity extends AppCompatActivity {
 
                 binding.tvMonth.setText(monthName);
                 binding.tvYear.setText(String.valueOf(year));
+                selectedMonth = month;
+                selectedYear = year;
 
                 expenseViewModel.getExpenseListByMonthAndYear(String.valueOf(month), String.valueOf(year)).observe(DailyExpenseActivity.this, expenseList -> {
                     setAdapter(expenseList);
                 });
+
+                calculateTotalExpense(month, year);
             }
         };
 

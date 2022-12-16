@@ -80,6 +80,10 @@ public class ExpenseRepository {
         return ExpenseDao.getExpenseListByMonthAndYear(month, year);
     }
 
+    public double getTotalExpenseByMonthAndYear(String month, String year) {
+        return ExpenseDao.getTotalExpenseByMonthAndYear(month, year);
+    }
+
 
 
 }
