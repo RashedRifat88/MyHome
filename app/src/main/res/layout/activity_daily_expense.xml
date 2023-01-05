@@ -373,7 +373,7 @@
                         android:text="5000"
                         android:textStyle="bold"
                         android:textSize="17sp"
-                        android:textColor="@color/black"
+                        android:textColor="@color/red_800"
                         />
 
                 </RelativeLayout>

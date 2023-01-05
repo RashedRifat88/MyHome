@@ -410,6 +410,19 @@ tools:context=".ui.home.daily_expense.EditDailyExpenseActivity">
                 </LinearLayout>
 
 
+                <TextView
+                    android:id="@+id/tv_add_expense_type"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:fontFamily="@font/roboto_medium"
+                    android:gravity="right"
+                    android:padding="6dp"
+                    android:text="@string/add_expense_type"
+                    android:textColor="@color/green_700"
+                    android:textSize="15sp"
+                    app:tint="@color/green_600" />
+
 
 
             </LinearLayout>

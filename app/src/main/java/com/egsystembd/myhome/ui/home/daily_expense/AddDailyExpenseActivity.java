@@ -130,7 +130,8 @@ public class AddDailyExpenseActivity extends AppCompatActivity {
         SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
         selectedDate = df.format(c);
 
-        SimpleDateFormat df2 = new SimpleDateFormat("MM", Locale.getDefault());
+//        SimpleDateFormat df2 = new SimpleDateFormat("MM", Locale.getDefault());
+        SimpleDateFormat df2 = new SimpleDateFormat("M", Locale.getDefault());
         selectedMonth = df2.format(c);
 
         SimpleDateFormat df3 = new SimpleDateFormat("yyyy", Locale.getDefault());
@@ -282,20 +283,8 @@ public class AddDailyExpenseActivity extends AppCompatActivity {
 
 
 
-//        expense_type_list.add("বাসা ভাড়া");
+        expense_type_list.add("ব্যয়ের খাত সিলেক্ট");
 //        expense_type_list.add("বাজার");
-//        expense_type_list.add("জামা কাপড়");
-//        expense_type_list.add("উপহার");
-//        expense_type_list.add("কাজের লোকের বেতন");
-//        expense_type_list.add("ড্রাইভার বেতন");
-//        expense_type_list.add("গার্ড বেতন");
-//        expense_type_list.add("স্কুলের বেতন");
-//        expense_type_list.add("টিউটর ফী");
-//        expense_type_list.add("মেডিকেল");
-//        expense_type_list.add("ঔষধ");
-//        expense_type_list.add("সম্পদ");
-//        expense_type_list.add("অনুদান");
-
 
         expenseTypeViewModel.getAllExpenseType.observe(this, expenseTypes -> {
             Log.d("tag4", "expenseTypes: " + expenseTypes);
@@ -305,6 +294,7 @@ public class AddDailyExpenseActivity extends AppCompatActivity {
             Log.d("tag4", "expense_type_list1: " + expense_type_list);
 
             type_list = expenseTypes;
+            Log.d("tag4", "expenseTypes: " + expenseTypes);
 
             for (ExpenseType expense_type : type_list) {
                 expense_type_list.add(expense_type.name);

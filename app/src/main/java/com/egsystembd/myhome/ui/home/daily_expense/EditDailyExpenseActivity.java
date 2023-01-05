@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModelProvider;
 
 import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.icu.util.Calendar;
@@ -22,7 +23,9 @@ import com.egsystembd.myhome.R;
 import com.egsystembd.myhome.databinding.ActivityAddDailyExpenseBinding;
 import com.egsystembd.myhome.databinding.ActivityEditDailyExpenseBinding;
 import com.egsystembd.myhome.model.daily_expense.Expense;
+import com.egsystembd.myhome.model.daily_expense.ExpenseType;
 import com.egsystembd.myhome.model.house_rent.DivisionDistrictThana;
+import com.egsystembd.myhome.view_model.daily_expense.ExpenseTypeViewModel;
 import com.egsystembd.myhome.view_model.daily_expense.ExpenseViewModel;
 
 import java.text.SimpleDateFormat;
@@ -54,7 +57,11 @@ public class EditDailyExpenseActivity extends AppCompatActivity {
     HashMap<String, String> expense_typeIdMap;
 
 
+    ExpenseTypeViewModel expenseTypeViewModel;
     ExpenseViewModel expenseViewModel;
+    List<ExpenseType> type_list = new ArrayList<>();
+
+
     Expense expense;
     List<DivisionDistrictThana> div_list;
 
@@ -70,6 +77,7 @@ public class EditDailyExpenseActivity extends AppCompatActivity {
 
         expense_id = getIntent().getStringExtra("expense_id");
 
+        expenseTypeViewModel = new ViewModelProvider(this).get(ExpenseTypeViewModel.class);
         expenseViewModel = new ViewModelProvider(this).get(ExpenseViewModel.class);
         expense = expenseViewModel.getExpenseById(Integer.parseInt(expense_id));
 
@@ -120,7 +128,18 @@ public class EditDailyExpenseActivity extends AppCompatActivity {
         });
 
 
+        binding.tvAddExpenseType.setOnClickListener(v -> {
+            addNewExpenseType();
+        });
+
     }
+
+
+    private void addNewExpenseType() {
+        Intent intent = new Intent(EditDailyExpenseActivity.this, AddExpenseTypeActivity.class);
+        startActivity(intent);
+    }
+
 
     private void defaultMonthYearSet() {
         Date c = null;
@@ -278,32 +297,26 @@ public class EditDailyExpenseActivity extends AppCompatActivity {
         expense_typeIdMap = new HashMap<String, String>();
 
         expense_type_list.add("ব্যয়ের খাত সিলেক্ট");
+//        expense_type_list.add("বাজার");
 
-        expense_type_list.add("বাসা ভাড়া");
-        expense_type_list.add("বাজার");
-        expense_type_list.add("জামা কাপড়");
-        expense_type_list.add("উপহার");
-        expense_type_list.add("কাজের লোকের বেতন");
-        expense_type_list.add("ড্রাইভার বেতন");
-        expense_type_list.add("গার্ড বেতন");
-        expense_type_list.add("স্কুলের বেতন");
-        expense_type_list.add("টিউটর ফী");
-        expense_type_list.add("মেডিকেল");
-        expense_type_list.add("ঔষধ");
-        expense_type_list.add("সম্পদ");
-        expense_type_list.add("অনুদান");
+        expenseTypeViewModel.getAllExpenseType.observe(this, expenseTypes -> {
+            Log.d("tag4", "expenseTypes: " + expenseTypes);
+            expense_type_list.clear();
+            expense_type_list.add("ব্যয়ের খাত সিলেক্ট");
 
+            Log.d("tag4", "expense_type_list1: " + expense_type_list);
 
-//        expenseViewModel.getDivisionList().observe(this, dataList -> {
-//            Log.d("tag4", "dataList: " + dataList);
-//            div_list = dataList;
-//
-//            for (DivisionDistrictThana expense_type : div_list) {
-//                expense_type_list.add(expense_type.expense_type_bn);
-//                expense_typeIdMap.put(expense_type.expense_type_bn, expense_type.expense_type);
-//            }
-//
-//        });
+            type_list = expenseTypes;
+            Log.d("tag4", "expenseTypes: " + expenseTypes);
+
+            for (ExpenseType expense_type : type_list) {
+                expense_type_list.add(expense_type.name);
+                expense_typeIdMap.put(String.valueOf(expense_type.id), expense_type.name);
+            }
+
+            Log.d("tag4", "expense_type_list2: " + expense_type_list);
+
+        });
 
 
         dataAdapter = new ArrayAdapter<String>(this, R.layout.simple_spinner_item, expense_type_list);
