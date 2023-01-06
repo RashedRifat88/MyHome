@@ -70,5 +70,10 @@ public class RentCollectionRepository {
         return RentCollectionDao.getSpecificRentCollection(id);
     }
 
+    public RentCollection getSpecificRentCollection(int deedId, int year, int monthId) {
+        return RentCollectionDao.getSpecificRentCollection(deedId, year, monthId);
+    }
+
+
 
 }

@@ -92,5 +92,6 @@
     <string name="create_new" tools:ignore="MissingTranslation">+ নতুন একটি তৈরি করুন</string>
     <string name="previous_types" tools:ignore="MissingTranslation">পূর্ববর্তীগুলো</string>
     <string name="monthly_total_expense" tools:ignore="MissingTranslation">মাসের মোট ব্যয়</string>
+    <string name="rent_collect">জমা করুন</string>
 
 </resources>

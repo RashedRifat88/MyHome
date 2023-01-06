@@ -364,7 +364,7 @@ public class RentPrepareActivity extends AppCompatActivity {
                 obj2.month_id = month1;
                 obj2.total_payable_rent = net_rent;
                 obj2.total_collect = 0;
-                obj2.remaining_amount = 0;
+                obj2.remaining_amount = net_rent;
                 obj2.created_at = dateUpdate;
                 obj2.updated_at = dateUpdate;
 //                rentCollectionViewModel.updateRentCollection(obj2);

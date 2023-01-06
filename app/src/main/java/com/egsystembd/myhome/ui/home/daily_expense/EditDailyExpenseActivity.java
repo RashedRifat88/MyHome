@@ -309,7 +309,6 @@ public class EditDailyExpenseActivity extends AppCompatActivity {
             type_list = expenseTypes;
             Log.d("tag4", "expenseTypes: " + expenseTypes);
 
-
             expense_type_list.add("বাসা ভাড়া");
             expense_type_list.add("বাজার");
             expense_type_list.add("জামা কাপড়");

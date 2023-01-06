@@ -39,4 +39,10 @@ public interface RentCollectionDao {
     @Query("SELECT * FROM table_rent_collection WHERE deed_id = :id")
     RentCollection getSpecificRentCollection(int id);
 
+
+    @Query("SELECT * FROM table_rent_collection WHERE deed_id = :deedId AND year = :year AND month_id = :monthId")
+    RentCollection getSpecificRentCollection(int deedId, int year, int monthId);
+
+
+
 }
