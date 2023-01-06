@@ -309,6 +309,21 @@ public class EditDailyExpenseActivity extends AppCompatActivity {
             type_list = expenseTypes;
             Log.d("tag4", "expenseTypes: " + expenseTypes);
 
+
+            expense_type_list.add("বাসা ভাড়া");
+            expense_type_list.add("বাজার");
+            expense_type_list.add("জামা কাপড়");
+            expense_type_list.add("উপহার");
+            expense_type_list.add("কাজের লোকের বেতন");
+            expense_type_list.add("ড্রাইভার বেতন");
+            expense_type_list.add("গার্ড বেতন");
+            expense_type_list.add("স্কুলের বেতন ");
+            expense_type_list.add("টিউটর বেতন");
+            expense_type_list.add("মেডিকেল");
+            expense_type_list.add("ঔষধ");
+            expense_type_list.add("সম্পদ");
+            expense_type_list.add("অনুদান");
+
             for (ExpenseType expense_type : type_list) {
                 expense_type_list.add(expense_type.name);
                 expense_typeIdMap.put(String.valueOf(expense_type.id), expense_type.name);

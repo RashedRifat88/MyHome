@@ -66,9 +66,10 @@ public class RentRepository {
 //    }
 
 
-//    public Rent getSpecificRent(int id) {
-//        return RentDao.getSpecificRent(id);
-//    }
+    public Rent getSpecificRent(int id, int year, int deedId) {
+        return RentDao.getSpecificRent(id, year, deedId);
+    }
+
 
 
 }

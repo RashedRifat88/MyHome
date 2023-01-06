@@ -39,7 +39,11 @@ public interface RentDao {
 //    @Query("SELECT DISTINCT * FROM table_rent WHERE task_type = :type")
 //    LiveData<List<Rent>> getTypeWiseTaskList(String type);
 
-//    @Query("SELECT * FROM table_deed WHERE tenant_id = :id")
+//    @Query("SELECT * FROM table_rent WHERE tenant_id = :id")
 //    Rent getSpecificRent(int id);
+
+    @Query("SELECT * FROM table_rent WHERE deed_id = :id AND year= :year AND deed_id= :deedId")
+    Rent getSpecificRent(int id, int year, int deedId);
+
 
 }

@@ -60,6 +60,7 @@ public class RentPrepareActivity extends AppCompatActivity {
     private String month_year = "";
     private int month1 = 0;
     private int year1 = 0;
+    String dateUpdate = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -86,7 +87,6 @@ public class RentPrepareActivity extends AppCompatActivity {
         calculateRent();
         getEditTextChanges();
         loadCalender_month_year();
-
     }
 
 
@@ -190,7 +190,7 @@ public class RentPrepareActivity extends AppCompatActivity {
                 month = month + 1;
                 Log.d("tag4", "onDateSet: mm/dd/yyy: " + month + "/" + day + "/" + year);
 
-//                String date = month + "/" + day + "/" + year;
+                dateUpdate = month + "/" + day + "/" + year;
                 String date = month + "/"  + year;
                 binding.tvMonth.setText(date);
                 month_year = date;
@@ -352,15 +352,23 @@ public class RentPrepareActivity extends AppCompatActivity {
                 obj1.common = common_bill;
                 obj1.others = others;
                 obj1.total_payable_rent = net_rent;
+                obj1.payment_collection_status = "unpaid";
 
                 Long rent_id = rentViewModel.insertRent1(obj1);
 
-//                RentCollection obj2 = new RentCollection();
-//                obj2.deed_id = deed_id;
-//                obj2.rent_id = Integer.parseInt(String.valueOf(rent_id));
-//                obj2.tenant_id = Integer.parseInt(temantId);
-//                obj2.total_payable_rent = net_rent;
+                RentCollection obj2 = new RentCollection();
+                obj2.deed_id = deed_id;
+                obj2.rent_id = Integer.parseInt(String.valueOf(rent_id));
+                obj2.tenant_id = Integer.parseInt(temantId);
+                obj2.year = year1;
+                obj2.month_id = month1;
+                obj2.total_payable_rent = net_rent;
+                obj2.total_collect = 0;
+                obj2.remaining_amount = 0;
+                obj2.created_at = dateUpdate;
+                obj2.updated_at = dateUpdate;
 //                rentCollectionViewModel.updateRentCollection(obj2);
+                rentCollectionViewModel.insertRentCollection(obj2);
 
 
                 Toast.makeText(this, "ভাড়া সফলভাবে তৈরি হয়েছে", Toast.LENGTH_SHORT).show();

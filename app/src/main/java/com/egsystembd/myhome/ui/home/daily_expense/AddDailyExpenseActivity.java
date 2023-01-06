@@ -286,15 +286,37 @@ public class AddDailyExpenseActivity extends AppCompatActivity {
         expense_type_list.add("ব্যয়ের খাত সিলেক্ট");
 //        expense_type_list.add("বাজার");
 
+
         expenseTypeViewModel.getAllExpenseType.observe(this, expenseTypes -> {
-            Log.d("tag4", "expenseTypes: " + expenseTypes);
             expense_type_list.clear();
             expense_type_list.add("ব্যয়ের খাত সিলেক্ট");
+
+            Log.d("tag4", "expenseTypes: " + expenseTypes);
+            Log.d("tag4", "expenseTypes.size(): " + expenseTypes.size());
+
+            if (expenseTypes.size() < 1){
+
+            }
+
 
             Log.d("tag4", "expense_type_list1: " + expense_type_list);
 
             type_list = expenseTypes;
             Log.d("tag4", "expenseTypes: " + expenseTypes);
+
+            expense_type_list.add("বাসা ভাড়া");
+            expense_type_list.add("বাজার");
+            expense_type_list.add("জামা কাপড়");
+            expense_type_list.add("উপহার");
+            expense_type_list.add("কাজের লোকের বেতন");
+            expense_type_list.add("ড্রাইভার বেতন");
+            expense_type_list.add("গার্ড বেতন");
+            expense_type_list.add("স্কুলের বেতন ");
+            expense_type_list.add("টিউটর বেতন");
+            expense_type_list.add("মেডিকেল");
+            expense_type_list.add("ঔষধ");
+            expense_type_list.add("সম্পদ");
+            expense_type_list.add("অনুদান");
 
             for (ExpenseType expense_type : type_list) {
                 expense_type_list.add(expense_type.name);

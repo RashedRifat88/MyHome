@@ -138,6 +138,151 @@
 
             </LinearLayout>
 
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="3.5"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:visibility="visible">
+
+
+                <LinearLayout
+                    android:id="@+id/linear_date"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="3.5"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:visibility="visible">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <!--                                <TextView-->
+                        <!--                                    android:layout_width="wrap_content"-->
+                        <!--                                    android:layout_height="wrap_content"-->
+                        <!--                                    android:layout_gravity="center"-->
+                        <!--                                    android:layout_marginLeft="4dp"-->
+                        <!--                                    android:fontFamily="@font/roboto_medium"-->
+                        <!--                                    android:gravity="left"-->
+                        <!--                                    android:paddingTop="3dp"-->
+                        <!--                                    android:paddingBottom="3dp"-->
+                        <!--                                    android:text="@string/month"-->
+                        <!--                                    android:textColor="#031E4C"-->
+                        <!--                                    android:textSize="17sp" />-->
+
+                        <!--                                <TextView-->
+                        <!--                                    android:layout_width="wrap_content"-->
+                        <!--                                    android:layout_height="wrap_content"-->
+                        <!--                                    android:layout_gravity="center"-->
+                        <!--                                    android:layout_marginLeft="4dp"-->
+                        <!--                                    android:fontFamily="@font/roboto_medium"-->
+                        <!--                                    android:gravity="left"-->
+                        <!--                                    android:paddingTop="3dp"-->
+                        <!--                                    android:paddingBottom="3dp"-->
+                        <!--                                    android:text=" : "-->
+                        <!--                                    android:textColor="#646B77"-->
+                        <!--                                    android:textSize="18sp" />-->
+
+                        <TextView
+                            android:id="@+id/tv_month"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginLeft="4dp"
+                            android:fontFamily="@font/roboto_medium"
+                            android:gravity="left"
+                            android:paddingTop="3dp"
+                            android:paddingBottom="3dp"
+                            android:text="Not set"
+                            android:textAllCaps="false"
+                            android:textColor="#2196F3"
+                            android:textSize="17sp" />
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="20dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:background="@color/grey_400" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="10dp"
+                        android:orientation="horizontal">
+
+                        <!--                                <TextView-->
+                        <!--                                    android:layout_width="wrap_content"-->
+                        <!--                                    android:layout_height="wrap_content"-->
+                        <!--                                    android:layout_gravity="center"-->
+                        <!--                                    android:layout_marginLeft="0dp"-->
+                        <!--                                    android:fontFamily="@font/roboto_medium"-->
+                        <!--                                    android:gravity="left"-->
+                        <!--                                    android:paddingTop="3dp"-->
+                        <!--                                    android:paddingBottom="3dp"-->
+                        <!--                                    android:text="@string/year"-->
+                        <!--                                    android:textColor="#031E4C"-->
+                        <!--                                    android:textSize="17sp" />-->
+
+                        <!--                                <TextView-->
+                        <!--                                    android:layout_width="wrap_content"-->
+                        <!--                                    android:layout_height="wrap_content"-->
+                        <!--                                    android:layout_gravity="center"-->
+                        <!--                                    android:layout_marginLeft="4dp"-->
+                        <!--                                    android:fontFamily="@font/roboto_medium"-->
+                        <!--                                    android:gravity="left"-->
+                        <!--                                    android:paddingTop="3dp"-->
+                        <!--                                    android:paddingBottom="3dp"-->
+                        <!--                                    android:text=" : "-->
+                        <!--                                    android:textColor="#646B77"-->
+                        <!--                                    android:textSize="17sp" />-->
+
+                        <TextView
+                            android:id="@+id/tv_year"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginLeft="4dp"
+                            android:fontFamily="@font/roboto_medium"
+                            android:gravity="left"
+                            android:paddingTop="3dp"
+                            android:paddingBottom="3dp"
+                            android:text="Not set"
+                            android:textAllCaps="false"
+                            android:textColor="#4CAF50"
+                            android:textSize="18sp" />
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/tv_select_date"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="10dp"
+                        android:background="@drawable/edit_text_bg_1"
+                        android:fontFamily="@font/roboto_bold"
+                        android:gravity="left"
+                        android:paddingTop="3dp"
+                        android:paddingBottom="3dp"
+                        android:text="Select"
+                        android:textColor="#003082"
+                        android:textSize="14sp" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerView"
                 android:layout_width="match_parent"

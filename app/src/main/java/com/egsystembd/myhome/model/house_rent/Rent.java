@@ -52,4 +52,7 @@ public class Rent {
     @ColumnInfo(name = "total_payable_rent")
     public float total_payable_rent;
 
+    @ColumnInfo(name = "payment_collection_status")
+    public String payment_collection_status;
+
 }

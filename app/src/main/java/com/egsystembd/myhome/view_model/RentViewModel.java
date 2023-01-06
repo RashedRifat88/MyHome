@@ -6,6 +6,7 @@ import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 
 import com.egsystembd.myhome.model.house_rent.Rent;
+import com.egsystembd.myhome.model.house_rent.RentCollection;
 import com.egsystembd.myhome.repository.RentRepository;
 
 import java.util.List;
@@ -64,10 +65,9 @@ public class RentViewModel extends AndroidViewModel {
 //        return repository.getTypeWiseTaskList(type);
 //    }
 
-//    public Rent getSpecificRent(int id) {
-//        return repository.getSpecificRent(id);
-//    }
-
+    public Rent getSpecificRent(int id, int year, int deedId) {
+        return repository.getSpecificRent(id, year, deedId);
+    }
 
 
 }
